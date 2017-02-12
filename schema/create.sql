@@ -5,7 +5,7 @@ CREATE TABLE division (
     div_name text NOT NULL
 );
 
-ALTER TABLE division OWNER TO absent;
+ALTER TABLE division OWNER TO nectar;
 
 COMMENT ON TABLE division IS 'all divisions in Virginia';
 
@@ -18,7 +18,7 @@ CREATE TABLE school (
     sch_name text NOT NULL
 );
 
-ALTER TABLE school OWNER TO absent;
+ALTER TABLE school OWNER TO nectar;
 
 COMMENT ON TABLE school IS 'all schools in Virginia';
 
@@ -38,7 +38,7 @@ CREATE TABLE enroll (
     fall_cnt integer NOT NULL
 );
 
-ALTER TABLE enroll OWNER TO absent;
+ALTER TABLE enroll OWNER TO nectar;
 
 COMMENT ON TABLE enroll IS 'fall membership counts';
 
@@ -54,6 +54,6 @@ CREATE TABLE college (
     zip text NOT NULL
 );
 
-ALTER TABLE college OWNER TO absent;
+ALTER TABLE college OWNER TO nectar;
 
 COMMENT ON TABLE college IS 'colleges and universities';
