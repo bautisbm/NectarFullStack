@@ -1,6 +1,6 @@
 # GROUP NAME
 
-Absent-Minded Professors ("absent")
+Database Nectar ("nectar")
 
 
 # DESCRIPTION
