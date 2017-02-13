@@ -91,7 +91,7 @@ COMMENT ON TABLE sol_data IS 'sol test data per division/school';
 
 
 
-DROP TABLE IF EXISTS postsec_enroll
+DROP TABLE IF EXISTS postsec_enroll;
 
 CREATE TABLE postsec_enroll(
 	sch_year integer NOT NULL,
@@ -116,7 +116,7 @@ COMMENT ON TABLE postsec_enroll IS 'post secondary enrollment data per division/
 
 
 
-DROP TABLE IF EXISTS hs_graduate
+DROP TABLE IF EXISTS hs_graduate;
 
 CREATE TABLE hs_graduate(
 	diploma_num integer NOT NULL,
@@ -140,7 +140,7 @@ COMMENT ON TABLE hs_graduate IS 'high school enrollment data per division/school
 
 
 
-DROP TABLE IF EXISTS ontime_cohort
+DROP TABLE IF EXISTS ontime_cohort;
 
 CREATE TABLE ontime_cohort(
 	cohort_cnt integer NOT NULL,
@@ -160,10 +160,6 @@ CREATE TABLE ontime_cohort(
 ALTER TABLE ontime_cohort OWNER TO nectar;
 
 COMMENT ON TABLE ontime_cohort IS 'on time cohort data per division/school';
-
-
-
-
 
 
 
