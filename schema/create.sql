@@ -49,7 +49,7 @@ CREATE TABLE enroll (
     	gender text NOT NULL,
     	disabil text NOT NULL,
     	lep text NOT NULL,
-   	disadva text NOT NULL,
+       	disadva text NOT NULL,
     	grade_num integer NOT NULL,
     	fall_cnt integer NOT NULL,
 	PRIMARY KEY(div_num, sch_num, sch_year)
@@ -63,7 +63,7 @@ COMMENT ON TABLE enroll IS 'fall membership counts';
 
 
 
-DROP TABLE IF EXIST sol_data;
+DROP TABLE IF EXISTS sol_data;
 
 CREATE TABLE sol_data (
 	sch_year integer NOT NULL,
