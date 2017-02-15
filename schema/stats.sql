@@ -8,7 +8,7 @@ ANALYZE VERBOSE enroll;
 SELECT count(*) AS enr_cnt FROM enroll;
 
 ANALYZE VERBOSE hs_graduate;
-SELECT count(*) AS hs_cnt FROM hg_graduate;
+SELECT count(*) AS hs_cnt FROM hs_graduate;
 
 ANALYZE VERBOSE ontime_cohort;
 SELECT count(*) AS ont_cnt FROM ontime_cohort;
