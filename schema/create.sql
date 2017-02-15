@@ -63,9 +63,9 @@ COMMENT ON TABLE enroll IS 'fall membership counts';
 
 
 
-DROP TABLE IF EXISTS sol_data;
+DROP TABLE IF EXISTS sol_test_data;
 
-CREATE TABLE sol_data (
+CREATE TABLE sol_test_data (
 	sch_year integer NOT NULL,
 	div_num integer NOT NULL,
 	sch_num integer NOT NULL,	
@@ -78,16 +78,16 @@ CREATE TABLE sol_data (
 	test_name text NOT NULL,
 	test_level text NOT NULL,
 	avg_score integer,
-	pass_adv real NOT NULL,
+	pass_advn real NOT NULL,
 	pass_prof real NOT NULL,
 	pass_rate real NOT NULL,
 	fail_rate real NOT NULL,
 	PRIMARY KEY (sch_year, div_num, sch_num)
 );
 
-ALTER TABLE sol_data OWNER TO nectar;
+ALTER TABLE sol_test_data OWNER TO nectar;
 
-COMMENT ON TABLE sol_data IS 'sol test data per division/school';
+COMMENT ON TABLE sol_test_data IS 'sol test data per division/school';
 
 
 
