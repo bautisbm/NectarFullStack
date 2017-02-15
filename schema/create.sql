@@ -95,10 +95,10 @@ CREATE TABLE postsec_enroll(
 	div_num integer NOT NULL,
 	sch_num integer NOT NULL,
    	race text NOT NULL,
-    	gender text NOT NULL,
-    	disabil text NOT NULL,
-    	lep text NOT NULL,
-    	disadva text NOT NULL,
+    gender text NOT NULL,
+    disabil text NOT NULL,
+    lep text NOT NULL,
+    disadva text NOT NULL,
 	enroll_graduate_cnt integer NOT NULL,
 	ps_institution_type integer NOT NULL,
 	ps_enrollement_cnt integer NOT NULL
@@ -138,17 +138,17 @@ COMMENT ON TABLE hs_graduate IS 'high school enrollment data per division/school
 DROP TABLE IF EXISTS ontime_cohort;
 
 CREATE TABLE ontime_cohort(
-	cohort_cnt integer NOT NULL,
-	diploma_rate real NOT NULL,
-	dropout_rate real NOT NULL,
 	sch_year integer NOT NULL,
 	div_num integer NOT NULL,
-	sch_num integer NOT NULL,
+    sch_num integer NOT NULL,
    	race text NOT NULL,
-    	gender text NOT NULL,
-    	disabil text NOT NULL,
-    	lep text NOT NULL,
-    	disadva text NOT NULL
+	gender text NOT NULL,
+    disabil text NOT NULL,
+    lep text NOT NULL,
+    disadva text NOT NULL
+    cohort_cnt integer NOT NULL,
+	diploma_rate real NOT NULL,
+	dropout_rate real NOT NULL,
 );
 
 ALTER TABLE ontime_cohort OWNER TO nectar;
