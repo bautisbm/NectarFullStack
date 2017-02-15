@@ -35,6 +35,7 @@ psql -c "COPY (
       subject, test_name, test_level, avg_score,
       pass_advn, pass_prof, pass_rate, fail_rate
     FROM sol_test_data
+    WHERE sch_year = 2014
   ) TO STDOUT;" vdoe | \
   psql -c "COPY sol_test_data FROM STDIN;" nectar
 
@@ -47,6 +48,7 @@ psql -c "COPY (
       enroll_graduate_cnt, ps_institution_type,
       ps_enrollment_count
     FROM postsec_enroll
+    WHERE sch_year = 2014
   ) TO STDOUT;" vdoe | \
   psql -c "COPY postsec_enroll FROM STDIN;" nectar
 
@@ -58,6 +60,7 @@ psql -c "COPY (
       div_num, sch_num, race, gender, disabil,
       lep, disadva
     FROM hs_graduate
+    WHERE sch_year = 2014
   ) TO STDOUT;" vdoe | \
   psql -c "COPY hs_graduate FROM STDIN;" nectar
 
@@ -69,6 +72,7 @@ psql -c "COPY (
       sch_year, div_num, sch_num, race, gender, 
       disabil, lep, disadva
     FROM ontime_cohort
+    WHERE sch_year = 2014
   ) TO STDOUT;" vdoe | \
   psql -c "COPY ontime_cohort FROM STDIN;" nectar
 
