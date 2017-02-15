@@ -46,7 +46,7 @@ psql -c "COPY (
       sch_year, div_num, sch_num,
       race, gender, disabil, lep, disadva,
       enroll_graduate_cnt, ps_institution_type,
-      ps_enrollment_count
+      ps_enrollment_cnt
     FROM postsec_enroll
     WHERE sch_year = 2014
   ) TO STDOUT;" vdoe | \
