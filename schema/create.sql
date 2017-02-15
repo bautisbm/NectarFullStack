@@ -27,7 +27,7 @@ CREATE TABLE school (
     	sch_name text NOT NULL,
 	city text NOT NULL,
 	state text NOT NULL,
-	zip text NOT NULL,
+	zip text NOT NULL
 );
 
 ALTER TABLE school OWNER TO nectar;
@@ -50,7 +50,7 @@ CREATE TABLE enroll (
     	lep text NOT NULL,
        	disadva text NOT NULL,
     	grade_num integer NOT NULL,
-    	fall_cnt integer NOT NULL,
+    	fall_cnt integer NOT NULL
 );
 
 ALTER TABLE enroll OWNER TO nectar;
@@ -79,7 +79,7 @@ CREATE TABLE sol_test_data (
 	pass_advn real NOT NULL,
 	pass_prof real NOT NULL,
 	pass_rate real NOT NULL,
-	fail_rate real NOT NULL,
+	fail_rate real NOT NULL
 );
 
 ALTER TABLE sol_test_data OWNER TO nectar;
@@ -101,7 +101,7 @@ CREATE TABLE postsec_enroll(
     	disadva text NOT NULL,
 	enroll_graduate_cnt integer NOT NULL,
 	ps_institution_type integer NOT NULL,
-	ps_enrollement_cnt integer NOT NULL,
+	ps_enrollement_cnt integer NOT NULL
 );
 
 ALTER TABLE postsec_enroll OWNER TO nectar;
@@ -124,8 +124,7 @@ CREATE TABLE hs_graduate(
     	gender text NOT NULL,
     	disabil text NOT NULL,
     	lep text NOT NULL,
-    	disadva text NOT NULL,
-	PRIMARY KEY(div_num, sch_num, sch_year)
+    	disadva text NOT NULL
 );
 
 ALTER TABLE hs_graduate OWNER TO nectar;
@@ -149,8 +148,7 @@ CREATE TABLE ontime_cohort(
     	gender text NOT NULL,
     	disabil text NOT NULL,
     	lep text NOT NULL,
-    	disadva text NOT NULL,
-	PRIMARY KEY(div_num, sch_num)	
+    	disadva text NOT NULL
 );
 
 ALTER TABLE ontime_cohort OWNER TO nectar;
