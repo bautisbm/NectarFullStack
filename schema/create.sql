@@ -28,7 +28,6 @@ CREATE TABLE school (
 	city text NOT NULL,
 	state text NOT NULL,
 	zip text NOT NULL,
-	PRIMARY KEY(div_num, sch_num)
 );
 
 ALTER TABLE school OWNER TO nectar;
@@ -52,7 +51,6 @@ CREATE TABLE enroll (
        	disadva text NOT NULL,
     	grade_num integer NOT NULL,
     	fall_cnt integer NOT NULL,
-	PRIMARY KEY(div_num, sch_num, sch_year)
 );
 
 ALTER TABLE enroll OWNER TO nectar;
@@ -82,7 +80,6 @@ CREATE TABLE sol_test_data (
 	pass_prof real NOT NULL,
 	pass_rate real NOT NULL,
 	fail_rate real NOT NULL,
-	PRIMARY KEY (sch_year, div_num, sch_num)
 );
 
 ALTER TABLE sol_test_data OWNER TO nectar;
@@ -105,7 +102,6 @@ CREATE TABLE postsec_enroll(
 	enroll_graduate_cnt integer NOT NULL,
 	ps_institution_type integer NOT NULL,
 	ps_enrollement_cnt integer NOT NULL,
-	PRIMARY KEY(div_num, sch_num, sch_year)
 );
 
 ALTER TABLE postsec_enroll OWNER TO nectar;
