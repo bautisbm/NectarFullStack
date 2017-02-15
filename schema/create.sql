@@ -145,7 +145,7 @@ CREATE TABLE ontime_cohort (
 	gender text NOT NULL,
     disabil text NOT NULL,
     lep text NOT NULL,
-    disadva text NOT NULL
+    disadva text NOT NULL,
     cohort_cnt integer NOT NULL,
 	diploma_rate real NOT NULL,
 	dropout_rate real NOT NULL
