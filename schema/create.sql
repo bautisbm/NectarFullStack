@@ -1,13 +1,12 @@
 DROP TABLE IF EXISTS division;
 
 CREATE TABLE division (
-    	div_num integer PRIMARY KEY,
+    	div_num integer NOT NULL,
     	div_name text NOT NULL,
     	loc_code integer NOT NULL,
     	loc_type text NOT NULL,
 	region integer NOT NULL,
 	city text NOT NULL,
-	state text NOT NULL,
 	zip text NOT NULL 
 );
 
@@ -26,14 +25,33 @@ CREATE TABLE school (
     	sch_num integer NOT NULL,
     	sch_name text NOT NULL,
 	city text NOT NULL,
-	state text NOT NULL,
-	zip text NOT NULL,
-	PRIMARY KEY(div_num, sch_num)
+	zip text NOT NULL
 );
 
 ALTER TABLE school OWNER TO nectar;
 
 COMMENT ON TABLE school IS 'all schools in Virginia';
+
+
+
+
+
+DROP TABLE IF EXISTS stem_schools;
+
+CREATE TABLE stem_schools (
+
+	div_num integer NOT NULL,
+	sch_num integer NOT NULL,
+	sch_name text NOT NULL,
+	city text NOT NULL,
+	zip text NOT NULL
+);
+	
+ALTER TABLE stem_schools OWNER TO nectar;
+
+COMMENT ON TABLE stem_schools IS 'all stem schools in VA'
+
+
 
 
 
@@ -51,8 +69,7 @@ CREATE TABLE enroll (
     	lep text NOT NULL,
    	disadva text NOT NULL,
     	grade_num integer NOT NULL,
-    	fall_cnt integer NOT NULL,
-	PRIMARY KEY(div_num, sch_num, sch_year)
+    	fall_cnt integer NOT NULL
 );
 
 ALTER TABLE enroll OWNER TO nectar;
@@ -77,12 +94,11 @@ CREATE TABLE sol_data (
 	subject text NOT NULL,
 	test_name text NOT NULL,
 	test_level text NOT NULL,
-	avg_score integer,
+	avg_score integer NOT NULL,
 	pass_adv real NOT NULL,
 	pass_prof real NOT NULL,
 	pass_rate real NOT NULL,
-	fail_rate real NOT NULL,
-	PRIMARY KEY (sch_year, div_num, sch_num)
+	fail_rate real NOT NULL
 );
 
 ALTER TABLE sol_data OWNER TO nectar;
@@ -104,8 +120,7 @@ CREATE TABLE postsec_enroll(
     	disadva text NOT NULL,
 	enroll_graduate_cnt integer NOT NULL,
 	ps_institution_type integer NOT NULL,
-	ps_enrollement_cnt integer NOT NULL,
-	PRIMARY KEY(div_num, sch_num, sch_year)
+	ps_enrollement_cnt integer NOT NULL
 );
 
 ALTER TABLE postsec_enroll OWNER TO nectar;
@@ -128,8 +143,7 @@ CREATE TABLE hs_graduate(
     	gender text NOT NULL,
     	disabil text NOT NULL,
     	lep text NOT NULL,
-    	disadva text NOT NULL,
-	PRIMARY KEY(div_num, sch_num, sch_year)
+    	disadva text NOT NULL
 );
 
 ALTER TABLE hs_graduate OWNER TO nectar;
@@ -153,8 +167,7 @@ CREATE TABLE ontime_cohort(
     	gender text NOT NULL,
     	disabil text NOT NULL,
     	lep text NOT NULL,
-    	disadva text NOT NULL,
-	PRIMARY KEY(div_num, sch_num)	
+    	disadva text NOT NULL
 );
 
 ALTER TABLE ontime_cohort OWNER TO nectar;
@@ -171,12 +184,12 @@ COMMENT ON TABLE ontime_cohort IS 'on time cohort data per division/school';
 DROP TABLE IF EXISTS college;
 
 CREATE TABLE college (
-    unitid integer NOT NULL,
-    instnm text NOT NULL,
-    addr text NOT NULL,
-    city text NOT NULL,
-    state text NOT NULL,
-    zip text NOT NULL
+    	unitid integer NOT NULL,
+    	instnm text NOT NULL,
+    	addr text NOT NULL,
+    	city text NOT NULL,
+    	state text NOT NULL,
+   	zip text NOT NULL
 );
 
 ALTER TABLE college OWNER TO nectar;
