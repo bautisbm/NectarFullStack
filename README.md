@@ -10,8 +10,8 @@ Our application enables policy makers to view the correlations between Virgina s
 
 ### FOR CSV FILES:
 - Download the "NCES IPEDS Colleges List" from: http://www.weebly.com/uploads/1/1/1/0/11104538/nces_ipeds_2010_listings_vaonly.csv
-NCES = National Center for Education Statistics
-IPEDS = Integrated Post Secondary Education System
+  - NCES = National Center for Education Statistics
+  - IPEDS = Integrated Post Secondary Education System
 - Use a spreadsheet to save columns A-F to college.csv.
 - Perform the first step of the "TO PULL INFORMATION FROM VDOE:" listed below
 - Add to the copy.sh file as follows
