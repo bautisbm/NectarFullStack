@@ -94,8 +94,6 @@ CREATE TABLE sol_test_data (
 	subject text NOT NULL,
 	test_name text NOT NULL,
 	test_level text NOT NULL,
-	avg_score integer NOT NULL,
-	pass_adv real NOT NULL,
 	avg_score integer,
 	pass_advn real NOT NULL,
 	pass_prof real NOT NULL,
