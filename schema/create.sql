@@ -6,7 +6,7 @@ CREATE TABLE division (
     	loc_code integer NOT NULL,
     	loc_type text NOT NULL,
 	region integer NOT NULL,
-	city text NOT NULL,
+    city text,
 	zip text NOT NULL
 );
 
@@ -24,8 +24,8 @@ CREATE TABLE school (
     	div_num integer NOT NULL,
     	sch_num integer NOT NULL,
     	sch_name text NOT NULL,
-	city text NOT NULL,
-	zip text NOT NULL
+        city text,
+    	zip text NOT NULL
 );
 
 ALTER TABLE school OWNER TO nectar;
