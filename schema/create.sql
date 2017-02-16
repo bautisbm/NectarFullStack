@@ -24,14 +24,10 @@ CREATE TABLE school (
     	div_num integer NOT NULL,
     	sch_num integer NOT NULL,
     	sch_name text NOT NULL,
-<<<<<<< HEAD
 	city text NOT NULL,
 	zip text NOT NULL
-=======
 	city text,
-	state text,
 	zip text
->>>>>>> 2bc15db9acb45a0a2985c83fc6b31129e2f06e09
 );
 
 ALTER TABLE school OWNER TO nectar;
@@ -100,13 +96,10 @@ CREATE TABLE sol_test_data (
 	subject text NOT NULL,
 	test_name text NOT NULL,
 	test_level text NOT NULL,
-<<<<<<< HEAD
 	avg_score integer NOT NULL,
 	pass_adv real NOT NULL,
-=======
 	avg_score integer,
 	pass_advn real NOT NULL,
->>>>>>> 2bc15db9acb45a0a2985c83fc6b31129e2f06e09
 	pass_prof real NOT NULL,
 	pass_rate real NOT NULL,
 	fail_rate real NOT NULL
@@ -125,10 +118,10 @@ CREATE TABLE postsec_enroll(
 	div_num integer NOT NULL,
 	sch_num integer NOT NULL,
    	race text NOT NULL,
-    gender text NOT NULL,
-    disabil text NOT NULL,
-    lep text NOT NULL,
-    disadva text NOT NULL,
+    	gender text NOT NULL,
+    	disabil text NOT NULL,
+    	lep text NOT NULL,
+    	disadva text NOT NULL,
 	enroll_graduate_cnt integer NOT NULL,
 	ps_institution_type integer NOT NULL,
 	ps_enrollement_cnt integer NOT NULL
@@ -170,22 +163,19 @@ DROP TABLE IF EXISTS ontime_cohort;
 CREATE TABLE ontime_cohort (
 	sch_year integer NOT NULL,
 	div_num integer NOT NULL,
-    sch_num integer NOT NULL,
+    	sch_num integer NOT NULL,
    	race text NOT NULL,
-<<<<<<< HEAD
     	gender text NOT NULL,
     	disabil text NOT NULL,
     	lep text NOT NULL,
     	disadva text NOT NULL
-=======
 	gender text NOT NULL,
-    disabil text NOT NULL,
-    lep text NOT NULL,
-    disadva text NOT NULL,
-    cohort_cnt integer NOT NULL,
+    	disabil text NOT NULL,
+    	lep text NOT NULL,
+    	disadva text NOT NULL,
+    	cohort_cnt integer NOT NULL,
 	diploma_rate real NOT NULL,
 	dropout_rate real NOT NULL
->>>>>>> 2bc15db9acb45a0a2985c83fc6b31129e2f06e09
 );
 
 ALTER TABLE ontime_cohort OWNER TO nectar;
