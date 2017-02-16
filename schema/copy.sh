@@ -3,14 +3,14 @@
 
 echo COPY division FROM vdoe
 psql -c "COPY (
-    SELECT div_num, div_name, loc_code, loc_type, region, city, state, zip
+    SELECT div_num, div_name, loc_code, loc_type, region, city, zip
     FROM division
   ) TO STDOUT;" vdoe | \
   psql -c "COPY division FROM STDIN;" nectar
 
 echo COPY school FROM vdoe
 psql -c "COPY (
-    SELECT div_num, sch_num, sch_name, city, state, zip
+    SELECT div_num, sch_num, sch_name, city, zip
     FROM school
   ) TO STDOUT;" vdoe | \
   psql -c "COPY school FROM STDIN;" nectar
