@@ -9,18 +9,22 @@ Our application enables policy makers to view the correlations between Virgina s
 ## STEPS TO CREATE DATABASE
 
 ### FOR CSV FILES:
-  - Download the "NCES IPEDS Colleges List" from: http://www.weebly.com/uploads/1/1/1/0/11104538/nces_ipeds_2010_listings_vaonly.csv
-
-  - NCES = National Center for Education Statistics
-  - IPEDS = Integrated Post Secondary Education System
-
-  - Use a spreadsheet to save columns A-F to college.csv.
+- Download the "NCES IPEDS Colleges List" from: http://www.weebly.com/uploads/1/1/1/0/11104538/nces_ipeds_2010_listings_vaonly.csv
+NCES = National Center for Education Statistics
+IPEDS = Integrated Post Secondary Education System
+- Use a spreadsheet to save columns A-F to college.csv.
+- Perform the first step of the "TO PULL INFORMATION FROM VDOE:" listed below
+- Add to the copy.sh file as follows
+```
+echo COPY college FROM csv
+psql -c "\copy college FROM college.csv WITH CSV HEADER" nectar
+```
 
 
 
 ### TO PULL INFORMATION FROM VDOE:
 - Run create.sql to create tables with group ownership.
-- First modify the file for each table you want to create.
+First modify the file for each table you want to create.
 For each table, add the following lines:
 ```
 DROP TABLE IF EXISTS [table name];
