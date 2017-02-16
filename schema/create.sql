@@ -25,7 +25,7 @@ CREATE TABLE school (
     	sch_num integer NOT NULL,
     	sch_name text NOT NULL,
         city text,
-    	zip text NOT NULL
+    	zip text
 );
 
 ALTER TABLE school OWNER TO nectar;
