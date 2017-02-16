@@ -27,13 +27,24 @@ psql -c "\copy college FROM college.csv WITH CSV HEADER" nectar
 First modify the file for each table you want to create.
 For each table, add the following lines:
 ```
-DROP TABLE IF EXISTS [table name];
-CREATE TABLE [table name] ( [comma separated list of attributes] );
-ALTER TABLE [table name] OWNER TO nectar;
-COMMENT ON TABLE [table name] IS [comment];
+DROP TABLE IF EXISTS division;
+
+CREATE TABLE division (
+        div_num integer NOT NULL,
+        div_name text NOT NULL,
+        loc_code integer NOT NULL,
+        loc_type text NOT NULL,
+        region integer NOT NULL,
+        city text,
+        zip text NOT NULL
+);
+
+ALTER TABLE division OWNER TO nectar;
+
+COMMENT ON TABLE division IS 'all divisions in Virginia';
 ```
 - Run copy.sh on db.cs.jmu.edu to copy data from VDOE.
-For each table you created in create.sql, you must modify the copy.sh file accordingly
+  -For each table you created in create.sql, you must modify the copy.sh file accordingly
 ```
 echo COPY division FROM vdoe
 psql -c "COPY ( SELECT div_num, div_name, loc_code, loc_type, region, city, zip
@@ -45,3 +56,9 @@ What happens here is that for each table name, in the example above 'division', 
 
 
 - Run stats.sql to count rows and analyze the tables.
+  - First edit the file, again making you sure you edit the following for each table you are creating, such as the division table above
+```
+ANALYZE VERBOSE division;
+SELECT count(*) AS div_cnt FROM division;
+```
+
