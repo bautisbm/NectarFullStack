@@ -49,7 +49,7 @@ CREATE TABLE stem_schools (
 	
 ALTER TABLE stem_schools OWNER TO nectar;
 
-COMMENT ON TABLE stem_schools IS 'all stem schools in VA'
+COMMENT ON TABLE stem_schools IS 'all stem schools in VA';
 
 
 
