@@ -16,8 +16,6 @@ COMMENT ON TABLE division IS 'all divisions in Virginia';
 
 
 
-
-
 DROP TABLE IF EXISTS school;
 
 CREATE TABLE school (
@@ -31,8 +29,6 @@ CREATE TABLE school (
 ALTER TABLE school OWNER TO nectar;
 
 COMMENT ON TABLE school IS 'all schools in Virginia';
-
-
 
 
 
@@ -50,8 +46,6 @@ CREATE TABLE stem_schools (
 ALTER TABLE stem_schools OWNER TO nectar;
 
 COMMENT ON TABLE stem_schools IS 'all stem schools in VA';
-
-
 
 
 
@@ -73,8 +67,6 @@ CREATE TABLE enroll (
 ALTER TABLE enroll OWNER TO nectar;
 
 COMMENT ON TABLE enroll IS 'fall membership counts';
-
-
 
 
 
@@ -127,8 +119,6 @@ COMMENT ON TABLE postsec_enroll IS 'post secondary enrollment data per division/
 
 
 
-
-
 DROP TABLE IF EXISTS hs_graduate;
 
 CREATE TABLE hs_graduate(
@@ -147,8 +137,6 @@ CREATE TABLE hs_graduate(
 ALTER TABLE hs_graduate OWNER TO nectar;
 
 COMMENT ON TABLE hs_graduate IS 'high school enrollment data per division/school';
-
-
 
 
 
