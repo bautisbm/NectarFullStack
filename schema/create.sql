@@ -208,7 +208,7 @@ CREATE TABLE cte_comp (
     lep_flag text,
     disadvantaged_flag text,
     cte_program_num integer,
-    cte_program_name text NOT NULL,
+    cte_program_name text,
     completer_cnt integer NOT NULL
 );
 
