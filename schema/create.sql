@@ -207,8 +207,8 @@ CREATE TABLE cte_comp (
     lep_flag text,
     disadvantaged_flag text,
     cte_program_num integer NOT NULL,
-    cte_program_name text, NOT NULL,
-    completer_cnt integer, NOT NULL
+    cte_program_name text NOT NULL,
+    completer_cnt integer NOT NULL
 );
 
 ALTER TABLE cte_comp OWNER TO nectar;
