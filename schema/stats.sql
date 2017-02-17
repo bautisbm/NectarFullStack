@@ -4,6 +4,9 @@ SELECT count(*) AS div_cnt FROM division;
 ANALYZE VERBOSE school;
 SELECT count(*) AS sch_cnt FROM school;
 
+ANALYZE VERBOSE stem_schools;
+SELECT count(*) AS stem_cnt FROM stem_schools;
+
 ANALYZE VERBOSE enroll;
 SELECT count(*) AS enr_cnt FROM enroll;
 
