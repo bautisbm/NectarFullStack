@@ -198,6 +198,7 @@ DROP TABLE IF EXISTS cte_comp;
 CREATE TABLE cte_comp (
     school_year integer NOT NULL,
     level_code text NOT NULL,
+    div_num integer,
     div_name text NOT NULL,
     sch_num text,
     sch_name text,
