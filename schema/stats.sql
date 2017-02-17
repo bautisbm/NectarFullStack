@@ -24,3 +24,6 @@ SELECT count(*) AS sol_cnt FROM sol_test_data;
 
 ANALYZE VERBOSE college;
 SELECT count(*) AS col_cnt FROM college;
+
+ANALYZE VERBOSE cte_comp;
+SELECT count(*) AS cte_cnt FROM cte_comp;

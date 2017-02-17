@@ -79,3 +79,7 @@ psql -c "COPY (
 
 echo COPY college FROM csv
 psql -c "\copy college FROM college.csv WITH CSV HEADER" nectar
+
+
+echo COPY cte_comp  FROM csv
+psql -c "\copy cte_comp FROM cte_comp.csv WITH CSV HEADER" nectar
