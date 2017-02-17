@@ -189,3 +189,29 @@ CREATE TABLE college (
 ALTER TABLE college OWNER TO nectar;
 
 COMMENT ON TABLE college IS 'colleges and universities';
+
+
+
+
+DROP TABLE IF EXISTS cte_comp;
+
+CREATE TABLE cte_comp (
+    school_year integer NOT NULL,
+    level_code text NOT NULL,
+    div_name text NOT NULL,
+    sch_num text,
+    sch_name text,
+    federal_race_code text,
+    gender text,
+    disability_flag text,
+    lep_flag text,
+    disadvantaged_flag text,
+    cte_program_num integer NOT NULL,
+    cte_program_name text, NOT NULL,
+    completer_cnt integer, NOT NULL
+);
+
+ALTER TABLE cte_comp OWNER TO nectar;
+
+COMMENT ON TABLE cte_comp IS 'career and technical education';
+
