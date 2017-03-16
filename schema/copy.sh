@@ -10,8 +10,9 @@ psql -c "COPY (
 
 echo COPY school FROM vdoe
 psql -c "COPY (
-    SELECT div_num, div_name, sch_num, sch_name, sch_desc, city, zip
-    FROM school
+    SELECT d.div_num, d.div_name, sch_num, sch_name, sch_desc, d.city, d.zip
+    FROM school as s
+    JOIN division as d on d.div_num = s.div_num
   ) TO STDOUT;" vdoe | \
   psql -c "COPY school FROM STDIN;" nectar
 
