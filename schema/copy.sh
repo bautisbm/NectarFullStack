@@ -24,9 +24,15 @@ psql -c "COPY (
   ) TO STDOUT;" vdoe | \
   psql -c "COPY stem_schools FROM STDIN;" nectar
 
-echo INSERT Harrisonburg STEM acad
+echo INSERT into stem_school Harrisonburg STEM 
 psql -c "INSERT INTO stem_schools
          VALUES (113, 122, 'Governor’s STEM Academy at Harrisonburg High School', 'Harrisonburg', 22801)" nectar
+
+
+echo INSERT into stem_schools Greater Pen STEM
+psql -c "INSERT INTO stem_schools
+         VALUES (112, 1101, 'Greater Peninsula Governor’s STEM Academy',
+                 'Hampton', 23669)" nectar
 
 echo COPY enroll FROM vdoe
 psql -c "COPY (
