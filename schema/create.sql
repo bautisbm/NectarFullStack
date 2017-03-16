@@ -22,6 +22,7 @@ CREATE TABLE school (
     	div_num integer NOT NULL,
     	sch_num integer NOT NULL,
     	sch_name text NOT NULL,
+        sch_desc text NOT NULL,
         city text,
     	zip text
 );
