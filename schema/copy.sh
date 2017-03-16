@@ -10,7 +10,7 @@ psql -c "COPY (
 
 echo COPY school FROM vdoe
 psql -c "COPY (
-    SELECT div_num, sch_num, sch_name, sch_desc, city, zip
+    SELECT div_num, div_name, sch_num, sch_name, sch_desc, city, zip
     FROM school
   ) TO STDOUT;" vdoe | \
   psql -c "COPY school FROM STDIN;" nectar
@@ -18,7 +18,7 @@ psql -c "COPY (
 
 echo COPY stem_schools FROM vdoe
 psql -c "COPY (
-    SELECT d.div_num, d.div_name, sch_num, sch_name, d.city, d.zip
+    SELECT d.div_num, d.div_name, sch_num, sch_name, sch_desc, d.city, d.zip
     FROM school as s
     JOIN division as d on d.div_num = s.div_num
     WHERE sch_desc LIKE '%STEM%'
