@@ -18,21 +18,32 @@ psql -c "COPY (
 
 echo COPY stem_schools FROM vdoe
 psql -c "COPY (
-    SELECT div_num, sch_num, sch_name, city, zip
-    FROM school
+    SELECT d.div_num, d.div_name, sch_num, sch_name, d.city, d.zip
+    FROM school as s
+    JOIN divison as d on d.div_num = s.div_num
     WHERE sch_desc LIKE '%STEM%'
   ) TO STDOUT;" vdoe | \
   psql -c "COPY stem_schools FROM STDIN;" nectar
 
 echo INSERT into stem_school Harrisonburg STEM 
 psql -c "INSERT INTO stem_schools
-         VALUES (113, 122, 'Governor’s STEM Academy at Harrisonburg High School', 'Harrisonburg', 22801)" nectar
+         VALUES (113, 'Harrisonburg City' 122, 'Governor’s STEM Academy at Harrisonburg High School', 'Harrisonburg', 22801)" nectar
 
 
 echo INSERT into stem_schools Greater Pen STEM
 psql -c "INSERT INTO stem_schools
-         VALUES (112, 1101, 'Greater Peninsula Governor’s STEM Academy',
+         VALUES (112, 'Hampton City', 1101, 'Greater Peninsula Governor’s STEM Academy',
                  'Hampton', 23669)" nectar
+
+
+echo INSERT into stem_schools Bridging Communities STEM
+psql -c "INSERT INTO stem_schools
+         VALUES (63, 'New Kent County', 2022, 'The Bridging Communities Governor’s STEM Academy', 23124)" nectar
+
+
+echo INSERT into stem_schools Maritime STEM
+psql -c "INSERT INTO stem_schools
+         VALUES (123, 'Richmond City', 3121, 'Governor’s STEM Academy for Agriculture and Maritime Studies', 23230)" nectar
 
 echo COPY enroll FROM vdoe
 psql -c "COPY (

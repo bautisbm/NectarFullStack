@@ -37,7 +37,8 @@ DROP TABLE IF EXISTS stem_schools;
 CREATE TABLE stem_schools (
 
 	div_num integer NOT NULL,
-	sch_num integer NOT NULL,
+	div_name text NOT NULL,
+    sch_num integer NOT NULL,
 	sch_name text NOT NULL,
 	city text NOT NULL,
 	zip text NOT NULL
