@@ -44,7 +44,7 @@ psql -c "COPY (
       subject, test_name, test_level, avg_score,
       pass_advn, pass_prof, pass_rate, fail_rate
     FROM sol_test_data
-    WHERE sch_year = 2014
+    WHERE sch_year >= 2012
   ) TO STDOUT;" vdoe | \
   psql -c "COPY sol_test_data FROM STDIN;" nectar
 
