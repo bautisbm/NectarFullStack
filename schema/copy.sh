@@ -20,14 +20,14 @@ echo COPY stem_schools FROM vdoe
 psql -c "COPY (
     SELECT d.div_num, d.div_name, sch_num, sch_name, d.city, d.zip
     FROM school as s
-    JOIN divison as d on d.div_num = s.div_num
+    JOIN division as d on d.div_num = s.div_num
     WHERE sch_desc LIKE '%STEM%'
   ) TO STDOUT;" vdoe | \
   psql -c "COPY stem_schools FROM STDIN;" nectar
 
 echo INSERT into stem_school Harrisonburg STEM 
 psql -c "INSERT INTO stem_schools
-         VALUES (113, 'Harrisonburg City' 122, 'Governor’s STEM Academy at Harrisonburg High School', 'Harrisonburg', 22801)" nectar
+         VALUES (113, 'Harrisonburg City', 122, 'Governor’s STEM Academy at Harrisonburg High School', 'Harrisonburg', 22801)" nectar
 
 
 echo INSERT into stem_schools Greater Pen STEM
