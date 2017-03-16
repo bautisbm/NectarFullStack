@@ -38,12 +38,12 @@ psql -c "INSERT INTO stem_schools
 
 echo INSERT into stem_schools Bridging Communities STEM
 psql -c "INSERT INTO stem_schools
-         VALUES (63, 'New Kent County', 2022, 'The Bridging Communities Governor’s STEM Academy', 23124)" nectar
+         VALUES (63, 'New Kent County', 2022, 'The Bridging Communities Governor’s STEM Academy', 'New Kent', 23124)" nectar
 
 
 echo INSERT into stem_schools Maritime STEM
 psql -c "INSERT INTO stem_schools
-         VALUES (123, 'Richmond City', 3121, 'Governor’s STEM Academy for Agriculture and Maritime Studies', 23230)" nectar
+         VALUES (123, 'Richmond City', 3121, 'Governor’s STEM Academy for Agriculture and Maritime Studies', 'Richmond',  23230)" nectar
 
 echo COPY enroll FROM vdoe
 psql -c "COPY (
