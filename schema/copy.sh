@@ -15,6 +15,15 @@ psql -c "COPY (
   ) TO STDOUT;" vdoe | \
   psql -c "COPY school FROM STDIN;" nectar
 
+
+echo COPY stem_schools FROM vdoe
+psql -c "COPY (
+    SELECT div_num, sch_num, sch_name, city, zip
+    FROM school
+    WHERE sch_desc LIKE '%STEM%'
+  ) TO STDOUT;" vdoe | \
+  psql -c "COPY stem_schools FROM STDIN;" nectar
+
 echo COPY enroll FROM vdoe
 psql -c "COPY (
     SELECT
