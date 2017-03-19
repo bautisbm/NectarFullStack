@@ -22,15 +22,12 @@ CREATE TABLE school (
     	div_num integer NOT NULL,
     	sch_num integer NOT NULL,
     	sch_name text NOT NULL,
-<<<<<<< HEAD
         sch_desc text NOT NULL,
         city text,
     	zip text
-=======
       sch_desc text NOT NULL,
       city text,
     	zip text NOT NULL
->>>>>>> 852cb1f57aa86ceeeb7ef16bfdc9a180e15b83d3
 );
 
 ALTER TABLE school OWNER TO nectar;
@@ -60,21 +57,18 @@ COMMENT ON TABLE stem_schools IS 'all stem schools in VA';
 DROP TABLE IF EXISTS non_Stem_Schools;
 
 CREATE TABLE non_Stem_Schools (
-<<<<<<< HEAD
 	div_num integer NOT NULL,
 	sch_num integer NOT NULL,
 	sch_name text NOT NULL,
 	sch_desc text NOT NULL,
 	city text,
 	zip text NOT NULL
-=======
     	div_num integer NOT NULL,
 	    sch_num integer NOT NULL,
 	    sch_name text NOT NULL,
 	    sch_desc text NOT NULL,
 	    city text NOT NULL,
 	    zip text NOT NULL
->>>>>>> 852cb1f57aa86ceeeb7ef16bfdc9a180e15b83d3
 );
 
 ALTER TABLE non_Stem_Schools OWNER TO nectar;
