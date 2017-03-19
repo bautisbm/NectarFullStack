@@ -24,7 +24,7 @@ CREATE TABLE school (
     	sch_name text NOT NULL,
         sch_desc text NOT NULL,
         city text,
-    	zip text
+    	zip text NOT NULL
 );
 
 ALTER TABLE school OWNER TO nectar;
@@ -49,6 +49,31 @@ CREATE TABLE stem_schools (
 ALTER TABLE stem_schools OWNER TO nectar;
 
 COMMENT ON TABLE stem_schools IS 'all stem schools in VA';
+
+
+
+
+
+DROP TABLE IF EXISTS non_Stem_Schools;
+
+CREATE TABLE non_Stem_Schools (
+	div_num integer NOT NULL,
+	sch_num integer NOT NULL,
+	sch_name text NOT NULL,
+	sch_desc text NOT NULL,
+	city text NOT NULL,
+	zip text NOT NULL
+);
+
+ALTER TABLE non_Stem_Schools OWNER TO nectar;
+
+COMMENT ON TABLE non_Stem_Schools IS 'all high schools in non stem counties in VA';
+
+
+
+
+
+
 
 
 
@@ -113,7 +138,7 @@ CREATE TABLE postsec_enroll(
     	disadva text NOT NULL,
 	enroll_graduate_cnt integer NOT NULL,
 	ps_institution_type integer NOT NULL,
-	ps_enrollement_cnt integer NOT NULL
+	ps_enrollment_cnt integer NOT NULL
 );
 
 ALTER TABLE postsec_enroll OWNER TO nectar;

@@ -26,6 +26,19 @@ psql -c "COPY (
   psql -c "COPY stem_schools FROM STDIN;" nectar
 
 
+echo COPY non_Stem_Schools FROM vdoe
+psql -c "COPY (
+	SELECT DISTINCT div_num, sch_num, sch_name, sch_desc, city, zip
+	FROM school
+	WHERE div_num NOT IN(7,18,21,29,41,53,60,63,77,80,83,89,112,113,115,117,123,128,136)
+		AND sch_name LIKE '%High%'
+	ORDER BY div_num, sch_num
+	) TO STDOUT;" vdoe | \
+	psql -c "COPY non_Stem_Schools FROM STDIN;" nectar
+
+
+
+
 echo COPY enroll FROM vdoe
 psql -c "COPY (
     SELECT
