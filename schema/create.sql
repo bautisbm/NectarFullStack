@@ -24,7 +24,7 @@ CREATE TABLE school (
     	sch_name text NOT NULL,
         sch_desc text NOT NULL,
         city text,
-    	zip text NOT NULL
+    	zip text
 );
 
 ALTER TABLE school OWNER TO nectar;
@@ -61,7 +61,7 @@ CREATE TABLE non_Stem_Schools (
 	sch_num integer NOT NULL,
 	sch_name text NOT NULL,
 	sch_desc text NOT NULL,
-	city text NOT NULL,
+	city text,
 	zip text NOT NULL
 );
 

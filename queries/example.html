@@ -102,10 +102,10 @@ FROM highschs_per_stemdiv('Arlington County', 'MATH')
   function drawVisualization() {
 
     var data = google.visualization.arrayToDataTable([
-      ['School Year', 'Washington-Lee High', 'Yorktown High', 'Wakefield High', 'Arlington Mill High'],
-      ['2012', 442, 446, 428, 386],
-      ['2013', 446, 451, 426, 373],
-      ['2014', 449, 457, 435, 410]
+      ['School Year', 'Washington-Lee High', 'Yorktown High', 'Wakefield High', 'Arlington Mill High', 'Average'],
+      ['2012', 442, 446, 428, 386, 425.5],
+      ['2013', 446, 451, 426, 373, 424],
+      ['2014', 449, 457, 435, 410, 437.75]
     ]);
 
     var options = {
@@ -113,12 +113,136 @@ FROM highschs_per_stemdiv('Arlington County', 'MATH')
 	  vAxis: {title: 'Avg Scores'},
 	  hAxis: {title: 'School Year'},
 	  seriesType: 'bars',
+	  series: {4: {type: 'line'}}
     };
 
     var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
     chart.draw(data, options);
   }
 </script>
+
+
+
+
+
+
+
+
+<table border="1" cellpadding="3">
+    <tr>
+        <td colspan="3" bgcolor="lightyellow">
+<pre>
+SELECT sch_year, sch_name, avg_score
+FROM highschscores_per_nonstemdiv('Albemarle County', 'MATH')
+</pre>
+        </td>
+    </tr>
+    <tr>
+        <th>School Year</th>
+        <th>High School</th>
+		<th>Average Score</th>
+        <td rowspan="13">
+            <div id="chart_div2" style="width: 900px; height: 500px;"></div>
+        </td>
+    </tr>
+    <tr>
+        <td>2012</td>
+        <td>Western Albemarle High</td>
+		<td>443</td>
+    </tr>
+    <tr>
+        <td>2012</td>
+        <td>Albemarle High</td>
+		<td>437</td>
+    </tr>
+    <tr>
+        <td>2012</td>
+        <td>Murray High</td>
+		<td>420</td>
+    </tr>
+    <tr>
+        <td>2012</td>
+        <td>Monticello High</td>
+		<td>429</td>
+    </tr>
+    <tr>
+        <td>2013</td>
+        <td>Western Albemarle High</td>
+		<td>438</td>
+    </tr>
+    <tr>
+        <td>2013</td>
+        <td>Albemarle High</td>
+		<td>436</td>
+    </tr>
+    <tr>
+        <td>2013</td>
+        <td>Murray High</td>
+		<td>424</td>
+    </tr>
+    <tr>
+        <td>2013</td>
+        <td>Monticello High</td>
+		<td>431</td>
+    </tr>
+    <tr>
+        <td>2014</td>
+        <td>Western Albemarle High</td>
+		<td>440</td>
+    </tr>
+    <tr>
+        <td>2014</td>
+        <td>Albemarle High</td>
+		<td>431</td>
+    </tr>
+    <tr>
+        <td>2014</td>
+        <td>Murray High</td>
+		<td>413</td>
+    </tr>
+    <tr>
+        <td>2014</td>
+        <td>Monticello High</td>
+		<td>425</td>
+    </tr>
+</table>
+
+<script type="text/javascript">
+  google.charts.load('current', {'packages':['corechart']});
+  google.charts.setOnLoadCallback(drawVisualization);
+  function drawVisualization() {
+
+    var data = google.visualization.arrayToDataTable([
+      ['School Year', 'Western Albemarle High', 'Albemarle High', 'Murray High', 'Monticello High', 'Average'],
+      ['2012', 443, 437, 420, 429, 432.25],
+      ['2013', 438, 436, 424, 431, 432.25],
+      ['2014', 440, 431, 413, 425, 427.25]
+    ]);
+
+    var options = {
+	  title : 'non STEM county: Albemarle County MATH sol results',
+	  vAxis: {title: 'Avg Scores'},
+	  hAxis: {title: 'School Year'},
+	  seriesType: 'bars',
+	  series: {4: {type: 'line'}}
+    };
+
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div2'));
+    chart.draw(data, options);
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 </body>
 </html>
