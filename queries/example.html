@@ -21,91 +21,101 @@ Current Goal: Do STEM divisions have higher SOL scores than non STEM divisions?
     <tr>
         <td colspan="3" bgcolor="lightyellow">
 <pre>
-    SELECT dis_type, dec1_cnt
-    FROM deccnt_state(2012, 12)
-    ORDER BY dec1_cnt DESC, dis_type
+SELECT sch_year, sch_name, avg_score
+FROM highschs_per_stemdiv('Arlington County', 'MATH')
 </pre>
         </td>
     </tr>
     <tr>
-        <th>Disability Type</th>
-        <th>Dec 1st Count</th>
-        <td rowspan="12">
-            <div id="piechart" style="width: 500px; height: 300px;"></div>
+        <th>School Year</th>
+        <th>High School</th>
+		<th>Average Score</th>
+        <td rowspan="13">
+            <div id="chart_div" style="width: 900px; height: 500px;"></div>
         </td>
     </tr>
     <tr>
-        <td>SLD</td>
-        <td>4833</td>
+        <td>2012</td>
+        <td>Washington-Lee High</td>
+		<td>442</td>
     </tr>
     <tr>
-        <td>OHI</td>
-        <td>2330</td>
+        <td>2012</td>
+        <td>Yorktown High</td>
+		<td>446</td>
     </tr>
     <tr>
-        <td>ID</td>
-        <td>1467</td>
+        <td>2012</td>
+        <td>Wakefield High</td>
+		<td>428</td>
     </tr>
     <tr>
-        <td>AUT</td>
-        <td>1073</td>
+        <td>2012</td>
+        <td>Arlington Mill High</td>
+		<td>386</td>
     </tr>
     <tr>
-        <td>EMN</td>
-        <td>1033</td>
+        <td>2013</td>
+        <td>Washington-Lee High</td>
+		<td>446</td>
     </tr>
     <tr>
-        <td>MD</td>
-        <td>505</td>
+        <td>2013</td>
+        <td>Yorktown High</td>
+		<td>451</td>
     </tr>
     <tr>
-        <td>HI</td>
-        <td>120</td>
+        <td>2013</td>
+        <td>Wakefield High</td>
+		<td>426</td>
     </tr>
     <tr>
-        <td>SLI</td>
-        <td>100</td>
+        <td>2013</td>
+        <td>Arlington Mill High</td>
+		<td>373</td>
     </tr>
     <tr>
-        <td>OI</td>
-        <td>67</td>
+        <td>2014</td>
+        <td>Washington-Lee High</td>
+		<td>449</td>
     </tr>
     <tr>
-        <td>TBI</td>
-        <td>49</td>
+        <td>2014</td>
+        <td>Yorktown High</td>
+		<td>457</td>
     </tr>
     <tr>
-        <td>VI</td>
-        <td>44</td>
+        <td>2014</td>
+        <td>Wakefield High</td>
+		<td>435</td>
+    </tr>
+    <tr>
+        <td>2014</td>
+        <td>Arlington Mill High</td>
+		<td>410</td>
     </tr>
 </table>
 
 <script type="text/javascript">
   google.charts.load('current', {'packages':['corechart']});
-  google.charts.setOnLoadCallback(drawChart);
-  function drawChart() {
+  google.charts.setOnLoadCallback(drawVisualization);
+  function drawVisualization() {
 
     var data = google.visualization.arrayToDataTable([
-      ["Disability Type", "Dec 1st Count"],
-      ["SLD", 4833],
-      ["OHI", 2330],
-      ["ID", 1467],
-      ["AUT", 1073],
-      ["EMN", 1033],
-      ["MD", 505],
-      ["HI", 120],
-      ["SLI", 100],
-      ["OI", 67],
-      ["TBI", 49],
-      ["VI", 44],
+      ['School Year', 'Washington-Lee High', 'Yorktown High', 'Wakefield High', 'Arlington Mill High'],
+      ['2012', 442, 446, 428, 386],
+      ['2013', 446, 451, 426, 373],
+      ['2014', 449, 457, 435, 410]
     ]);
 
     var options = {
-      chartArea: {width:'90%', height:'90%'},
+	  title : 'STEM county: Arlington County MATH sol results',
+	  vAxis: {title: 'Avg Scores'},
+	  hAxis: {title: 'School Year'},
+	  seriesType: 'bars',
     };
 
-    var chart = new google.visualization.PieChart(document.getElementById('piechart'));
-
+    var chart = new google.visualization.ComboChart(document.getElementById('chart_div'));
     chart.draw(data, options);
   }
 </script>

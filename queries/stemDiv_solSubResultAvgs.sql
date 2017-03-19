@@ -1,5 +1,5 @@
 ﻿--
--- Fucntion to return SOL results of STEM divs
+-- Fucntion to return the average SOL results of a STEM division
 --
 
 

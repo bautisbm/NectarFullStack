@@ -1,5 +1,5 @@
 ﻿--
--- Fucntion to return SOL results of normal divs
+-- Fucntion to return avg SOL results of a non stem division
 -- 
 
 
