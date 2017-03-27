@@ -19,6 +19,8 @@
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
         
+        
+        
         <%--
           String sch_num = request.getParameter("sch_num");  
         --%>

@@ -57,6 +57,37 @@ public class Query {
         if(divNames != null) {
             return divNames;
         }
+        
+        String sql = "SELECT DISTINCT div_name "
+                + "FROM non_stem_schools "
+                + "ORDER BY div_name";
+        
+        try {
+            Connection db = Database.open();
+            PreparedStatement st;
+            st = db.prepareStatement(sql);
+            
+            ResultSet rs;
+            rs = st.executeQuery();
+            
+            while(rs.next()) {
+                divNames.add(rs.getString(div_name));
+            }
+            
+            for(String s : divNames) {
+                System.out.println(s.toString());
+            }
+            
+            // close database resources
+            rs.close();
+            st.close();
+            db.close();
+            
+            } catch (SQLException exc) {
+            // lazy hack to simplify hw5
+            throw new RuntimeException(exc);
+        }
+        
         return null;
         //String sql = "SELECT "
     }
