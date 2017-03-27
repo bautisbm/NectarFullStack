@@ -58,6 +58,7 @@ DROP TABLE IF EXISTS non_Stem_Schools;
 
 CREATE TABLE non_Stem_Schools (
 	div_num integer NOT NULL,
+	div_name integer NOT NULL,
 	sch_num integer NOT NULL,
 	sch_name text NOT NULL,
 	sch_desc text NOT NULL,
