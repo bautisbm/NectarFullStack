@@ -24,7 +24,7 @@ CREATE TABLE school (
     	sch_name text NOT NULL,
         sch_desc text NOT NULL,
         city text,
-    	zip text
+    	zip text,
       sch_desc text NOT NULL,
       city text,
     	zip text NOT NULL
@@ -63,7 +63,7 @@ CREATE TABLE non_Stem_Schools (
 	sch_name text NOT NULL,
 	sch_desc text NOT NULL,
 	city text,
-	zip text NOT NULL
+	zip text NOT NULL,
     	div_num integer NOT NULL,
 	    sch_num integer NOT NULL,
 	    sch_name text NOT NULL,
