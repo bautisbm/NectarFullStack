@@ -28,10 +28,10 @@ psql -c "COPY (
 
 echo COPY non_stem_schools FROM vdoe
 psql -c "COPY (
-	SELECT DISTINCT div_num, div_name, sch_num, sch_name, sch_desc, city, zip
+	SELECT DISTINCT div.div_num, div_name, sch_num, sch_name, sch_desc, div.city, div.zip
 	FROM school AS sch
 		JOIN division AS div ON div.div_num = sch.div_num
-	WHERE div_num NOT IN(7,18,21,29,41,53,60,63,77,80,83,89,112,113,115,117,123,128,136)
+	WHERE div.div_num NOT IN(7,18,21,29,41,53,60,63,77,80,83,89,112,113,115,117,123,128,136)
 		AND sch_name LIKE '%High%'
 	ORDER BY div_num, sch_num
 	) TO STDOUT;" vdoe | \
