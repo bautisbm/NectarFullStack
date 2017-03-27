@@ -15,17 +15,17 @@
 
 <form>
         <%
-            String div_num = request.getParameter("div_num");
+            String div_name = request.getParameter("div_name");
         %>
-	div_num:<input type="int" name="div_num" id="div_num">
+        <!--Division:<input type="text" name="div_name" id="div_name">-->
         
-        <%
+        <%--
           String sch_num = request.getParameter("sch_num");  
-        %>
-        sch_num:<input type="int" name="sch_num" id="sch_num">
+        --%>
+        <!--sch_num:<input type="int" name="sch_num" id="sch_num">-->
         <br><br>
 
-	<label for="race">race:</label>
+	<label for="race">Race:</label>
 	<select name="race" id="race">
 		<option value="ALL">ALL</option>
 		<option value="0">unspecified</option>
@@ -36,31 +36,32 @@
 		<option value="6">Native Hawaiian/Other Pacific Islander</option>
 		<option value="99">Two or more races, non-Hispanic</option>
 	</select>
-
-	<label for="gender">gender:</label>
+        
+        <br><br>
+        
+	<label for="gender">Gender:</label>
 	<select name="gender" id="gender">
 		<option value="ALL">ALL</option>
 		<option value="M">M</option>
 		<option value="F">F</option>
 	</select>
 
-        <br><br>
 
-	<label for="disabil">disabil:</label>
+	<label for="disabil">Disability:</label>
 	<select name="disabil" id="disabil">
 		<option value="ALL">ALL</option>
 		<option value="Y">Y</option>
 		<option value="N">N</option>
 	</select>
 
-	<label for="lep">lep:</label>
+	<label for="lep">LEP:</label>
 	<select name="lep" id="lep">
 		<option value="ALL">ALL</option>
 		<option value="Y">Y</option>
 		<option value="N">N</option>
 	</select>
 
-	<label for="disadva">disadva:</label>
+	<label for="disadva">Disadvantaged:</label>
 	<select name="disadva" id="disadva">
 		<option value="ALL">ALL</option>
 		<option value="Y">Y</option>
@@ -73,8 +74,8 @@
             Query query = new Query(request);
         %>
         <script>
-            document.getElementById("div_num").value = "<%= query.div_num %>";
-            document.getElementById("sch_num").value = "<%= query.sch_num %>";
+            document.getElementById("div_name").value = "<%= query.div_name %>";
+            document.getElementById("subject").value = "<%= query.subject %>";
             document.getElementById("race").value = "<%= query.race %>";
             document.getElementById("gender").value = "<%= query.gender %>";
             document.getElementById("disabil").value = "<%= query.disabil %>";
@@ -82,6 +83,7 @@
             document.getElementById("disadva").value = "<%= query.disadva %>";
         </script>
 
+        <!--
         <h1>Results</h1>
         <table style="text-align: center">
             <thead>
@@ -95,11 +97,11 @@
                 </tr>
             </thead>
             <tbody>
-                <!-- TODO Step 4: HTML Table -->
+                <!-- TODO Step 4: HTML Table 
                 <%int[][] results = query.getData();%>
                 
                 <%
-                  for(int x = 0; x < 9; x++)
+                  /*for(int x = 0; x < 9; x++)
                   {
                        if(x%2==0)
                            out.println("<tr bgcolor='red'>");
@@ -110,14 +112,16 @@
                            out.println("<td>" + results[x][y] + "</td>");
                        }
                        out.println("</tr>");
-                  }
+                  }*/
                 %>    
             </tbody>
         </table>
-
+        -->
+        
+        
         <h1>Chart</h1>
         <div id="chart_div" style="width: 700px; height: 350px;"></div>
-
+<!--
         <script type="text/javascript">
             google.charts.load('current', {packages: ['corechart', 'line']});
             google.charts.setOnLoadCallback(drawChart);
@@ -136,26 +140,33 @@
 
                 data.addRows([
                     // TODO Step 5: JavaScript Data
-                             <%
+                            <%-- <%
+                                 /*
                                  //this
                                 for(int x = 0; x < 9; x++)
                                 {
                                     //is
+                                    */
                              %>
-                                    ["<%= results[x][0]%>",
+                                    //["<%= //results[x][0]%>",
                              <%
+                                 /*
                                     //wicked
                                     for(int y = 1; y < 6; y++)
                                     {
+                                    */
                              %>
+                                         /*
                                          //confusing
-                                         <%= results[x][y]%>,
+                                         <%=// results[x][y]%>,
+                                             */
                              <%
-                                    }
-                             %> ],
+                                    //}
+                             %>// ],
                              <%
-                                }   
+                                //}   
                              %>
+                            --%>
                 ]);
 
                 var options = {
@@ -171,6 +182,6 @@
                 chart.draw(data, options);
             }
         </script>
-
+-->
     </body>
 </html>

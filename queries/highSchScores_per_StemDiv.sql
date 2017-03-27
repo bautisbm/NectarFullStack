@@ -2,9 +2,9 @@
 -- Returns the avg subject sol scores of each high school in a division
 --
 
-DROP FUNCTION IF EXISTS highSchScores_per_StemDiv(div_name text, subject text);
+DROP FUNCTION IF EXISTS highSchScores_per_StemDiv(div_name text, subject text, race text, gender text, disabil text, lep text, disadva text);
 
-CREATE FUNCTION highSchScores_per_StemDiv(div_name text, subject text)
+CREATE FUNCTION highSchScores_per_StemDiv(div_name text, subject text, race text, gender text, disabil text, lep text, disadva text)
 RETURNS TABLE(sch_year integer, sch_num integer, sch_name text, avg_score integer) AS $$
 
 
@@ -18,13 +18,13 @@ WHERE stem.div_name = $1
 	AND sch.sch_name LIKE '%High%'
 	AND sol.subject = $2
 	AND sol.test_name = 'ALL'
-	AND race = 'ALL'
-	AND gender = 'ALL'
-	AND disabil = 'ALL'
-	AND lep = 'ALL'
-	AND disadva = 'ALL'
+	AND race = $3
+	AND gender = $4
+	AND disabil = $5
+	AND lep = $6
+	AND disadva = $7
 ORDER BY sch_year, sch_num
 
 $$ LANGUAGE SQL STABLE STRICT;
 
-ALTER FUNCTION highSchScores_per_StemDiv(div_name text, subject text) OWNER TO nectar;
+ALTER FUNCTION highSchScores_per_StemDiv(div_name text, subject text, race text, gender text, disabil text, lep text, disadva text) OWNER TO nectar;
