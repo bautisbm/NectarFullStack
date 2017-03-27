@@ -26,7 +26,7 @@ psql -c "COPY (
   psql -c "COPY stem_schools FROM STDIN;" nectar
 
 
-echo COPY non_Stem_Schools FROM vdoe
+echo COPY non_stem_schools FROM vdoe
 psql -c "COPY (
 	SELECT DISTINCT div_num, div_name, sch_num, sch_name, sch_desc, city, zip
 	FROM school AS sch
@@ -35,7 +35,7 @@ psql -c "COPY (
 		AND sch_name LIKE '%High%'
 	ORDER BY div_num, sch_num
 	) TO STDOUT;" vdoe | \
-	psql -c "COPY non_Stem_Schools FROM STDIN;" nectar
+	psql -c "COPY non_stem_schools FROM STDIN;" nectar
 
 
 
