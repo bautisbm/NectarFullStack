@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
  */
 public class Query {
 
+    public int div_num;
     public String div_name;
     public String subject;
     public String race;
@@ -23,10 +24,11 @@ public class Query {
     public String disadva;
 
     private int[][] data;
-    private ArrayList<String> divNames;
+    private ArrayList<Division> divNames;
 
     public Query(HttpServletRequest request) {
-        div_name = parseStr(request, "div_num");
+        div_num = parseInt(request, "div_num");
+        div_name = parseStr(request, "div_name");
         subject = parseStr(request, "subject");
         race = parseStr(request, "race");
         gender = parseStr(request, "gender");
@@ -53,7 +55,7 @@ public class Query {
         }
     }
     
-    public ArrayList<String> getDivisions() {
+    public ArrayList<Division> getDivisions() {
         if(divNames != null) {
             return divNames;
         }
@@ -71,12 +73,10 @@ public class Query {
             rs = st.executeQuery();
             
             while(rs.next()) {
-                divNames.add(rs.getString(div_name));
+                Division d = new Division(rs.getInt(div_num), rs.getString(div_name));
+                divNames.add(d);
             }
             
-            for(String s : divNames) {
-                System.out.println(s.toString());
-            }
             
             // close database resources
             rs.close();
