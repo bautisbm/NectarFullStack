@@ -8,6 +8,7 @@
         <title>SOL Test Scores</title>
         <!--<link href="hw4-sol.css" rel="stylesheet" type="text/css"> -->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
     </head>
     <body>
         <h1>Query</h1>
@@ -16,10 +17,22 @@
 <form>
         <%
             String div_name = request.getParameter("div_name");
+            Query query = new Query(request);
+            
+            ArrayList<Division> temp = query.getDivisions();
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
-        
-        
+        <label for="div_name">Division:</label>
+        <select name="div_name" id="div_name">
+            <%
+                for(Division d : temp) {     
+            %>
+            <option value=" <%= d.divNum %>"> <%=d.divName %></option>
+            
+            <%
+                }
+            %>    
+        </select>
         
         <%--
           String sch_num = request.getParameter("sch_num");  
@@ -73,7 +86,7 @@
 	<input type="submit">
 </form>
         <%
-            Query query = new Query(request);
+            
         %>
         <script>
             document.getElementById("div_name").value = "<%= query.div_name %>";
@@ -100,7 +113,7 @@
             </thead>
             <tbody>
                 <!-- TODO Step 4: HTML Table 
-                <%int[][] results = query.getData();%>
+                <%//int[][] results = query.getData();%>
                 
                 <%
                   /*for(int x = 0; x < 9; x++)

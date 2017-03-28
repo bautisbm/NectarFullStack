@@ -36,6 +36,8 @@ public class Database {
 
     /**
      * Opens a new connection to the database.
+     * @return 
+     * @throws java.sql.SQLException 
      */
     public static Connection open() throws SQLException {
         return DriverManager.getConnection(DB_URL, DB_USER, DB_PASS);

@@ -60,7 +60,7 @@ public class Query {
             return divNames;
         }
         
-        String sql = "SELECT DISTINCT div_name "
+        String sql = "SELECT DISTINCT div_num, div_name "
                 + "FROM non_stem_schools "
                 + "ORDER BY div_name";
         
@@ -87,9 +87,7 @@ public class Query {
             // lazy hack to simplify hw5
             throw new RuntimeException(exc);
         }
-        
-        return null;
-        //String sql = "SELECT "
+        return divNames;
     }
 
     public int[][] getData() {
