@@ -16,12 +16,11 @@
 
 <form>
         <%
-            String div_nameStem = request.getParameter("div_name");
+            String div_nameStem = request.getParameter("div_nameStem");
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
-        <label for="div_name">Stem Division:</label>
-        <select name="div_name" id="div_numStem">
-            <option value="0">ALL</option>
+        <label for="div_nameStem">Stem Division:</label>
+        <select name="div_nameStem" id="div_nameStem">
             <option value="7">Arlington County</option>
             <option value="18">Carroll County</option>
             <option value="21">Chesterfield County</option>
@@ -44,12 +43,11 @@
         </select>
         
         <%
-            String div_nameNonStem = request.getParameter("div_name");
+            String div_nameNonStem = request.getParameter("div_nameNonStem");
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
-        <label for="div_name">Non-Stem Division:</label>
-        <select name="div_name" id="div_numNonStem">
-            <option value="0">ALL</option>
+        <label for="div_nameNonStem">Non-Stem Division:</label>
+        <select name="div_nameNonStem" id="div_nameNonStem">
          	<option value="1">Accomack County</option>
         	<option value="2">Albemarle County</option>
         	<option value="101">Alexandria City</option>
@@ -167,6 +165,20 @@
 
         <br><br>
 
+        <%
+            String subject = request.getParameter("subject");
+        %>
+        <!--Division:<input type="text" name="div_name" id="div_name">-->
+        <label for="subject">Subject:</label>
+        <select name="subject" id="subject">
+            <option value="MATH">MATH</option>
+            <option value="SCI">SCI</option>
+            <option value="ENGR">ENGR</option>
+            <option value="ENGW">ENGW</option>
+            <option value="HIST">HIST</option>
+        </select>
+
+        
 	<label for="race">Race:</label>
 	<select name="race" id="race">
 		<option value="ALL">ALL</option>
@@ -216,7 +228,8 @@
             Query query = new Query(request);
         %>
         <script>
-            document.getElementById("div_name").value = "<%= query.div_name %>";
+            document.getElementById("div_nameStem").value = "<%= query.div_nameStem %>";
+            document.getElementById("div_nameNonStem").value = "<%= query.div_nameNonStem %>";
             document.getElementById("subject").value = "<%= query.subject %>";
             document.getElementById("race").value = "<%= query.race %>";
             document.getElementById("gender").value = "<%= query.gender %>";
