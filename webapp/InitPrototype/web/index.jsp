@@ -17,27 +17,31 @@
 <form>
         <%
             String div_name = request.getParameter("div_name");
-            Query query = new Query(request);
-            
-            ArrayList<Division> temp = query.getDivisions();
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
         <label for="div_name">Division:</label>
-        <select name="div_name" id="div_name">
-            <%
-                for(Division d : temp) {     
-            %>
-            <option value=" <%= d.divNum %>"> <%=d.divName %></option>
-            
-            <%
-                }
-            %>    
+        <select name="div_num" id="div_num">
+            <option value="7">Arlington County</option>
+            <option value="18">Carroll County</option>
+            <option value="21">Chesterfield County</option>
+            <option value="29">Fairfax County</option>
+            <option value="41">Halifax County</option>
+            <option value="53">Loudoun County</option>
+            <option value="60">Montgomery County</option>
+            <option value="63">New Kent County</option>
+            <option value="77">Pulaski County</option>
+            <option value="80">Roanoke County</option>
+            <option value="83">Russell County</option>
+            <option value="89">Stafford County</option>
+            <option value="112">Hampton City</option>
+            <option value="113">Harrisonburg City</option>
+            <option value="115">Lynchburg City</option>
+            <option value="117">Newport News City</option>
+            <option value="123">Richmond City</option>
+            <option value="128">Virginia Beach City</option>
+            <option value="136">Chesapeake City</option>
         </select>
-        
-        <%--
-          String sch_num = request.getParameter("sch_num");  
-        --%>
-        <!--sch_num:<input type="int" name="sch_num" id="sch_num">-->
+
         <br><br>
 
 	<label for="race">Race:</label>
@@ -86,7 +90,7 @@
 	<input type="submit">
 </form>
         <%
-            
+            Query query = new Query(request);
         %>
         <script>
             document.getElementById("div_name").value = "<%= query.div_name %>";
