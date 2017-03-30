@@ -63,7 +63,7 @@ public class Query {
             return data;
         }
         
-        String sql = "{ ? = call highschscores_per_nonstemdiv(?,?) }";
+        String sql = "SELECT sch_year, sch_name, avg_score FROM highschscores_per_nonstemdiv(?,?,?,?,?,?,?)";
 
         try {
             // set the query parameters
@@ -71,12 +71,23 @@ public class Query {
             PreparedStatement st = db.prepareStatement(sql);
             st.setString(1, div_nameNonStem);
             st.setString(2, subject);
+            st.setString(3, race);
+            st.setString(4, gender);
+            st.setString(5, disabil);
+            st.setString(6, lep);
+            st.setString(7, disadva);
+            
 
             ResultSet rs = st.executeQuery();
-            data = new int[9][6];
-            for (int row = 0; row < 9; row++) {
+            
+            rs.last();
+            int rowTotal = rs.getRow();
+            rs.beforeFirst();
+            
+            data = new int[rowTotal][3];
+            for (int row = 0; row < rowTotal; row++) {
                 data[row][0] = 2006 + row;  // school year
-                for (int col = 1; col < 6; col++) {
+                for (int col = 1; col < 3; col++) {
                     rs.next();
                     data[row][col] = rs.getInt(3);  // sol score
                 }

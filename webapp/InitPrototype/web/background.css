@@ -10,7 +10,7 @@ and open the template in the editor.
 
 
 body {
-background-image: url("hottestMixtape2017.jpg"); /*You will specify your image path here.*/
+/*background-image: url("hottestMixtape2017.jpg");*/ /*You will specify your image path here.*/
 
 -moz-background-size: cover;
 -webkit-background-size: cover;

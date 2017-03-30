@@ -240,24 +240,20 @@
 
 
         <h1>Results</h1>
-        <!--
         <table style="text-align: center">
             <thead>
                 <tr bgcolor="lightyellow">
-                    <th>sch_year</th>
-                    <th>ENGR</th>
-                    <th>ENGW</th>
-                    <th>HIST</th>
-                    <th>MATH</th>
-                    <th>SCI</th>
+                    <th>Year</th>
+                    <th>School</th>
+                    <th>Score</th>
                 </tr>
             </thead>
             <tbody>
-                <!-- TODO Step 4: HTML Table 
-                <%//int[][] results = query.getData();%>
+                <!-- TODO Step 4: HTML Table -->
+                <%int[][] results = query.getNonStemData();%>
                 
                 <%
-                  /*for(int x = 0; x < 9; x++)
+                  for(int x = 0; x < 9; x++)
                   {
                        if(x%2==0)
                            out.println("<tr bgcolor='red'>");
@@ -268,11 +264,10 @@
                            out.println("<td>" + results[x][y] + "</td>");
                        }
                        out.println("</tr>");
-                  }*/
+                  }
                 %>    
             </tbody>
         </table>
-        -->
         
         
         <h1>Chart</h1>
