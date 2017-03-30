@@ -20,8 +20,8 @@
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
         
-        <label for="div_nameStem">Stem Division:</label>
-        <select name="div_nameStem" id="div_nameStem">
+        <label for="div_numStem">Stem Division:</label>
+        <select name="div_numStem" id="div_numStem">
             <option value="7">Arlington County</option>
             <option value="18">Carroll County</option>
             <option value="21">Chesterfield County</option>
@@ -229,7 +229,7 @@
             Query query = new Query(request);
         %>
         <script>
-            document.getElementById("div_nameStem").value = "<%= query.div_nameStem %>";
+            document.getElementById("div_numStem").value = "<%= query.div_numStem %>";
             document.getElementById("div_num").value = "<%= query.div_num %>";
             document.getElementById("subject").value = "<%= query.subject %>";
             document.getElementById("race").value = "<%= query.race %>";
@@ -239,8 +239,9 @@
             document.getElementById("disadva").value = "<%= query.disadva %>";
         </script>
 
-
+        
         <h1>Results</h1>
+        <h2>Non-STEM</h1>
         <table style="text-align: center">
             <thead>
                 <tr bgcolor="lightyellow">
@@ -251,33 +252,68 @@
             </thead>
             <tbody>
                 <!-- TODO Step 4: HTML Table -->
-                <% Object[] results = query.getNonStemData().toArray();%>
+                <% 
+                   Object[] results = query.getNonStemData().toArray();                    
+                   Object[] results2 = query.getStemData().toArray();
+                %>
                 
-                <%    
-//                       out.println(query.rowTotal);
-//                       out.println(query.div_num);
-//                       out.println(query.subject);
-//                       out.println(query.race);
-//                       out.println(query.gender);
-//                       out.println(query.disabil);
-//                       out.println(query.lep);
-//                       out.println(query.disadva);
-//                       out.println(results.length);
-
-                    out.println("<tr>");
+                
+               <%
                     for(int x = 0; x < results.length; x += 3)
                     {
+                        out.println("<tr>");
                         out.println("<td>" + results[x].toString() + "</td>");
                         out.println("<td>" + results[x + 1].toString() + "</td>");
                         out.println("<td>" + results[x + 2].toString() + "</td>");
+                        out.println("</tr>");
+                    }
+                        out.println("</tr>");
+
+                %>  
+                
+        <h2>STEM</h1>
+        <table style="text-align: center">
+            <thead>
+                <tr bgcolor="lightyellow">
+                    <th>Year</th>
+                    <th>School</th>
+                    <th>Score</th>
+                </tr>
+            </thead>                
+                <%    
+                    out.println("<tr>");
+                    for(int x = 0; x < results2.length; x += 3)
+                    {
+                        out.println("<tr>");
+                        out.println("<td>" + results2[x].toString() + "</td>");
+                        out.println("<td>" + results2[x + 1].toString() + "</td>");
+                        out.println("<td>" + results2[x + 2].toString() + "</td>");
+                        out.println("</tr>");
                     }
                     out.println("</tr>");
+                    
+                %>   
+                
+  
+            </tbody>
+        </table>
+        
+        
+
+
+            <tbody>
+                <!-- TODO Step 4: HTML Table -->                
+                <%    
+
+
+
+                   
                   
                 %>    
             </tbody>
         </table>
         
-<!--        
+<!--       
         <h1>Chart</h1>
         <div id="chart_div" style="width: 700px; height: 350px;"></div>
 
