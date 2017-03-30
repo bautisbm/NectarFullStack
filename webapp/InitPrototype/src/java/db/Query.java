@@ -16,7 +16,7 @@ public class Query {
 
     //public int div_num;
     public String div_nameStem;
-    public String div_nameNonStem;
+    public int div_num;
     public String subject;
     public String race;
     public String gender;
@@ -25,11 +25,12 @@ public class Query {
     public String disadva;
 
     private int[][] data;
+    public int rowTotal;
 
     public Query(HttpServletRequest request) {
         //div_num = parseInt(request, "div_num");
-        div_nameStem = parseStr(request, "div_nameStem");
-        div_nameNonStem = parseStr(request, "div_nameNonStem");
+        //div_nameStem = parseStr(request, "div_nameStem");
+        div_num = parseInt(request, "div_num");
         subject = parseStr(request, "subject");
         race = parseStr(request, "race");
         gender = parseStr(request, "gender");
@@ -63,13 +64,14 @@ public class Query {
             return data;
         }
         
-        String sql = "SELECT sch_year, sch_name, avg_score FROM highschscores_per_nonstemdiv(?,?,?,?,?,?,?)";
+        String sql = "SELECT sch_year, sch_name, avg_score"
+                + "FROM highschscores_per_nonstemdiv(?,?,?,?,?,?,?)";
 
         try {
             // set the query parameters
             Connection db = Database.open();
             PreparedStatement st = db.prepareStatement(sql);
-            st.setString(1, div_nameNonStem);
+            st.setInt(1, div_num);
             st.setString(2, subject);
             st.setString(3, race);
             st.setString(4, gender);
@@ -78,21 +80,41 @@ public class Query {
             st.setString(7, disadva);
             
 
-            ResultSet rs = st.executeQuery();
-            
+            ResultSet rs;
+            rs.
+            rs = st.executeQuery();
+            /*
             rs.last();
-            int rowTotal = rs.getRow();
+            rowTotal = rs.getRow();
             rs.beforeFirst();
+            */
+//            data = new int[5][5];
+//            for (int row = 0; row < 5; row++) {
+//                data[row][0] = 2006 + row;  // school year
+//                for (int col = 1; col < 5; col++) {
+//                    rs.next();
+//                    data[row][col] = rs.getInt(3);  // sol score
+//                }
+//            }
+
+//            while(rs.next()) 
+//            {
+//                rowTotal++;
+//            }
+            //rs.beforeFirst();
+
+            data = new int[9][3];
             
-            data = new int[rowTotal][3];
-            for (int row = 0; row < rowTotal; row++) {
-                data[row][0] = 2006 + row;  // school year
-                for (int col = 1; col < 3; col++) {
-                    rs.next();
-                    data[row][col] = rs.getInt(3);  // sol score
+            for(int x = 0; x < 9 && rs.next(); x++)
+            {
+                data[x][0] = rs.getInt(1);
+                data[x][1] = rs.getInt(3);
+                for(int y = 2; y < 3 && rs.next(); y++)
+                {
+                    data[x][y] = rs.getInt(3);
                 }
             }
-
+            
             // close database resources
             rs.close();
             st.close();
@@ -133,6 +155,58 @@ public class Query {
             rs.close();
             st.close();
             db.close();
+            return data;
+        } catch (SQLException exc) {
+            // lazy hack to simplify hw5
+            throw new RuntimeException(exc);
+        }
+    }
+    
+        public int[][] getData() {
+        // return cached copy if exists
+        if (data != null) {
+            return data;
+        }
+        
+
+        
+        
+        // TODO Step 3: Execute SQL
+        String sql = "SELECT * FROM hw5sol(?, ?, ?, ?, ?, ?, ?)";
+        try {
+            
+            // set the query parameters
+            Connection db = Database.open();
+            PreparedStatement st;
+            st = db.prepareStatement(sql);
+            st.setString(1, div_nameStem);
+            st.setString(2, subject);
+            st.setString(3, race);
+            st.setString(4, gender);
+            st.setString(5, disabil);
+            st.setString(6, lep);
+            st.setString(7, disadva);
+            
+            // execute query, save results
+            ResultSet rs;
+            rs = st.executeQuery();
+            
+            data = new int[9][6];
+            
+            for(int x = 0; x < 9 && rs.next(); x++)
+            {
+                data[x][0] = rs.getInt(1);
+                data[x][1] = rs.getInt(3);
+                for(int y = 2; y < 6 && rs.next(); y++)
+                {
+                    data[x][y] = rs.getInt(3);
+                }
+            }
+            // close database resources
+            rs.close();
+            st.close();
+            db.close();
+            
             return data;
         } catch (SQLException exc) {
             // lazy hack to simplify hw5

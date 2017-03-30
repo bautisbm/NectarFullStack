@@ -6,7 +6,6 @@
 <html>
     <head>
         <title>SOL Test Scores</title>
-        <!--<link href="hw4-sol.css" rel="stylesheet" type="text/css"> -->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
     </head>
@@ -14,11 +13,12 @@
         <h1>Query</h1>
         <!-- TODO Step 2: HTML Form -->
 
-<form>
+        <form method="get">
         <%
-            String div_nameStem = request.getParameter("div_nameStem");
+            //String div_nameStem = request.getParameter("div_name");
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
+        
         <label for="div_nameStem">Stem Division:</label>
         <select name="div_nameStem" id="div_nameStem">
             <option value="7">Arlington County</option>
@@ -43,11 +43,11 @@
         </select>
         
         <%
-            String div_nameNonStem = request.getParameter("div_nameNonStem");
+            //String div_nameNonStem = request.getParameter("div_nameNonStem");
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
-        <label for="div_nameNonStem">Non-Stem Division:</label>
-        <select name="div_nameNonStem" id="div_nameNonStem">
+        <label for="div_num">Non-Stem Division:</label>
+        <select name="div_num" id="div_num">
          	<option value="1">Accomack County</option>
         	<option value="2">Albemarle County</option>
         	<option value="101">Alexandria City</option>
@@ -166,7 +166,7 @@
         <br><br>
 
         <%
-            String subject = request.getParameter("subject");
+            //String subject = request.getParameter("subject");
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
         <label for="subject">Subject:</label>
@@ -229,7 +229,7 @@
         %>
         <script>
             document.getElementById("div_nameStem").value = "<%= query.div_nameStem %>";
-            document.getElementById("div_nameNonStem").value = "<%= query.div_nameNonStem %>";
+            document.getElementById("div_num").value = "<%= query.div_num %>";
             document.getElementById("subject").value = "<%= query.subject %>";
             document.getElementById("race").value = "<%= query.race %>";
             document.getElementById("gender").value = "<%= query.gender %>";
@@ -252,29 +252,32 @@
                 <!-- TODO Step 4: HTML Table -->
                 <%int[][] results = query.getNonStemData();%>
                 
-                <%
-                    /*
+                <%    
+//                       out.println(query.rowTotal);
+//                       out.println(query.div_num);
+//                       out.println(query.subject);
+                       
                   for(int x = 0; x < 9; x++)
                   {
                        if(x%2==0)
                            out.println("<tr bgcolor='red'>");
                        else
                            out.println("<tr bgcolor='orange'>");
-                       for(int y = 0; y < 6; y++)
+                       for(int y = 0; y < 3; y++)
                        { 
                            out.println("<td>" + results[x][y] + "</td>");
                        }
                        out.println("</tr>");
                   }
-*/
+                   
                 %>    
             </tbody>
         </table>
         
-        
+<!--        
         <h1>Chart</h1>
         <div id="chart_div" style="width: 700px; height: 350px;"></div>
-<!--
+
         <script type="text/javascript">
             google.charts.load('current', {packages: ['corechart', 'line']});
             google.charts.setOnLoadCallback(drawChart);
