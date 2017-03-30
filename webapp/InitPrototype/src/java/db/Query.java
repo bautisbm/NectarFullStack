@@ -65,8 +65,8 @@ public class Query {
             return data;
         }
         
-        String sql = "SELECT sch_year, sch_name, avg_score"
-                + "FROM highschscores_per_nonstemdiv(?,?,?,?,?,?,?)";
+        String sql = "SELECT * "
+                + "FROM highschscores_per_nonstemdiv(?, ?, ?, ?, ?, ?, ?)";
 
         try {
             // set the query parameters

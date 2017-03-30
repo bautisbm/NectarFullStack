@@ -48,7 +48,7 @@
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
         <label for="div_num">Non-Stem Division:</label>
-        <select name="div_num" id="div_num">
+        <select id="div_num" name="div_num">
          	<option value="1">Accomack County</option>
         	<option value="2">Albemarle County</option>
         	<option value="101">Alexandria City</option>
@@ -255,8 +255,14 @@
                 
                 <%    
                        out.println(query.rowTotal);
-//                       out.println(query.div_num);
-//                       out.println(query.subject);
+                       out.println(query.div_num);
+                       out.println(query.subject);
+                       out.println(query.race);
+                       out.println(query.gender);
+                       out.println(query.disabil);
+                       out.println(query.lep);
+                       out.println(query.disadva);
+//                       out.println(results[1]);
                        
 //                  for(int x = 0; x < 9; x++)
 //                  {
@@ -270,12 +276,13 @@
 //                       }
 //                       out.println("</tr>");
 //                  }
-                        out.println("<tr>");
-//                        
+                    out.println("<tr>");
+                        
                     for(int x = 0; x < results.length; x += 3)
                     {
-                        out.println("<td>" + results[x].toString() + "</td>");
-                        out.println("<td>" + results[x + 1].toString() + "</td>");
+                        out.println("here");
+                        out.println("<td>" + "69"/*results[x].toString()*/ + "</td>");
+                        out.println("<td>" + "69"/*results[x].toString()*/ + "</td>");
                     }
                     out.println("</tr>");
 
