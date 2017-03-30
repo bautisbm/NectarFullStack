@@ -25,7 +25,7 @@ public class Query {
     public String disadva;
 
     public ArrayList data;
-    public int rowTotal = 0;
+    public int rowTotal;
 
     public Query(HttpServletRequest request) {
         //div_num = parseInt(request, "div_num");
@@ -61,12 +61,11 @@ public class Query {
     public ArrayList getNonStemData() {
         // return cached copy if exists
         data = new ArrayList();
-        if (data != null) {
-            return data;
-        }
+//        if (data != null) {
+//            return data;
+//        }
         
-        String sql = "SELECT * "
-                + "FROM highschscores_per_nonstemdiv(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "SELECT sch_year, sch_name, avg_score FROM highschscores_per_nonstemdiv(?, ?, ?, ?, ?, ?, ?)";
 
         try {
             // set the query parameters
@@ -80,7 +79,6 @@ public class Query {
             st.setString(6, lep);
             st.setString(7, disadva);
             
-
             ResultSet rs;
             rs = st.executeQuery();
             
@@ -115,7 +113,6 @@ public class Query {
                 data.add(rs.getString(1));
                 data.add(rs.getString(2));
                 data.add(rs.getString(3));
-                rowTotal++;
             }
 
 

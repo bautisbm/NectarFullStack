@@ -18,11 +18,11 @@ WHERE div.div_num = $1
 	AND nonStem.sch_name LIKE '%High%'
 	AND sol.subject = $2
 	AND sol.test_name = 'ALL'
-	AND race = 'ALL'
-	AND gender = 'ALL'
-	AND disabil = 'ALL'
-	AND lep = 'ALL'
-	AND disadva = 'ALL'
+	AND race = $3
+	AND gender = $4
+	AND disabil = $5
+	AND lep = $6
+	AND disadva = $7
 ORDER BY sch_year, sch_num
 
 $$ LANGUAGE SQL STABLE STRICT;

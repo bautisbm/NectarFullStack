@@ -254,41 +254,25 @@
                 <% Object[] results = query.getNonStemData().toArray();%>
                 
                 <%    
-                       out.println(query.rowTotal);
-                       out.println(query.div_num);
-                       out.println(query.subject);
-                       out.println(query.race);
-                       out.println(query.gender);
-                       out.println(query.disabil);
-                       out.println(query.lep);
-                       out.println(query.disadva);
-//                       out.println(results[1]);
-                       
-//                  for(int x = 0; x < 9; x++)
-//                  {
-//                       if(x%2==0)
-//                           out.println("<tr bgcolor='red'>");
-//                       else
-//                           out.println("<tr bgcolor='orange'>");
-//                       for(int y = 0; y < 3; y++)
-//                       { 
-//                           out.println("<td>" + results[x][y] + "</td>");
-//                       }
-//                       out.println("</tr>");
-//                  }
+//                       out.println(query.rowTotal);
+//                       out.println(query.div_num);
+//                       out.println(query.subject);
+//                       out.println(query.race);
+//                       out.println(query.gender);
+//                       out.println(query.disabil);
+//                       out.println(query.lep);
+//                       out.println(query.disadva);
+//                       out.println(results.length);
+
                     out.println("<tr>");
-                        
                     for(int x = 0; x < results.length; x += 3)
                     {
-                        out.println("here");
-                        out.println("<td>" + "69"/*results[x].toString()*/ + "</td>");
-                        out.println("<td>" + "69"/*results[x].toString()*/ + "</td>");
+                        out.println("<td>" + results[x].toString() + "</td>");
+                        out.println("<td>" + results[x + 1].toString() + "</td>");
+                        out.println("<td>" + results[x + 2].toString() + "</td>");
                     }
                     out.println("</tr>");
-
-
-
-//                   
+                  
                 %>    
             </tbody>
         </table>
