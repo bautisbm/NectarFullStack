@@ -8,7 +8,7 @@
         <title>SOL Test Scores</title>
         <!--<link href="hw4-sol.css" rel="stylesheet" type="text/css"> -->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <link rel="stylesheet" type="text/css" href="background.css" />
+        <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
     </head>
     <body>
         <h1>Query</h1>
@@ -204,7 +204,7 @@
 	<label for="disabil">Disability:</label>
 	<select name="disabil" id="disabil">
 		<option value="ALL">ALL</option>
-		<option value="Y">Y</option>
+		<option value="Y">Y</optio n>
 		<option value="N">N</option>
 	</select>
 
@@ -253,6 +253,7 @@
                 <%int[][] results = query.getNonStemData();%>
                 
                 <%
+                    /*
                   for(int x = 0; x < 9; x++)
                   {
                        if(x%2==0)
@@ -265,6 +266,7 @@
                        }
                        out.println("</tr>");
                   }
+*/
                 %>    
             </tbody>
         </table>
