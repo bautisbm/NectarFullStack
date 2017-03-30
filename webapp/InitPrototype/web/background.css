@@ -10,13 +10,13 @@ and open the template in the editor.
 
 
 body {
-background-image: url(InitPrototype/backgroundImages/hottestMixtape2017.jpg); /*You will specify your image path here.*/
+background-image: url("hottestMixtape2017.jpg"); /*You will specify your image path here.*/
 
 -moz-background-size: cover;
 -webkit-background-size: cover;
 background-size: cover;
-background-position: top center !important;
-background-repeat: no-repeat !important;
+background-position: center;
+background-repeat: no-repeat;
 background-attachment: fixed;
 }
 

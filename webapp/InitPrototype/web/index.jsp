@@ -8,7 +8,7 @@
         <title>SOL Test Scores</title>
         <!--<link href="hw4-sol.css" rel="stylesheet" type="text/css"> -->
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
+        <link rel="stylesheet" type="text/css" href="background.css" />
     </head>
     <body>
         <h1>Query</h1>
@@ -238,8 +238,9 @@
             document.getElementById("disadva").value = "<%= query.disadva %>";
         </script>
 
-        <!--
+
         <h1>Results</h1>
+        <!--
         <table style="text-align: center">
             <thead>
                 <tr bgcolor="lightyellow">
