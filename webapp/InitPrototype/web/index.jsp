@@ -7,6 +7,7 @@
     <head>
         <title>SOL Test Scores</title>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script source="https://w3.cs.jmu.edu/mayfiecs/cs474/project/gp4/divsch.js"></script>
         <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
     </head>
     <body>
@@ -250,26 +251,37 @@
             </thead>
             <tbody>
                 <!-- TODO Step 4: HTML Table -->
-                <%int[][] results = query.getNonStemData();%>
+                <% Object[] results = query.getNonStemData().toArray();%>
                 
                 <%    
-//                       out.println(query.rowTotal);
+                       out.println(query.rowTotal);
 //                       out.println(query.div_num);
 //                       out.println(query.subject);
                        
-                  for(int x = 0; x < 9; x++)
-                  {
-                       if(x%2==0)
-                           out.println("<tr bgcolor='red'>");
-                       else
-                           out.println("<tr bgcolor='orange'>");
-                       for(int y = 0; y < 3; y++)
-                       { 
-                           out.println("<td>" + results[x][y] + "</td>");
-                       }
-                       out.println("</tr>");
-                  }
-                   
+//                  for(int x = 0; x < 9; x++)
+//                  {
+//                       if(x%2==0)
+//                           out.println("<tr bgcolor='red'>");
+//                       else
+//                           out.println("<tr bgcolor='orange'>");
+//                       for(int y = 0; y < 3; y++)
+//                       { 
+//                           out.println("<td>" + results[x][y] + "</td>");
+//                       }
+//                       out.println("</tr>");
+//                  }
+                        out.println("<tr>");
+//                        
+                    for(int x = 0; x < results.length; x += 3)
+                    {
+                        out.println("<td>" + results[x].toString() + "</td>");
+                        out.println("<td>" + results[x + 1].toString() + "</td>");
+                    }
+                    out.println("</tr>");
+
+
+
+//                   
                 %>    
             </tbody>
         </table>
