@@ -270,7 +270,8 @@
                         out.println("</tr>");
 
                 %>  
-                
+            </tbody>
+        </table>
         <h2>STEM</h1>
         <table style="text-align: center">
             <thead>
@@ -279,7 +280,8 @@
                     <th>School</th>
                     <th>Score</th>
                 </tr>
-            </thead>                
+            </thead>   
+            <tbody>
                 <%    
                     out.println("<tr>");
                     for(int x = 0; x < results2.length; x += 3)
@@ -298,22 +300,9 @@
             </tbody>
         </table>
         
+
         
-
-
-            <tbody>
-                <!-- TODO Step 4: HTML Table -->                
-                <%    
-
-
-
-                   
-                  
-                %>    
-            </tbody>
-        </table>
-        
-<!--       
+ 
         <h1>Chart</h1>
         <div id="chart_div" style="width: 700px; height: 350px;"></div>
 
@@ -321,62 +310,51 @@
             google.charts.load('current', {packages: ['corechart', 'line']});
             google.charts.setOnLoadCallback(drawChart);
 
-            function drawChart() {
+            <%
+                Object[] res = query.getNonStemData().toArray();                    
+                Object[] res2 = query.getStemData().toArray();
+            %>
+            function drawMaterial() {
                 var data = new google.visualization.DataTable();
+                    
+            <%
+                for(int x = 0; x < res.length; x+=3)
+                {
+                    
+                }
 
-                data.addColumn('string', 'sch_year');
-                data.addColumn('number', 'ENGR');
-                data.addColumn('number', 'ENGW');
-                data.addColumn('number', 'HIST');
-                data.addColumn('number', 'MATH');
-                data.addColumn('number', 'SCI');
-
-                //int[][] results = query.getData();
-
-                data.addRows([
-                    // TODO Step 5: JavaScript Data
-                            <%-- <%
-                                 /*
-                                 //this
-                                for(int x = 0; x < 9; x++)
-                                {
-                                    //is
-                                    */
-                             %>
-                                    //["<%= //results[x][0]%>",
-                             <%
-                                 /*
-                                    //wicked
-                                    for(int y = 1; y < 6; y++)
-                                    {
-                                    */
-                             %>
-                                         /*
-                                         //confusing
-                                         <%=// results[x][y]%>,
-                                             */
-                             <%
-                                    //}
-                             %>// ],
-                             <%
-                                //}   
-                             %>
-                            --%>
+            %>
+                    
+                    
+            <%
+                    for(int i = 0; i < res.length; i+=3)
+                    {
+                        if(i == res.length - 3)
+                        {
+                            out.println("['" + res[i+1] + "', " + res[i+2] + "]");                            
+                        }
+                        else
+                        {
+                            out.println("['" + res[i+1] + "', " + res[i+2] + "],");
+                        }
+                    }
+            %>
                 ]);
 
+                
+
+
+
                 var options = {
-                    hAxis: {
-                        title: 'Year'
-                    },
-                    vAxis: {
-                        title: 'Score'
-                    },
+                    title: 'Age vs. Weight comparison',
+          hAxis: {title: 'Age', minValue: 0, maxValue: 15},
+          vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
+          legend: 'none'
                 };
 
-                var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
                 chart.draw(data, options);
             }
         </script>
--->
     </body>
 </html>
