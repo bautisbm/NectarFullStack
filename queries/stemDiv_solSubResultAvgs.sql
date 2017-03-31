@@ -3,10 +3,10 @@
 --
 
 
-DROP FUNCTION IF EXISTS stemDiv_solSubResultAvgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text);
+DROP FUNCTION IF EXISTS stemdiv_solsubresultavgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text);
 
-CREATE FUNCTION stemDiv_solSubResultAvgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text)
-RETURNS TABLE(sch_year integer, avg_score decimal(3,2)) AS $$
+CREATE FUNCTION stemdiv_solsubresultavgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text)
+RETURNS TABLE(sch_year integer, avg_score numeric) AS $$
 
 SELECT DISTINCT sch_year, CAST(AVG(avg_score) AS DECIMAL(10,2))
 FROM stem_schools AS stem
@@ -28,4 +28,4 @@ ORDER BY sch_year
 
 $$ LANGUAGE SQL STABLE STRICT;
 
-ALTER FUNCTION stemDiv_solSubResultAvgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text) OWNER TO nectar;
+ALTER FUNCTION stemdiv_solsubresultavgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text) OWNER TO nectar;
