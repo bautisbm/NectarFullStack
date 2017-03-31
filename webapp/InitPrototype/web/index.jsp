@@ -5,18 +5,17 @@
 
 <html>
     <head>
-        <title>SOL Test Scores</title>
+        <title>Stem vs Non-Stem</title>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script source="https://w3.cs.jmu.edu/mayfiecs/cs474/project/gp4/divsch.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
         <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
-     
 
         <script type="text/javascript">
             $(document).ready(function(){
                 $('#non-stem').DataTable(); 
-                $('#stem').dataTable();
+                $('#stem').DataTable();
             });		
         </script>
         
@@ -35,7 +34,7 @@
         }
     </style>
     <body>
-        <h1>Query</h1>
+        <h1 style="text-align: center">Stem vs Non-Stem Academic Achievement</h1>
         <!-- TODO Step 2: HTML Form -->
 
         <form method="get">
@@ -269,9 +268,7 @@
         <% 
            Object[] results = query.getNonStemData().toArray();                    
            Object[] results2 = query.getStemData().toArray();
-        %>
-
-    
+        %>        
         
         <div style="align-content: center; max-width: 940px">
           <h1 style='text-align: center'>Results</h1>
@@ -334,143 +331,111 @@
                 </table>
             </div>
         </div>
+                        
+                
 
-
-   
-        <div id="chart_div" style="float: left; width: 700px; height: 350px;"></div>
-        <h1>Chart</h1>
+        <div id="non_stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>
+        <div id="stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>
         <script type="text/javascript">
             google.charts.load('current', {packages: ['corechart', 'line']});
-            google.charts.setOnLoadCallback(drawChart);
+            google.charts.setOnLoadCallback(drawNonStemChart);
+            google.charts.setOnLoadCallback(drawStemChart);
 
             <%
-                Object[] res = query.getAVGNonStemData().toArray();                    
+                Object[] res =  query.getAVGNonStemData().toArray();
+                Object[] res2 =  query.getAVGStemData().toArray();
             %>
                 
-            function drawChart() {
-                var data = new google.visualization.arrayToDataTable([
-                    ['sch_year', 'avg_score'],
+            function drawNonStemChart() {
+                var data = new google.visualization.DataTable();
+
+                data.addColumn('string', 'sch_year');
+                //data.addColumn('string', 'div_name');
+                data.addColumn('number', 'avg_score');
+
+
+                data.addRows([
+                    // TODO Step 5: JavaScript Data
+                
+                <%
+                    for(int x = 0; x < res.length; x += 3)
+                    {
+
+                        out.println("[ ");
+                        out.println("\"" + res[x].toString() + "\",");
+                        //out.println("\"" + res[x + 1].toString() + "\",");
+                        out.println(res[x + 2]  + ",");                     
+                        out.println(" ], "); 
+                        
+                    }
                     
-                    <%
-                    for(int x = 0; x < res.length; x+=3) {
-                        
-                        
-                    if(res[x].equals("2012")) 
-                    {
-                        %>
-                        [<%= res[x].toString()%>, <%= res[x+2].toString()%>],
-                        <%
-                    }
-                    else if(res[x].equals("2013"))
-                    {
-                        %>
-                        [<%= res[x].toString()%>, <%= res[x+2].toString()%>],
-                        <%
-                    }
-                    else if(res[x].equals("2014"))
-                    {
-                        %>
-                        [<%= res[x].toString()%>, <%= res[x+2].toString()%>],  
-                        <%
-                    }
-                    }                       
-                        %>
-                        
 
+
+                 %> 
                     
-                 ]);   
+                    
+                ]);
+               
+          
+                var options = {
+                    hAxis: {
+                        title: 'Year'
+                    },
+                    vAxis: {
+                        title: 'Score'
+                    },
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('non_stem_chart_div'));
+                chart.draw(data, options);
+            }
+            
+            function drawStemChart() {
+                var data = new google.visualization.DataTable();
+
+                data.addColumn('string', 'sch_year');
+                //data.addColumn('string', 'div_name');
+                data.addColumn('number', 'avg_score');
+
+
+                data.addRows([
+                    // TODO Step 5: JavaScript Data
                 
+                <%
+                    for(int x = 0; x < res2.length; x += 3)
+                    {
+
+                        out.println("[ ");
+                        out.println("\"" + res2[x].toString() + "\",");
+                        //out.println("\"" + res[x + 1].toString() + "\",");
+                        out.println(res2[x + 2]  + ",");                     
+                        out.println(" ], "); 
+                        
+                    }
+                   
+
+                 %> 
+                    
+                    
+                ]);
                 
-                
+          
+                var options = {
+                    hAxis: {
+                        title: 'Year'
+                    },
+                    vAxis: {
+                        title: 'Score'
+                    },
+                };
 
-                      
-
-                
-
-
-
-        var options = {
-          title: 'Non-Stem',
-          hAxis: {title: 'Year', minValue: 2010, maxValue: 2015},
-          vAxis: {title: 'Score', minValue: 0, maxValue: 600},
-          legend: 'none'
-        };
-
-        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-
-        chart.draw(data, options);
-}
+                var chart = new google.visualization.LineChart(document.getElementById('stem_chart_div'));
+                chart.draw(data, options);
+            }
+            
         </script>
         
-        
-        
-        
-        
-        
-        
-        <div id="chart_div2" style="float: left; width: 700px; height: 350px;"></div>
-        <script type="text/javascript">
-            google.charts.load('current', {packages: ['corechart', 'line']});
-            google.charts.setOnLoadCallback(drawChart);
 
-            <%
-                Object[] res2 = query.getAVGStemData().toArray();
-            %>
-                
-            function drawChart() {
-                var data = new google.visualization.arrayToDataTable([
-                    ['sch_year', 'avg_score'],
-                    
-                    <%
-                    for(int x = 0; x < res2.length; x+=3) {
-                        
-                        
-                    if(res2[x].equals("2012")) 
-                    {
-                        %>
-                        [<%= res2[x].toString()%>, <%= res2[x+2].toString()%>],
-                        <%
-                    }
-                    else if(res2[x].equals("2013"))
-                    {
-                        %>
-                        [<%= res2[x].toString()%>, <%= res2[x+2].toString()%>],
-                        <%
-                    }
-                    else if(res2[x].equals("2014"))
-                    {
-                        %>
-                        [<%= res2[x].toString()%>, <%= res2[x+2].toString()%>],  
-                        <%
-                    }
-                    }                       
-                        %>
-                        
-
-                    
-                 ]);   
-                
-                
-                
-
-                      
-
-                
-
-
-
-        var options = {
-          title: 'Stem',
-          hAxis: {title: 'Year', minValue: 2010, maxValue: 2015},
-          vAxis: {title: 'Score', minValue: 0, maxValue: 600},
-          legend: 'none'
-        };
-
-        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div2'));
-
-        chart.draw(data, options);
-}
-        </script>        
 
     </body>
 </html>

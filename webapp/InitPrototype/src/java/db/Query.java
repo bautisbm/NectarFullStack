@@ -147,15 +147,7 @@ public class Query {
         }
         return data;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+ 
     public ArrayList getAVGNonStemData() {
         // return cached copy if exists
         data = new ArrayList();
@@ -163,7 +155,7 @@ public class Query {
 //            return data;
 //        }
         
-        String sql = "SELECT * FROM normdiv_solsubresultavgs(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "SELECT * FROM normDiv_solSubResultavgs(?, ?, ?, ?, ?, ?, ?)";
 
         try {
             // set the query parameters
@@ -185,10 +177,9 @@ public class Query {
             {
                 data.add(rs.getString(1));
                 data.add(rs.getString(2));
-                data.add(rs.getString(3));
+                data.add(rs.getLong(3));
+                System.out.println(rs.getLong(3));
             }
-
-
             
             // close database resources
             rs.close();
@@ -200,10 +191,6 @@ public class Query {
         }
         return data;
     }
-    
-    
-    
-    
     
     public ArrayList getAVGStemData() {
         // return cached copy if exists
@@ -212,7 +199,8 @@ public class Query {
 //            return data;
 //        }
         
-        String sql = "SELECT * FROM stemdiv_solsubresultavgs(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "SELECT * FROM stemDiv_SolSubResultavgs(?, ?, ?, ?, ?, ?, ?)";
+        
 
         try {
             // set the query parameters
@@ -234,10 +222,9 @@ public class Query {
             {
                 data.add(rs.getString(1));
                 data.add(rs.getString(2));
-                data.add(rs.getString(3));
+                data.add(rs.getLong(3));
+                System.out.println(rs.getLong(3));
             }
-
-
             
             // close database resources
             rs.close();
@@ -249,5 +236,4 @@ public class Query {
         }
         return data;
     }
-
 }
