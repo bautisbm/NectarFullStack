@@ -8,8 +8,32 @@
         <title>SOL Test Scores</title>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script source="https://w3.cs.jmu.edu/mayfiecs/cs474/project/gp4/divsch.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+        <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+     
+
+        <script type="text/javascript">
+            $(document).ready(function(){
+                $('#non-stem').DataTable(); 
+                $('#stem').dataTable();
+            });		
+        </script>
+        
+
         <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
     </head>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            padding: 10px;
+        }
+        caption {
+            font-weight: bold;
+            font-size: 150%;
+        }
+    </style>
     <body>
         <h1>Query</h1>
         <!-- TODO Step 2: HTML Form -->
@@ -240,121 +264,144 @@
         </script>
 
         
-        <h1>Results</h1>
-        <h2>Non-STEM</h1>
-        <table style="text-align: center">
-            <thead>
-                <tr bgcolor="lightyellow">
-                    <th>Year</th>
-                    <th>School</th>
-                    <th>Score</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- TODO Step 4: HTML Table -->
-                <% 
-                   Object[] results = query.getNonStemData().toArray();                    
-                   Object[] results2 = query.getStemData().toArray();
-                %>
-                
-                
-               <%
-                    for(int x = 0; x < results.length; x += 3)
-                    {
-                        out.println("<tr>");
-                        out.println("<td>" + results[x].toString() + "</td>");
-                        out.println("<td>" + results[x + 1].toString() + "</td>");
-                        out.println("<td>" + results[x + 2].toString() + "</td>");
-                        out.println("</tr>");
-                    }
-                        out.println("</tr>");
-
-                %>  
-            </tbody>
-        </table>
-        <h2>STEM</h1>
-        <table style="text-align: center">
-            <thead>
-                <tr bgcolor="lightyellow">
-                    <th>Year</th>
-                    <th>School</th>
-                    <th>Score</th>
-                </tr>
-            </thead>   
-            <tbody>
-                <%    
-                    out.println("<tr>");
-                    for(int x = 0; x < results2.length; x += 3)
-                    {
-                        out.println("<tr>");
-                        out.println("<td>" + results2[x].toString() + "</td>");
-                        out.println("<td>" + results2[x + 1].toString() + "</td>");
-                        out.println("<td>" + results2[x + 2].toString() + "</td>");
-                        out.println("</tr>");
-                    }
-                    out.println("</tr>");
-                    
-                %>   
-                
-  
-            </tbody>
-        </table>
         
-
         
- 
+        <% 
+           Object[] results = query.getNonStemData().toArray();                    
+           Object[] results2 = query.getStemData().toArray();
+        %>
+
+    
+        
+        <div style="align-content: center; max-width: 940px">
+          <h1 style='text-align: center'>Results</h1>
+            <div style="float: left;padding:10px">
+                <!--<h2>Non-STEM</h2> -->
+                <table style="text-align: center" id="non-stem" class="display">
+                    <caption>Non-STEM</caption>
+                    <thead>
+                        <tr bgcolor="lightyellow">
+                            <th>Year</th>
+                            <th>School</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+
+                           <%
+                                for(int x = 0; x < results.length; x += 3)
+                                {
+                                    out.println("<tr>");
+                                    out.println("<td>" + results[x].toString() + "</td>");
+                                    out.println("<td>" + results[x + 1].toString() + "</td>");
+                                    out.println("<td>" + results[x + 2].toString() + "</td>");
+                                    out.println("</tr>");
+                                }
+                                    out.println("</tr>");
+
+                            %>  
+                        </tbody>
+                </table>
+            </div>
+
+            
+            <div style="float: left;padding:10px">
+              <!--  <h2>STEM</h2> -->
+              <table style="text-align: center" id="stem" class="display">
+                    <caption>STEM</caption>
+                    <thead>
+                        <tr bgcolor="lightyellow">
+                            <th>Year</th>
+                            <th>School</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+
+                           <%
+                                for(int x = 0; x < results2.length; x += 3)
+                                {
+                                    out.println("<tr>");
+                                    out.println("<td>" + results2[x].toString() + "</td>");
+                                    out.println("<td>" + results2[x + 1].toString() + "</td>");
+                                    out.println("<td>" + results2[x + 2].toString() + "</td>");
+                                    out.println("</tr>");
+                                }
+                                    out.println("</tr>");
+
+                            %>  
+                        </tbody>
+                </table>
+            </div>
+        </div>
+
+
+   
+        <div id="chart_div" style="float: left; style="width: 700px; height: 350px;"></div>
         <h1>Chart</h1>
-        <div id="chart_div" style="width: 700px; height: 350px;"></div>
-
         <script type="text/javascript">
             google.charts.load('current', {packages: ['corechart', 'line']});
             google.charts.setOnLoadCallback(drawChart);
 
             <%
-                Object[] res = query.getNonStemData().toArray();                    
-                Object[] res2 = query.getStemData().toArray();
+                Object[] res = query.getAVGNonStemData().toArray();                    
+                Object[] res2 = query.getAVGStemData().toArray();
             %>
-            function drawMaterial() {
-                var data = new google.visualization.DataTable();
+                
+            function drawChart() {
+                var data = new google.visualization.arrayToDataTable([
+                    ['sch_year', 'avg_score'],
                     
-            <%
-                for(int x = 0; x < res.length; x+=3)
-                {
-                    
-                }
-
-            %>
-                    
-                    
-            <%
-                    for(int i = 0; i < res.length; i+=3)
+                    <%
+                    for(int x = 0; x < res.length; x+=3) {
+                        
+                        
+                    if(res[x].equals("2012")) 
                     {
-                        if(i == res.length - 3)
-                        {
-                            out.println("['" + res[i+1] + "', " + res[i+2] + "]");                            
-                        }
-                        else
-                        {
-                            out.println("['" + res[i+1] + "', " + res[i+2] + "],");
-                        }
+                        %>
+                        [<%= res[x].toString()%>, <%= res[x+2].toString()%>],
+                        <%
                     }
-            %>
-                ]);
+                    else if(res[x].equals("2013"))
+                    {
+                        %>
+                        [<%= res[x].toString()%>, <%= res[x+2].toString()%>],
+                        <%
+                    }
+                    else if(res[x].equals("2014"))
+                    {
+                        %>
+                        [<%= res[x].toString()%>, <%= res[x+2].toString()%>],  
+                        <%
+                    }
+                    }                       
+                        %>
+                        
+
+                    
+                 ]);   
+                
+                
+                
+
+                      
 
                 
 
 
 
-                var options = {
-                    title: 'Age vs. Weight comparison',
-          hAxis: {title: 'Age', minValue: 0, maxValue: 15},
-          vAxis: {title: 'Weight', minValue: 0, maxValue: 15},
+        var options = {
+          title: 'Non-Stem',
+          hAxis: {title: 'Year', minValue: 2010, maxValue: 2015},
+          vAxis: {title: 'Score', minValue: 0, maxValue: 600},
           legend: 'none'
-                };
+        };
 
         var chart = new google.visualization.ScatterChart(document.getElementById('chart_div'));
-                chart.draw(data, options);
-            }
+
+        chart.draw(data, options);
+}
         </script>
+
     </body>
 </html>

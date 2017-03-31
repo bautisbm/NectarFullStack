@@ -147,4 +147,107 @@ public class Query {
         }
         return data;
     }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public ArrayList getAVGNonStemData() {
+        // return cached copy if exists
+        data = new ArrayList();
+//        if (data != null) {
+//            return data;
+//        }
+        
+        String sql = "SELECT * FROM normdiv_solsubresultavgs(?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            // set the query parameters
+            Connection db = Database.open();
+            PreparedStatement st = db.prepareStatement(sql);
+            st.setInt(1, div_num);
+            st.setString(2, subject);
+            st.setString(3, race);
+            st.setString(4, gender);
+            st.setString(5, disabil);
+            st.setString(6, lep);
+            st.setString(7, disadva);
+            
+            ResultSet rs;
+            rs = st.executeQuery();
+            
+
+            while(rs.next())
+            {
+                data.add(rs.getString(1));
+                data.add(rs.getString(2));
+                data.add(rs.getString(3));
+            }
+
+
+            
+            // close database resources
+            rs.close();
+            st.close();
+            db.close();
+        } catch (SQLException exc) {
+            // lazy hack to simplify hw5
+            throw new RuntimeException(exc);
+        }
+        return data;
+    }
+    
+    
+    
+    
+    
+    public ArrayList getAVGStemData() {
+        // return cached copy if exists
+        data = new ArrayList();
+//        if (data != null) {
+//            return data;
+//        }
+        
+        String sql = "SELECT * FROM stemdiv_solsubresultavgs(?, ?, ?, ?, ?, ?, ?)";
+
+        try {
+            // set the query parameters
+            Connection db = Database.open();
+            PreparedStatement st = db.prepareStatement(sql);
+            st.setInt(1, div_num);
+            st.setString(2, subject);
+            st.setString(3, race);
+            st.setString(4, gender);
+            st.setString(5, disabil);
+            st.setString(6, lep);
+            st.setString(7, disadva);
+            
+            ResultSet rs;
+            rs = st.executeQuery();
+            
+
+            while(rs.next())
+            {
+                data.add(rs.getString(1));
+                data.add(rs.getString(2));
+                data.add(rs.getString(3));
+            }
+
+
+            
+            // close database resources
+            rs.close();
+            st.close();
+            db.close();
+        } catch (SQLException exc) {
+            // lazy hack to simplify hw5
+            throw new RuntimeException(exc);
+        }
+        return data;
+    }
+
 }
