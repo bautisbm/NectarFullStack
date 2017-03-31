@@ -6,9 +6,9 @@
 DROP FUNCTION IF EXISTS stemDiv_solSubResultAvgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text);
 
 CREATE FUNCTION stemDiv_solSubResultAvgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text)
-RETURNS TABLE(sch_year integer, div_name text, avg_score decimal(3,2)) AS $$
+RETURNS TABLE(sch_year integer, avg_score decimal(3,2)) AS $$
 
-SELECT DISTINCT sch_year, stem.div_name AS div, CAST(AVG(avg_score) AS DECIMAL(10,2))
+SELECT DISTINCT sch_year, CAST(AVG(avg_score) AS DECIMAL(10,2))
 FROM stem_schools AS stem
         JOIN school AS sch ON stem.div_num = sch.div_num
         JOIN sol_test_data AS sol ON sch.div_num = sol.div_num AND sch.sch_num = sol.sch_num
@@ -22,8 +22,8 @@ WHERE stem.div_num = $1
         AND lep = $6
         AND disadva = $7
         AND sch_year >= 2012
-GROUP BY sch_year, div
-ORDER BY sch_year, div
+GROUP BY sch_year
+ORDER BY sch_year
 
 
 $$ LANGUAGE SQL STABLE STRICT;

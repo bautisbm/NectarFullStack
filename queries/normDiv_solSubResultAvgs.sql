@@ -3,10 +3,10 @@
 -- 
 
 
-DROP FUNCTION IF EXISTS normDiv_solSubResultAvgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text);
+DROP FUNCTION IF EXISTS normDiv_solSubResultavgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text);
 
-CREATE FUNCTION normDiv_solSubResultAvgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text)
-RETURNS TABLE(sch_year integer, div_name text, avg_score decimal(3,2)) AS $$
+CREATE FUNCTION normDiv_solSubResultavgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text)
+RETURNS TABLE(sch_year integer, div_name text, avg_score numeric) AS $$
 
 SELECT DISTINCT sch_year, d.div_name AS div, CAST(AVG(avg_score) AS DECIMAL(10,2)) 
 FROM school AS sch
@@ -23,12 +23,12 @@ WHERE sch.sch_name LIKE '%High%'
 	AND lep = $6
 	AND disadva = $7
 	AND sch_year >= 2012
-GROUP BY sch_year, div, sch.sch_name, sol.test_level
+GROUP BY sch_year, div
 ORDER BY sch_year, div
 
 $$ LANGUAGE SQL STABLE STRICT;
 
-ALTER FUNCTION normDiv_solSubResultAvgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text) OWNER TO nectar;
+ALTER FUNCTION normDiv_solSubResultavgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text) OWNER TO nectar;
 
 
 
