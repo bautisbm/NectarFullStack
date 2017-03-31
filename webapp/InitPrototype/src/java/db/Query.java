@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * CS 474 HW5: Dynamic Charts
+ * CS 474 GP4: Dynamic Charts
  *
- * @author Andrew Fuller
+ * @author Nectar
  */
 public class Query {
 
@@ -59,11 +59,7 @@ public class Query {
     }
     
      public ArrayList getStemData() {
-       // return cached copy if exists
         data = new ArrayList();
-//        if (data != null) {
-//            return data;
-//        }
         
         String sql = "SELECT sch_year, sch_name, avg_score FROM highschscores_per_stemdiv(?, ?, ?, ?, ?, ?, ?)";
 
@@ -97,18 +93,13 @@ public class Query {
             st.close();
             db.close();
         } catch (SQLException exc) {
-            // lazy hack to simplify hw5
             throw new RuntimeException(exc);
         }
         return data;
     }
 
     public ArrayList getNonStemData() {
-        // return cached copy if exists
         data = new ArrayList();
-//        if (data != null) {
-//            return data;
-//        }
         
         String sql = "SELECT sch_year, sch_name, avg_score FROM highschscores_per_nonstemdiv(?, ?, ?, ?, ?, ?, ?)";
 
@@ -142,18 +133,13 @@ public class Query {
             st.close();
             db.close();
         } catch (SQLException exc) {
-            // lazy hack to simplify hw5
             throw new RuntimeException(exc);
         }
         return data;
     }
  
     public ArrayList getAVGNonStemData() {
-        // return cached copy if exists
         data = new ArrayList();
-//        if (data != null) {
-//            return data;
-//        }
         
         String sql = "SELECT * FROM normDiv_solSubResultavgs(?, ?, ?, ?, ?, ?, ?)";
 
@@ -186,19 +172,14 @@ public class Query {
             st.close();
             db.close();
         } catch (SQLException exc) {
-            // lazy hack to simplify hw5
             throw new RuntimeException(exc);
         }
         return data;
     }
     
     public ArrayList getAVGStemData() {
-        // return cached copy if exists
         data = new ArrayList();
-//        if (data != null) {
-//            return data;
-//        }
-        
+
         String sql = "SELECT * FROM stemDiv_SolSubResultavgs(?, ?, ?, ?, ?, ?, ?)";
         
 
@@ -231,7 +212,6 @@ public class Query {
             st.close();
             db.close();
         } catch (SQLException exc) {
-            // lazy hack to simplify hw5
             throw new RuntimeException(exc);
         }
         return data;
