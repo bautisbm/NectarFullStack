@@ -337,7 +337,7 @@
 
 
    
-        <div id="chart_div" style="float: left; style="width: 700px; height: 350px;"></div>
+        <div id="chart_div" style="float: left; width: 700px; height: 350px;"></div>
         <h1>Chart</h1>
         <script type="text/javascript">
             google.charts.load('current', {packages: ['corechart', 'line']});
@@ -345,7 +345,6 @@
 
             <%
                 Object[] res = query.getAVGNonStemData().toArray();                    
-                Object[] res2 = query.getAVGStemData().toArray();
             %>
                 
             function drawChart() {
@@ -402,6 +401,76 @@
         chart.draw(data, options);
 }
         </script>
+        
+        
+        
+        
+        
+        
+        
+        <div id="chart_div2" style="float: left; width: 700px; height: 350px;"></div>
+        <script type="text/javascript">
+            google.charts.load('current', {packages: ['corechart', 'line']});
+            google.charts.setOnLoadCallback(drawChart);
+
+            <%
+                Object[] res2 = query.getAVGStemData().toArray();
+            %>
+                
+            function drawChart() {
+                var data = new google.visualization.arrayToDataTable([
+                    ['sch_year', 'avg_score'],
+                    
+                    <%
+                    for(int x = 0; x < res2.length; x+=3) {
+                        
+                        
+                    if(res2[x].equals("2012")) 
+                    {
+                        %>
+                        [<%= res2[x].toString()%>, <%= res2[x+2].toString()%>],
+                        <%
+                    }
+                    else if(res2[x].equals("2013"))
+                    {
+                        %>
+                        [<%= res2[x].toString()%>, <%= res2[x+2].toString()%>],
+                        <%
+                    }
+                    else if(res2[x].equals("2014"))
+                    {
+                        %>
+                        [<%= res2[x].toString()%>, <%= res2[x+2].toString()%>],  
+                        <%
+                    }
+                    }                       
+                        %>
+                        
+
+                    
+                 ]);   
+                
+                
+                
+
+                      
+
+                
+
+
+
+        var options = {
+          title: 'Stem',
+          hAxis: {title: 'Year', minValue: 2010, maxValue: 2015},
+          vAxis: {title: 'Score', minValue: 0, maxValue: 600},
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.ScatterChart(document.getElementById('chart_div2'));
+
+        chart.draw(data, options);
+}
+        </script>        
 
     </body>
 </html>
