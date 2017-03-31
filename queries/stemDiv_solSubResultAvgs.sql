@@ -22,7 +22,7 @@ WHERE stem.div_num = $1
         AND lep = $6
         AND disadva = $7
         AND sch_year >= 2012
-GROUP BY sch_year, div
+GROUP BY sch_year, div_name
 ORDER BY sch_year
 
 
