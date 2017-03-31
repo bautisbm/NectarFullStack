@@ -16,13 +16,13 @@ FROM school AS sch
     JOIN sol_test_data AS sol ON sch.div_num = sol.div_num AND sch.sch_num = sol.sch_num
 WHERE stem.div_num = $1
     AND sch.sch_name LIKE '%High%'
-    AND sol.subject = 'MATH'
+    AND sol.subject = $2
     AND sol.test_name = 'ALL'
-    AND race = 'ALL'
-    AND gender = 'ALL'
-    AND disabil = 'ALL'
-    AND lep = 'ALL'
-    AND disadva = 'ALL'
+    AND race = $3
+    AND gender = $4
+    AND disabil = $5
+    AND lep = $6
+    AND disadva = $7
     AND sch_year >= 2012
 GROUP BY sch_year, div_name
 ORDER BY sch_year;
