@@ -341,7 +341,7 @@
         <div id="non_stem_chart_div" style="float: left; width: 700px; height: 350px; border: 1px solid black;"></div>
         <div id="stem_chart_div" style="float: left; width: 700px; height: 350px; border: 1px solid black;"></div>
         <script type="text/javascript">
-            google.charts.load('current', {packages: ['corechart', 'line']});
+           google.charts.load('current', {packages: ['line']});
             google.charts.setOnLoadCallback(drawNonStemChart);
             google.charts.setOnLoadCallback(drawStemChart);
 
@@ -367,16 +367,14 @@
                         out.println(" ], "); 
                         
                     }                 
-
-                 %> 
-                    
-                    
+                 %>                                   
                 ]);
                
           
                 var options = {
                     chart: {
                     title: 'Non-Stem',
+                    curveType: 'function'
                      },                
                     
                     hAxis: {
@@ -389,7 +387,7 @@
                 };
 
                 var chart = new google.charts.Line(document.getElementById('non_stem_chart_div'));
-                chart.draw(data, options);
+                chart.draw(data, google.charts.Line.convertOptions(options));
             }
             
             function drawStemChart() {
@@ -413,7 +411,6 @@
                         out.println(" ], "); 
                         
                     } 
-                    //out.println("stem.length is " + stem.length);
                  %>
                     
                     
@@ -433,7 +430,7 @@
                     }
                 };
                 var chart2 = new google.charts.Line(document.getElementById('stem_chart_div'));
-                chart2.draw(data2, options);
+                chart2.draw(data2, google.charts.Line.convertOptions(options));
             }
             
         </script>
