@@ -35,8 +35,7 @@
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
-                background-attachment: fixed;
-                background-color: #cccccc;
+                background-attachment: fixed;               
             }
         
         </style>
@@ -349,21 +348,19 @@
         %>
         
 
-        <div id="non_stem_chart_div" style="float: left; width: 700px; height: 350px; border: 1px solid black;"></div>
-        <div id="stem_chart_div" style="float: left; width: 700px; height: 350px; border: 1px solid black;"></div>
+        <div id="chart_div" style="float: left; width: 700px; height: 350px; border: 1px solid black;"></div>
         <script type="text/javascript">
-           google.charts.load('current', {packages: ['line']});
-            google.charts.setOnLoadCallback(drawNonStemChart);
-            google.charts.setOnLoadCallback(drawStemChart);
+            google.charts.load('current', {packages: ['line']});
+            google.charts.setOnLoadCallback(drawChart);
 
                 
-            function drawNonStemChart() {
+            function drawChart() {
                 var data = new google.visualization.DataTable();
 
                 data.addColumn('string', 'sch_year');
                 //data.addColumn('string', 'div_name');
-                data.addColumn('number', 'Average Score');
-
+                data.addColumn('number', 'Non-Stem');
+                data.addColumn('number', 'Stem');
 
                 data.addRows([
                 
@@ -374,7 +371,9 @@
                         out.println("[ ");
                         out.println("\"" + non_stem[x].toString() + "\",");
                         //out.println("\"" + res[x + 1].toString() + "\",");
-                        out.println(non_stem[x + 2]  + ",");                     
+                        out.println(non_stem[x + 2]  + ",");
+                        if (x < stem.length)
+                            out.println(stem[x + 2]  + ",");
                         out.println(" ], "); 
                         
                     }                 
@@ -384,7 +383,7 @@
           
                 var options = {
                     chart: {
-                    title: 'Non-Stem'
+                    title: 'Stem vs Non-Stem SOL Average Scores'
                      },                
                     
                     hAxis: {
@@ -393,55 +392,13 @@
                     vAxis: {
                         title: 'Score'
                     },
-                    colors: ['red']
+
                 };
 
-                var chart = new google.charts.Line(document.getElementById('non_stem_chart_div'));
+                var chart = new google.charts.Line(document.getElementById('chart_div'));
                 chart.draw(data, google.charts.Line.convertOptions(options));
             }
             
-            function drawStemChart() {
-                var data2 = new google.visualization.DataTable();
-
-                data2.addColumn('string', 'sch_year');
-                //data.addColumn('string', 'div_name');
-                data2.addColumn('number', 'Average Score');
-
-
-                data2.addRows([
-                
-                 <%
-                    for(int i = 0; i < stem.length; i += 3)
-                    {
-                        
-                        out.println("[ ");
-                        out.println("\"" + stem[i].toString() + "\",");
-                        //out.println("\"" + res[x + 1].toString() + "\",");
-                        out.println(stem[i + 2]  + ",");                     
-                        out.println(" ], "); 
-                        
-                    } 
-                 %>
-                    
-                    
-                ]);
-                
-          
-                var options = {
-                    chart: {
-                        title: 'Stem'
-                     }, 
-                     
-                    hAxis: {
-                        title: 'Year'
-                    },
-                    vAxis: {
-                        title: 'Score'
-                    }
-                };
-                var chart2 = new google.charts.Line(document.getElementById('stem_chart_div'));
-                chart2.draw(data2, google.charts.Line.convertOptions(options));
-            }
             
         </script>
         
