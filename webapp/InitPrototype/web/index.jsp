@@ -3,7 +3,7 @@
 
 
 <html>
-    
+    <head>
         <title>Stem vs Non-Stem</title>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script source="https://w3.cs.jmu.edu/mayfiecs/cs474/project/gp4/divsch.js"></script>
@@ -19,20 +19,31 @@
         </script>
         
         <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
-    
-    <style>
-        table, th, td {
-            border: 1px solid black;
-            border-collapse: collapse;
-            padding: 10px;
-        }
-        caption {
-            font-weight: bold;
-            font-size: 150%;
-        }
-    </style>
+         <!--    background-image: url("hottestMixtape2017.jpg"); -->
+         <style>
+            table, th, td {
+                border: 1px solid black;
+                border-collapse: collapse;
+                padding: 10px;
+            }
+            caption {
+                font-weight: bold;
+                font-size: 150%;
+            }
+            body {
+                background-image: url("hottestMixtape2017.jpg");
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+                background-color: #cccccc;
+            }
+        
+        </style>
+    </head>
     <body>
         <h1 style="text-align: center">Stem vs Non-Stem Academic Achievement</h1>
+
         <!-- TODO Step 2: HTML Form -->
 
         <form method="get">
@@ -351,7 +362,7 @@
 
                 data.addColumn('string', 'sch_year');
                 //data.addColumn('string', 'div_name');
-                data.addColumn('number', 'avg_score');
+                data.addColumn('number', 'Average Score');
 
 
                 data.addRows([
@@ -373,8 +384,7 @@
           
                 var options = {
                     chart: {
-                    title: 'Non-Stem',
-                    curveType: 'function'
+                    title: 'Non-Stem'
                      },                
                     
                     hAxis: {
@@ -395,7 +405,7 @@
 
                 data2.addColumn('string', 'sch_year');
                 //data.addColumn('string', 'div_name');
-                data2.addColumn('number', 'avg_score');
+                data2.addColumn('number', 'Average Score');
 
 
                 data2.addRows([
