@@ -7,7 +7,7 @@ DROP FUNCTION IF EXISTS average_stem_sol(div_num integer, subject text, race tex
 gender text, disabil text, lep text, disadva text);
 
 CREATE FUNCTION average_stem_sol(div_num integer, subject text, race text,
-text, disabil text, lep text, disadva text)
+gender text, disabil text, lep text, disadva text)
 RETURNS TABLE(sch_year integer, div_name text, avg_score numeric) AS $$
 
 SELECT DISTINCT sch_year, div_name, CAST(AVG(avg_score) AS DECIMAL(10,2))
