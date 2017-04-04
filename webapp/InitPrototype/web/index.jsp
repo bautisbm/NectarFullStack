@@ -44,12 +44,10 @@
         <h1 style="text-align: center">Stem vs Non-Stem Academic Achievement</h1>
 
         <!-- TODO Step 2: HTML Form -->
+	
+	<a id ="postsec" href="postsecEnroll.jsp" >Click to view Post Secondary Enrollment</a>
 
         <form method="get">
-        <%
-            //String div_nameStem = request.getParameter("div_name");
-        %>
-        <!--Division:<input type="text" name="div_name" id="div_name">-->
         
         <label for="div_numStem">Stem Division:</label>
         <select name="div_numStem" id="div_numStem">
