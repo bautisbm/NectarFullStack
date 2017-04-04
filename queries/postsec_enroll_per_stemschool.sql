@@ -1,3 +1,4 @@
+
 DROP FUNCTION IF EXISTS postsec_enroll_per_stemschool(div_num integer);
 
 CREATE FUNCTION postsec_enroll_per_stemschool(div_num integer)
@@ -15,7 +16,8 @@ WHERE stem.div_num = $1
 	AND lep = 'ALL'
 	AND disadva = 'ALL'
 	AND post.enroll_graduate_cnt > 0 
-	AND post.ps_institution_type = 1
+	AND post.ps_institution_type != 2 
+	AND post.ps_institution_type != 0
 GROUP BY sch_year, stem.sch_name, stem.div_num
 ORDER BY sch_name, sch_year
 
