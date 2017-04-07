@@ -16,3 +16,5 @@ hs_err_pid*
 /webapp/InitPrototype/dist/
 /webapp/WebNectar/nbproject/private/
 /webapp/WebNectar/build/
+/webapp/WebNectar/InitPrototype/build/
+/webapp/WebNectar/InitPrototype/nbproject/private/
