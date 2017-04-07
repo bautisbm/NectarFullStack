@@ -330,10 +330,10 @@ Object[] res =  query.getAVGNonStemData().toArray();
 Object[] res2 =  query.getAVGStemData().toArray();
 %>
 
-function drawNonStemChart() {
-    var data = new google.visualization.DataTable();
+            function drawNonStemChart() {
+                var data = new google.visualization.DataTable();
 
-    data.addColumn('string', 'sch_year');
+                data.addColumn('string', 'sch_year');
                 data.addColumn('number', 'avg_score');
 
 
@@ -415,8 +415,5 @@ function drawNonStemChart() {
             }
             
             </script>
-            
-
-
         </body>
         </html>
