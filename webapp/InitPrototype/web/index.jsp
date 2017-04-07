@@ -196,6 +196,42 @@
         <br><br>
 
         <%
+<<<<<<< HEAD
+         for(int x = 0; x < results2.length; x += 3)
+            {
+                out.println("<tr>");
+                out.println("<td>" + results2[x].toString() + "</td>");
+                out.println("<td>" + results2[x + 1].toString() + "</td>");
+                out.println("<td>" + results2[x + 2].toString() + "</td>");
+                out.println("</tr>");
+            }
+            out.println("</tr>");
+        %>  
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+
+<div id="non_stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>
+<div id="stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>
+<script type="text/javascript">
+google.charts.load('current', {packages: ['corechart', 'line']});
+google.charts.setOnLoadCallback(drawNonStemChart);
+google.charts.setOnLoadCallback(drawStemChart);
+
+<%
+Object[] res =  query.getAVGNonStemData().toArray();
+Object[] res2 =  query.getAVGStemData().toArray();
+%>
+
+            function drawNonStemChart() {
+                var data = new google.visualization.DataTable();
+
+                data.addColumn('string', 'sch_year');
+                data.addColumn('number', 'avg_score');
+=======
             //String subject = request.getParameter("subject");
         %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
@@ -207,6 +243,7 @@
             <option value="ENGW">ENGW</option>
             <option value="HIST">HIST</option>
         </select>
+>>>>>>> 318e220255324d0d63529fb523c5ac31729c1361
 
         
 	<label for="race">Race:</label>
@@ -397,6 +434,11 @@
                 chart.draw(data, google.charts.Line.convertOptions(options));
             }
             
+<<<<<<< HEAD
+            </script>
+        </body>
+        </html>
+=======
             
         </script>
         
@@ -404,3 +446,4 @@
 
     </body>
 </html>
+>>>>>>> 318e220255324d0d63529fb523c5ac31729c1361
