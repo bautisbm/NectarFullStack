@@ -26,3 +26,6 @@ hs_err_pid*
 /webapp/NectarWebApp/dist/
 /webapp/Test/build/
 /webapp/Test/nbproject/private/
+/webapp/NectarNetbeans/nbproject/private/
+/webapp/NectarNetbeans/build/
+/webapp/NectarNetbeans/dist/
