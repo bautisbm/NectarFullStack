@@ -33,11 +33,11 @@ public class Query {
         div_numStem = parseInt(request, "div_numStem");
         div_num = parseInt(request, "div_num");
         subject = parseStr(request, "subject");
-        race = parseStr(request, "race");
-        gender = parseStr(request, "gender");
-        disabil = parseStr(request, "disabil");
-        lep = parseStr(request, "lep");
-        disadva = parseStr(request, "disadva");
+//        race = parseStr(request, "race");
+//        gender = parseStr(request, "gender");
+//        disabil = parseStr(request, "disabil");
+//        lep = parseStr(request, "lep");
+//        disadva = parseStr(request, "disadva");
     }
 
     private int parseInt(HttpServletRequest request, String name) {
@@ -65,7 +65,7 @@ public class Query {
 //            return data;
 //        }
 
-        String sql = "SELECT sch_year, sch_name, avg_score FROM highschscores_per_stemdiv(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "SELECT sch_year, sch_name, avg_score FROM highschscores_per_stemdiv(?, ?)";
 
         try {
             // set the query parameters
@@ -73,11 +73,11 @@ public class Query {
             PreparedStatement st = db.prepareStatement(sql);
             st.setInt(1, div_numStem);
             st.setString(2, subject);
-            st.setString(3, race);
-            st.setString(4, gender);
-            st.setString(5, disabil);
-            st.setString(6, lep);
-            st.setString(7, disadva);
+//            st.setString(3, race);
+//            st.setString(4, gender);
+//            st.setString(5, disabil);
+//            st.setString(6, lep);
+//            st.setString(7, disadva);
 
             ResultSet rs;
             rs = st.executeQuery();
@@ -106,7 +106,7 @@ public class Query {
 //            return data;
 //        }
 
-        String sql = "SELECT sch_year, sch_name, avg_score FROM highschscores_per_nonstemdiv(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "SELECT sch_year, sch_name, avg_score FROM highschscores_per_nonstemdiv(?, ?)";
 
         try {
             // set the query parameters
@@ -114,11 +114,11 @@ public class Query {
             PreparedStatement st = db.prepareStatement(sql);
             st.setInt(1, div_num);
             st.setString(2, subject);
-            st.setString(3, race);
-            st.setString(4, gender);
-            st.setString(5, disabil);
-            st.setString(6, lep);
-            st.setString(7, disadva);
+//            st.setString(3, race);
+//            st.setString(4, gender);
+//            st.setString(5, disabil);
+//            st.setString(6, lep);
+//            st.setString(7, disadva);
 
             ResultSet rs;
             rs = st.executeQuery();
@@ -145,7 +145,7 @@ public class Query {
         data = new ArrayList();
 
 
-        String sql = "SELECT * FROM normDiv_solSubResultavgs(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "SELECT * FROM normDiv_solSubResultavgs(?, ?)";
 
         try {
             // set the query parameters
@@ -153,11 +153,11 @@ public class Query {
             PreparedStatement st = db.prepareStatement(sql);
             st.setInt(1, div_num);
             st.setString(2, subject);
-            st.setString(3, race);
-            st.setString(4, gender);
-            st.setString(5, disabil);
-            st.setString(6, lep);
-            st.setString(7, disadva);
+//            st.setString(3, race);
+//            st.setString(4, gender);
+//            st.setString(5, disabil);
+//            st.setString(6, lep);
+//            st.setString(7, disadva);
 
             ResultSet rs;
             rs = st.executeQuery();
@@ -186,7 +186,7 @@ public class Query {
         
         data = new ArrayList();
         
-        String sql = "SELECT * FROM average_stem_sol(?, ?, ?, ?, ?, ?, ?)";
+        String sql = "SELECT * FROM average_stem_sol(?, ?)";
         //System.out.println("SQL query has been saved in getAvgStem ");
         try {
             Connection db = Database.open();
@@ -195,16 +195,16 @@ public class Query {
             //System.out.println(div_numStem);
             st.setString(2, subject);
             //System.out.println(subject);
-            st.setString(3, race);
-            //System.out.println(race);
-            st.setString(4, gender);
-            //System.out.println(gender);
-            st.setString(5, disabil);
-            //System.out.println(disabil);
-            st.setString(6, lep);
-            //System.out.println(lep);
-            st.setString(7, disadva);
-            //System.out.println(disadva);
+//            st.setString(3, race);
+//            //System.out.println(race);
+//            st.setString(4, gender);
+//            //System.out.println(gender);
+//            st.setString(5, disabil);
+//            //System.out.println(disabil);
+//            st.setString(6, lep);
+//            //System.out.println(lep);
+//            st.setString(7, disadva);
+//            //System.out.println(disadva);
 
             ResultSet rs;
             rs = st.executeQuery();

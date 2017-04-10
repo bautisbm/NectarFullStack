@@ -8,6 +8,7 @@
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script source="https://w3.cs.jmu.edu/mayfiecs/cs474/project/gp4/divsch.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="bootstrapTEST.css">
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
         <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
@@ -21,6 +22,7 @@
         <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
          <!--    background-image: url("hottestMixtape2017.jpg"); -->
          <style>
+             
             table, th, td {
                 border: 1px solid black;
                 border-collapse: collapse;
@@ -31,13 +33,12 @@
                 font-size: 150%;
             }
             body {
-                background-image: url("hottestMixtape2017.jpg");
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-attachment: fixed;               
             }
-        
+            
         </style>
     </head>
     <body>
@@ -46,11 +47,13 @@
         <!-- TODO Step 2: HTML Form -->
 	
 	<a id ="postsec" href="postsecEnroll.jsp" >Click to view Post Secondary Enrollment</a>
-
+        <br><br>
+        
         <form method="get">
         
         <label for="div_numStem">Stem Division:</label>
         <select name="div_numStem" id="div_numStem">
+            <option disabled selected value> -- select an option -- </option>
             <option value="7">Arlington County</option>
             <option value="18">Carroll County</option>
             <option value="21">Chesterfield County</option>
@@ -72,12 +75,10 @@
             <option value="136">Chesapeake City</option>
         </select>
         
-        <%
-            //String div_nameNonStem = request.getParameter("div_nameNonStem");
-        %>
         <!--Division:<input type="text" name="div_name" id="div_name">-->
         <label for="div_num">Non-Stem Division:</label>
         <select id="div_num" name="div_num">
+                <option disabled selected value> -- select an option -- </option>            
          	<option value="1">Accomack County</option>
         	<option value="2">Albemarle County</option>
         	<option value="101">Alexandria City</option>
@@ -194,45 +195,7 @@
         </select>
 
         <br><br>
-
-        <%
-         for(int x = 0; x < results2.length; x += 3)
-            {
-                out.println("<tr>");
-                out.println("<td>" + results2[x].toString() + "</td>");
-                out.println("<td>" + results2[x + 1].toString() + "</td>");
-                out.println("<td>" + results2[x + 2].toString() + "</td>");
-                out.println("</tr>");
-            }
-            out.println("</tr>");
-        %>  
-        </tbody>
-    </table>
-</div>
-</div>
-
-
-
-<div id="non_stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>
-<div id="stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>
-<script type="text/javascript">
-google.charts.load('current', {packages: ['corechart', 'line']});
-google.charts.setOnLoadCallback(drawNonStemChart);
-google.charts.setOnLoadCallback(drawStemChart);
-
-<%
-Object[] res =  query.getAVGNonStemData().toArray();
-Object[] res2 =  query.getAVGStemData().toArray();
-%>
-
-            function drawNonStemChart() {
-                var data = new google.visualization.DataTable();
-
-                data.addColumn('string', 'sch_year');
-                data.addColumn('number', 'avg_score');
-            //String subject = request.getParameter("subject");
-        %>
-        <!--Division:<input type="text" name="div_name" id="div_name">-->
+        
         <label for="subject">Subject:</label>
         <select name="subject" id="subject">
             <option value="MATH">MATH</option>
@@ -243,7 +206,7 @@ Object[] res2 =  query.getAVGStemData().toArray();
         </select>
 
         
-	<label for="race">Race:</label>
+	<!--<label for="race">Race:</label>
 	<select name="race" id="race">
 		<option value="ALL">ALL</option>
 		<option value="0">unspecified</option>
@@ -284,23 +247,36 @@ Object[] res2 =  query.getAVGStemData().toArray();
 		<option value="ALL">ALL</option>
 		<option value="Y">Y</option>
 		<option value="N">N</option>
-	</select>
+	</select>-->
         <br><br>
 	<input type="submit">
 </form>
+
         <%
             Query query = new Query(request);
-        %>
+        %>  
+        </tbody>
+    </table>
+</div>
+</div>
+
+
+
+<!--<div id="non_stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>
+<div id="stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>-->
+
         <script>
             document.getElementById("div_numStem").value = "<%= query.div_numStem %>";
             document.getElementById("div_num").value = "<%= query.div_num %>";
             document.getElementById("subject").value = "<%= query.subject %>";
-            document.getElementById("race").value = "<%= query.race %>";
+            
+            <%--document.getElementById("race").value = "<%= query.race %>";
             document.getElementById("gender").value = "<%= query.gender %>";
             document.getElementById("disabil").value = "<%= query.disabil %>";
             document.getElementById("lep").value = "<%= query.lep %>";
-            document.getElementById("disadva").value = "<%= query.disadva %>";
+            document.getElementById("disadva").value = "<%= query.disadva %>";--%>
         </script>
+
 
         
         
@@ -310,7 +286,7 @@ Object[] res2 =  query.getAVGStemData().toArray();
            Object[] results2 = query.getStemData().toArray();
         %>        
         
-        <div style="align-content: center; max-width: 940px">
+        <div style="align-content: center; ">
           <h1 style='text-align: center'>Results</h1>
             <div style="float: left;padding:10px">
                 <!--<h2>Non-STEM</h2> -->
@@ -434,10 +410,5 @@ Object[] res2 =  query.getAVGStemData().toArray();
             </script>
         </body>
         </html>
-            
-        </script>
-        
-
-
     </body>
 </html>
