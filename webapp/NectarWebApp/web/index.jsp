@@ -58,7 +58,7 @@
             <option value="18">Carroll County - 2011</option>
             <option value="21">Chesterfield County - 2010</option>
             <option value="29">Fairfax County - 2013</option>
-            <!--<option value="41">Halifax County - </option>-->
+            <option value="41">Halifax County - </option>
             <option value="53">Loudoun County - 2008</option>
             <option value="60">Montgomery County - 2013</option>
             <option value="63">New Kent County - 2012</option>
