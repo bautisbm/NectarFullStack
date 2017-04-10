@@ -3,9 +3,9 @@
 --
 
 
-DROP FUNCTION IF EXISTS stemDiv_SolSubResultavgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text);
+DROP FUNCTION IF EXISTS stemDiv_SolSubResultavgs(div_num integer, subject text);
 
-CREATE FUNCTION stemDiv_SolSubResultavgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text)
+CREATE FUNCTION stemDiv_SolSubResultavgs(div_num integer, subject text)
 RETURNS TABLE(sch_year integer, div_name text, avg_score numeric) AS $$
 
 SELECT DISTINCT sch_year, div_name AS div, CAST(AVG(avg_score) AS DECIMAL(10,2))
@@ -16,11 +16,11 @@ WHERE stem.div_num = $1
         AND sch.sch_name LIKE '%High%'
         AND sol.subject = $2
         AND sol.test_name = 'ALL'
-        AND race = $3
-        AND gender = $4
-        AND disabil = $5
-        AND lep = $6
-        AND disadva = $7
+        AND race = 'ALL'
+        AND gender = 'ALL'
+        AND disabil = 'ALL'
+        AND lep = 'ALL'
+        AND disadva = 'ALL'
         AND sch_year >= 2012
 GROUP BY sch_year, div_name
 ORDER BY sch_year
@@ -28,4 +28,4 @@ ORDER BY sch_year
 
 $$ LANGUAGE SQL STABLE STRICT;
 
-ALTER FUNCTION stemDiv_SolSubResultavgs(div_num integer, subject text, race text, gender text, disabil text, lep text, disadva text) OWNER TO nectar;
+ALTER FUNCTION stemDiv_SolSubResultavgs(div_num integer, subject text) OWNER TO nectar;
