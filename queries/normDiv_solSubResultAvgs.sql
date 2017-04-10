@@ -22,7 +22,7 @@ WHERE sch.sch_name LIKE '%High%'
 	AND disabil = 'ALL'
 	AND lep = 'ALL'
 	AND disadva = 'ALL'
-	AND sch_year >= 2012
+	AND sch_year >= 2008
 GROUP BY sch_year, div
 ORDER BY sch_year, div
 

@@ -21,7 +21,7 @@ WHERE stem.div_num = $1
     AND disabil = 'ALL'
     AND lep = 'ALL'
     AND disadva = 'ALL'
-    AND sch_year >= 2012
+    AND sch_year >= 2008
 GROUP BY sch_year, div_name
 ORDER BY sch_year;
 
