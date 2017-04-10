@@ -19,8 +19,6 @@
             });		
         </script>
         
-        <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
-         <!--    background-image: url("hottestMixtape2017.jpg"); -->
          <style>
              
             table, th, td {
@@ -44,7 +42,6 @@
     <body>
         <h1 style="text-align: center">Stem vs Non-Stem Academic Achievement</h1>
 
-        <!-- TODO Step 2: HTML Form -->
 	
 	<a id ="postsec" href="postsecEnroll.jsp" >Click to view Post Secondary Enrollment</a>
         <br><br>
@@ -75,7 +72,6 @@
             <option value="136">Chesapeake City - 2012</option>
         </select>
         
-        <!--Division:<input type="text" name="div_name" id="div_name">-->
         <label for="div_num">Non-Stem Division:</label>
         <select id="div_num" name="div_num">
                 <option disabled selected value> -- select an option -- </option>            
@@ -207,48 +203,7 @@
         </select>
 
         
-	<!--<label for="race">Race:</label>
-	<select name="race" id="race">
-		<option value="ALL">ALL</option>
-		<option value="0">unspecified</option>
-		<option value="1">American Indian/Alaska Native</option>
-		<option value="3">Black or African/American</option>
-		<option value="4">Hispanic of any race</option>
-		<option value="5">White</option>
-		<option value="6">Native Hawaiian/Other Pacific Islander</option>
-		<option value="99">Two or more races, non-Hispanic</option>
-	</select>
-        
-        <br><br>
-        
-	<label for="gender">Gender:</label>
-	<select name="gender" id="gender">
-		<option value="ALL">ALL</option>
-		<option value="M">M</option>
-		<option value="F">F</option>
-	</select>
 
-
-	<label for="disabil">Disability:</label>
-	<select name="disabil" id="disabil">
-		<option value="ALL">ALL</option>
-		<option value="Y">Y</optio n>
-		<option value="N">N</option>
-	</select>
-
-	<label for="lep">LEP:</label>
-	<select name="lep" id="lep">
-		<option value="ALL">ALL</option>
-		<option value="Y">Y</option>
-		<option value="N">N</option>
-	</select>
-
-	<label for="disadva">Disadvantaged:</label>
-	<select name="disadva" id="disadva">
-		<option value="ALL">ALL</option>
-		<option value="Y">Y</option>
-		<option value="N">N</option>
-	</select>-->
         <br><br>
 	<input type="submit">
 </form>
@@ -263,19 +218,10 @@
 
 
 
-<!--<div id="non_stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>
-<div id="stem_chart_div" style="float: left; width: 700px; height: 350px;"></div>-->
-
         <script>
             document.getElementById("div_numStem").value = "<%= query.div_numStem %>";
             document.getElementById("div_num").value = "<%= query.div_num %>";
             document.getElementById("subject").value = "<%= query.subject %>";
-            
-            <%--document.getElementById("race").value = "<%= query.race %>";
-            document.getElementById("gender").value = "<%= query.gender %>";
-            document.getElementById("disabil").value = "<%= query.disabil %>";
-            document.getElementById("lep").value = "<%= query.lep %>";
-            document.getElementById("disadva").value = "<%= query.disadva %>";--%>
         </script>
 
 
