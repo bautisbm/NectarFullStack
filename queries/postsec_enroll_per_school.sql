@@ -1,7 +1,7 @@
-DROP FUNCTION IF EXISTS postsec_enroll_per_school(div_num integer);
+﻿DROP FUNCTION IF EXISTS postsec_enroll_per_school(div_num integer);
 
 CREATE FUNCTION postsec_enroll_per_school(div_num integer)
-RETURNS TABLE(sch_year integer, sch_name text, total_enrollment_cnt bigint) AS $$
+RETURNS TABLE(sch_year integer, div_name text, total_enrollment_cnt bigint) AS $$
 
 
 SELECT DISTINCT post.sch_year, sch.sch_name, SUM (ps_enrollment_cnt) as total_enrollment_cnt

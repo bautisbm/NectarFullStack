@@ -277,8 +277,7 @@
                         </tr>
                     </thead>
                         <tbody>
-
-                           <%
+                            <%
                                 for(int x = 0; x < results2.length; x += 3)
                                 {
                                     out.println("<tr>");
@@ -288,7 +287,6 @@
                                     out.println("</tr>");
                                 }
                                     out.println("</tr>");
-
                             %>  
                         </tbody>
                 </table>
