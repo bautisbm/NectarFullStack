@@ -5,7 +5,7 @@
 .mtj.tmp/
 
 # Package Files #
-*.jar
+
 *.war
 *.ear
 
@@ -13,3 +13,19 @@
 hs_err_pid*
 /webapp/InitPrototype/nbproject/private/
 /webapp/InitPrototype/build/
+/webapp/InitPrototype/dist/
+/webapp/WebNectar/nbproject/private/
+/webapp/WebNectar/build/
+/webapp/WebNectar/InitPrototype/build/
+/webapp/WebNectar/InitPrototype/nbproject/private/
+/webapp/NectarWeb/dist/
+/webapp/NectarWeb/build/
+/webapp/NectarWeb/nbproject/private/
+/webapp/NectarWebApp/build/
+/webapp/NectarWebApp/nbproject/private/
+/webapp/NectarWebApp/dist/
+/webapp/Test/build/
+/webapp/Test/nbproject/private/
+/webapp/NectarNetbeans/nbproject/private/
+/webapp/NectarNetbeans/build/
+/webapp/NectarNetbeans/dist/

@@ -54,25 +54,25 @@
         <label for="div_numStem">Stem Division:</label>
         <select name="div_numStem" id="div_numStem">
             <option disabled selected value> -- select an option -- </option>
-            <option value="7">Arlington County</option>
-            <option value="18">Carroll County</option>
-            <option value="21">Chesterfield County</option>
-            <option value="29">Fairfax County</option>
-            <option value="41">Halifax County</option>
-            <option value="53">Loudoun County</option>
-            <option value="60">Montgomery County</option>
-            <option value="63">New Kent County</option>
-            <option value="77">Pulaski County</option>
-            <option value="80">Roanoke County</option>
-            <option value="83">Russell County</option>
-            <option value="89">Stafford County</option>
-            <option value="112">Hampton City</option>
-            <option value="113">Harrisonburg City</option>
-            <option value="115">Lynchburg City</option>
-            <option value="117">Newport News City</option>
-            <option value="123">Richmond City</option>
-            <option value="128">Virginia Beach City</option>
-            <option value="136">Chesapeake City</option>
+            <option value="7">Arlington County - 2008</option>
+            <option value="18">Carroll County - 2011</option>
+            <option value="21">Chesterfield County - 2010</option>
+            <option value="29">Fairfax County - 2013</option>
+            <!--<option value="41">Halifax County - </option>-->
+            <option value="53">Loudoun County - 2008</option>
+            <option value="60">Montgomery County - 2013</option>
+            <option value="63">New Kent County - 2012</option>
+            <option value="77">Pulaski County - 2013</option>
+            <option value="80">Roanoke County - 2012</option>
+            <option value="83">Russell County - 2008</option>
+            <option value="89">Stafford County - 2008</option>
+            <option value="112">Hampton City - 2014</option>
+            <option value="113">Harrisonburg City - 2013</option>
+            <option value="115">Lynchburg City - 2013</option>
+            <option value="117">Newport News City - 2013</option>
+            <option value="123">Richmond City - 2009</option>
+            <option value="128">Virginia Beach City - 2012</option>
+            <option value="136">Chesapeake City - 2012</option>
         </select>
         
         <!--Division:<input type="text" name="div_name" id="div_name">-->
@@ -198,6 +198,7 @@
         
         <label for="subject">Subject:</label>
         <select name="subject" id="subject">
+            <option disabled selected value> -- select an option -- </option>            
             <option value="MATH">MATH</option>
             <option value="SCI">SCI</option>
             <option value="ENGR">ENGR</option>

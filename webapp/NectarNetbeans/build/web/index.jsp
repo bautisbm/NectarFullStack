@@ -54,11 +54,11 @@
         <label for="div_numStem">Stem Division:</label>
         <select name="div_numStem" id="div_numStem">
             <option disabled selected value> -- select an option -- </option>
-            <option value="7">Arlington County</option>
-            <option value="18">Carroll County</option>
-            <option value="21">Chesterfield County</option>
-            <option value="29">Fairfax County</option>
-            <option value="41">Halifax County</option>
+            <option value="7">Arlington County - 2008</option>
+            <option value="18">Carroll County - 2011</option>
+            <option value="21">Chesterfield County - 2010</option>
+            <option value="29">Fairfax County - 2013</option>
+            <option value="41">Halifax County - </option>
             <option value="53">Loudoun County</option>
             <option value="60">Montgomery County</option>
             <option value="63">New Kent County</option>
@@ -72,7 +72,7 @@
             <option value="117">Newport News City</option>
             <option value="123">Richmond City</option>
             <option value="128">Virginia Beach City</option>
-            <option value="136">Chesapeake City</option>
+            <option value="136">Chesapeake City - 2012</option>
         </select>
         
         <!--Division:<input type="text" name="div_name" id="div_name">-->
@@ -198,6 +198,7 @@
         
         <label for="subject">Subject:</label>
         <select name="subject" id="subject">
+            <option disabled selected value> -- select an option -- </option>            
             <option value="MATH">MATH</option>
             <option value="SCI">SCI</option>
             <option value="ENGR">ENGR</option>
