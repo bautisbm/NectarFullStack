@@ -198,6 +198,7 @@
         
         <label for="subject">Subject:</label>
         <select name="subject" id="subject">
+            <option disabled selected value> -- select an option -- </option>            
             <option value="MATH">MATH</option>
             <option value="SCI">SCI</option>
             <option value="ENGR">ENGR</option>
