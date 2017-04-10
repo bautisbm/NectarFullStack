@@ -73,7 +73,7 @@ psql -c "COPY (
       enroll_graduate_cnt, ps_institution_type,
       ps_enrollment_cnt
     FROM postsec_enroll
-    WHERE sch_year = 2014
+    WHERE sch_year IN(2008,2009,2010)
   ) TO STDOUT;" vdoe | \
   psql -c "COPY postsec_enroll FROM STDIN;" nectar
 
