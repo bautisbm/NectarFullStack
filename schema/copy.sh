@@ -105,13 +105,35 @@ psql -c "COPY (
 echo COPY college FROM csv
 psql -c "\copy college FROM college.csv WITH CSV HEADER" nectar
 
+echo COPY 2008_cohort FROM csv
+psql -c "\copy 2008_cohort FROM 2008_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2009_cohort FROM csv
+psql -c "\copy 2009_cohort FROM 2009_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2010_cohort FROM csv
+psql -c "\copy 2010_cohort FROM 2010_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2011_cohort FROM csv
+psql -c "\copy 2011_cohort FROM 2011_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2012_cohort FROM csv
+psql -c "\copy 2012_cohort FROM 2012_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2013_cohort FROM csv
+psql -c "\copy 2013_cohort FROM 2013_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2014_cohort FROM csv
+psql -c "\copy 2014_cohort FROM 2014_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2015_cohort FROM csv
+psql -c "\copy 2015_cohort FROM 2015_cohort.csv WITH CSV HEADER" nectar
 
 echo COPY cte_comp FROM csv
 psql -c "\copy cte_comp FROM cte_comp.csv WITH CSV HEADER" nectar
 
 echo COPY stem_schools from csv
 psql -c "\copy stem_schools FROM stem_schools.csv WITH CSV HEADER" nectar
-
 
 echo COPY school from csv
 psql -c "\copy school FROM schools.csv WITH CSV HEADER" nectar
