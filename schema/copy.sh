@@ -52,19 +52,19 @@ psql -c "COPY (
 
 
 echo COPY 2011_cohort FROM csv
-psql -c "\copy cohort FROM 2011_cohort.csv WITH CSV HEADER" nectar
+psql -c "\copy postsec_enroll FROM 2011_cohort.csv WITH CSV HEADER" nectar
 
 echo COPY 2012_cohort FROM csv
-psql -c "\copy cohort FROM 2012_cohort.csv WITH CSV HEADER" nectar
+psql -c "\copy postsec_enroll FROM 2012_cohort.csv WITH CSV HEADER" nectar
 
 echo COPY 2013_cohort FROM csv
-psql -c "\copy cohort FROM 2013_cohort.csv WITH CSV HEADER" nectar
+psql -c "\copy postsec_enroll FROM 2013_cohort.csv WITH CSV HEADER" nectar
 
 echo COPY 2014_cohort FROM csv
-psql -c "\copy cohort FROM 2014_cohort.csv WITH CSV HEADER" nectar
+psql -c "\copy postsec_enroll FROM 2014_cohort.csv WITH CSV HEADER" nectar
 
 echo COPY 2015_cohort FROM csv
-psql -c "\copy cohort FROM 2015_cohort.csv WITH CSV HEADER" nectar
+psql -c "\copy postsec_enroll FROM 2015_cohort.csv WITH CSV HEADER" nectar
 
 echo COPY enroll FROM vdoe
 psql -c "COPY (
