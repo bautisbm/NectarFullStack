@@ -38,7 +38,33 @@ psql -c "COPY (
 	psql -c "COPY non_stem_schools FROM STDIN;" nectar
 
 
+echo COPY postsec_enroll FROM vdoe
+psql -c "COPY (
+    SELECT
+      sch_year, div_num, sch_num,
+      race, gender, disabil, lep, disadva,
+      enroll_graduate_cnt, ps_institution_type,
+      ps_enrollment_cnt
+    FROM postsec_enroll
+    WHERE sch_year IN(2008,2009,2010)
+  ) TO STDOUT;" vdoe | \
+  psql -c "COPY postsec_enroll FROM STDIN;" nectar
 
+
+echo COPY 2011_cohort FROM csv
+psql -c "\copy cohort FROM 2011_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2012_cohort FROM csv
+psql -c "\copy cohort FROM 2012_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2013_cohort FROM csv
+psql -c "\copy cohort FROM 2013_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2014_cohort FROM csv
+psql -c "\copy cohort FROM 2014_cohort.csv WITH CSV HEADER" nectar
+
+echo COPY 2015_cohort FROM csv
+psql -c "\copy cohort FROM 2015_cohort.csv WITH CSV HEADER" nectar
 
 echo COPY enroll FROM vdoe
 psql -c "COPY (
@@ -64,18 +90,6 @@ psql -c "COPY (
   ) TO STDOUT;" vdoe | \
   psql -c "COPY sol_test_data FROM STDIN;" nectar
 
-
-echo COPY postsec_enroll FROM vdoe
-psql -c "COPY (
-    SELECT
-      sch_year, div_num, sch_num,
-      race, gender, disabil, lep, disadva,
-      enroll_graduate_cnt, ps_institution_type,
-      ps_enrollment_cnt
-    FROM postsec_enroll
-    WHERE sch_year IN(2008,2009,2010)
-  ) TO STDOUT;" vdoe | \
-  psql -c "COPY postsec_enroll FROM STDIN;" nectar
 
 
 echo COPY hs_graduate FROM vdoe
@@ -105,29 +119,6 @@ psql -c "COPY (
 echo COPY college FROM csv
 psql -c "\copy college FROM college.csv WITH CSV HEADER" nectar
 
-echo COPY 2008_cohort FROM csv
-psql -c "\copy 2008_cohort FROM 2008_cohort.csv WITH CSV HEADER" nectar
-
-echo COPY 2009_cohort FROM csv
-psql -c "\copy 2009_cohort FROM 2009_cohort.csv WITH CSV HEADER" nectar
-
-echo COPY 2010_cohort FROM csv
-psql -c "\copy 2010_cohort FROM 2010_cohort.csv WITH CSV HEADER" nectar
-
-echo COPY 2011_cohort FROM csv
-psql -c "\copy 2011_cohort FROM 2011_cohort.csv WITH CSV HEADER" nectar
-
-echo COPY 2012_cohort FROM csv
-psql -c "\copy 2012_cohort FROM 2012_cohort.csv WITH CSV HEADER" nectar
-
-echo COPY 2013_cohort FROM csv
-psql -c "\copy 2013_cohort FROM 2013_cohort.csv WITH CSV HEADER" nectar
-
-echo COPY 2014_cohort FROM csv
-psql -c "\copy 2014_cohort FROM 2014_cohort.csv WITH CSV HEADER" nectar
-
-echo COPY 2015_cohort FROM csv
-psql -c "\copy 2015_cohort FROM 2015_cohort.csv WITH CSV HEADER" nectar
 
 echo COPY cte_comp FROM csv
 psql -c "\copy cte_comp FROM cte_comp.csv WITH CSV HEADER" nectar
