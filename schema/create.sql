@@ -127,7 +127,7 @@ CREATE TABLE postsec_enroll(
 	    sch_num integer,
         sch_name text,
    	    race text NOT NULL,
-    	gender text NOT NULL,
+    	gender text,
     	disabil text NOT NULL,
     	lep text NOT NULL,
     	disadva text NOT NULL,
