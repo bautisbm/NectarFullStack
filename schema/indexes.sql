@@ -12,4 +12,5 @@ CREATE INDEX ON ontime_cohort (div_num, sch_num);
 CREATE INDEX ON postsec_enroll (sch_year);
 CREATE INDEX ON postsec_enroll (div_num, sch_num);
 
+
 CREATE INDEX ON stem_schools (div_num, sch_num);
