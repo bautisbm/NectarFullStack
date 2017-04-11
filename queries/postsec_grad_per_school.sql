@@ -1,6 +1,6 @@
-﻿DROP FUNCTION IF EXISTS postsec_enroll_per_school(div_num integer);
+﻿DROP FUNCTION IF EXISTS postsec_grad_per_school(div_num integer);
 
-CREATE FUNCTION postsec_enroll_per_school(div_num integer)
+CREATE FUNCTION postsec_grad_per_school(div_num integer)
 RETURNS TABLE(sch_year integer, div_name text, total_enrollment_cnt bigint) AS $$
 
 
@@ -23,4 +23,4 @@ ORDER BY sch_name, sch_year
 
 $$ LANGUAGE SQL STABLE STRICT;
 
-ALTER FUNCTION postsec_enroll_per_school(div_num integer) OWNER TO nectar;
+ALTER FUNCTION postsec_grad_per_school(div_num integer) OWNER TO nectar;
