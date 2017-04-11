@@ -121,24 +121,21 @@ DROP TABLE IF EXISTS postsec_enroll;
 
 CREATE TABLE postsec_enroll(
 	    sch_year integer NOT NULL,
-	    level_code text NOT NULL,
         div_num integer NOT NULL,
-        div_name text NOT NULL,
 	    sch_num integer,
-        sch_name text,
-   	    race text,
-    	gender text,
-    	disabil text,
-    	lep text,
-    	disadva text,
-	    ps_institution_type integer,
-        enroll_graduate_cnt integer NOT NULL,
+   	    race text NOT NULL,
+    	gender text NOT NULL,
+    	disabil text NOT NULL,
+    	lep text NOT NULL,
+    	disadva text NOT NULL,
+        enroll_graduate_cnt integer NOT NULL,	
+	    ps_institution_type integer NOT NULL,
 	    ps_enrollment_cnt integer NOT NULL
 );
 
 ALTER TABLE postsec_enroll OWNER TO nectar;
 
-COMMENT ON TABLE postsec_enroll IS 'post secondary enrollment data per division/school';
+COMMENT ON TABLE postsec_enroll IS 'HS grads who enrolled in public higher ed in VA and earned credit';
 
 
 

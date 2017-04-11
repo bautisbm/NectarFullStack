@@ -39,32 +39,6 @@ psql -c "COPY (
 
 
 
-echo COPY 2008_postsec_enroll FROM csv
-psql -c "\copy postsec_enroll FROM 2008_postsec_enroll.csv WITH CSV HEADER" nectar
-
-
-echo COPY 2009_postsec_enroll FROM csv
-psql -c "\copy postsec_enroll FROM 2009_postsec_enroll.csv WITH CSV HEADER" nectar
-
-
-echo COPY 2010_postsec_enroll FROM csv
-psql -c "\copy postsec_enroll FROM 2010_postsec_enroll.csv WITH CSV HEADER" nectar
-
-
-echo COPY 2011_postsec_enroll FROM csv
-psql -c "\copy postsec_enroll FROM 2011_postsec_enroll.csv WITH CSV HEADER" nectar
-
-
-echo COPY 2012_postsec_enroll FROM csv
-psql -c "\copy postsec_enroll FROM 2012_postsec_enroll.csv WITH CSV HEADER" nectar
-
-
-echo COPY 2013_postsec_enroll FROM csv
-psql -c "\copy postsec_enroll FROM 2013_postsec_enroll.csv WITH CSV HEADER" nectar
-
-
-echo COPY 2014_postsec_enroll FROM csv
-psql -c "\copy postsec_enroll FROM 2014_postsec_enroll.csv WITH CSV HEADER" nectar
 
 echo COPY enroll FROM vdoe
 psql -c "COPY (
@@ -92,6 +66,25 @@ psql -c "COPY (
 
 
 
+echo COPY postsec_enroll FROM absent
+psql -c "COPY (
+   SELECT
+     substr(school_year, 1, 4)::integer,
+     COALESCE(div_num::integer, 0),
+     COALESCE(sch_num::integer, 0),
+     COALESCE(federal_race_code, 'ALL'),
+     COALESCE(gender, 'ALL'),
+     COALESCE(disability_flag, 'ALL'),
+     COALESCE(lep_flag, 'ALL'),
+     COALESCE(disadvantaged_flag, 'ALL'),
+     cohort_graduate_cnt,
+     COALESCE(ps_institution_type::integer, 0),
+     ps_enrollment_cnt
+   FROM postsec_enroll
+ ) TO STDOUT;" absent | \
+ psql -c "COPY postsec_enroll FROM STDIN;" nectar
+
+
 echo COPY hs_graduate FROM vdoe
 psql -c "COPY (
     SELECT
@@ -114,10 +107,6 @@ psql -c "COPY (
     WHERE sch_year = 2014
   ) TO STDOUT;" vdoe | \
   psql -c "COPY ontime_cohort FROM STDIN;" nectar
-
-
-echo COPY college FROM csv
-psql -c "\copy college FROM college.csv WITH CSV HEADER" nectar
 
 
 echo COPY cte_comp FROM csv
