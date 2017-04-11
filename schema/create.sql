@@ -131,7 +131,7 @@ CREATE TABLE postsec_enroll(
     	disabil text NOT NULL,
     	lep text NOT NULL,
     	disadva text NOT NULL,
-	    ps_institution_type integer NOT NULL,
+	    ps_institution_type integer,
         enroll_graduate_cnt integer NOT NULL,
 	    ps_enrollment_cnt integer NOT NULL
 );
