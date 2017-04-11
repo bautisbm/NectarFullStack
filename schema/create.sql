@@ -121,15 +121,18 @@ DROP TABLE IF EXISTS postsec_enroll;
 
 CREATE TABLE postsec_enroll(
 	    sch_year integer NOT NULL,
-	    div_num integer NOT NULL,
+	    level_code text NOT NULL,
+        div_num integer NOT NULL,
+        div_name text NOT NULL,
 	    sch_num integer NOT NULL,
-   	  race text NOT NULL,
+        sch_name text NOT NULL,
+   	    race text NOT NULL,
     	gender text NOT NULL,
     	disabil text NOT NULL,
     	lep text NOT NULL,
     	disadva text NOT NULL,
-	    enroll_graduate_cnt integer NOT NULL,
 	    ps_institution_type integer NOT NULL,
+        enroll_graduate_cnt integer NOT NULL,
 	    ps_enrollment_cnt integer NOT NULL
 );
 

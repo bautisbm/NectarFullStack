@@ -51,20 +51,32 @@ psql -c "COPY (
   psql -c "COPY postsec_enroll FROM STDIN;" nectar
 
 
-echo COPY 2011_cohort FROM csv
-psql -c "\copy postsec_enroll FROM 2011_cohort.csv WITH CSV HEADER" nectar
+echo COPY 2008_postsec_enroll FROM csv
+psql -c "\copy postsec_enroll FROM 2008_postsec_enroll.csv WITH CSV HEADER" nectar
 
-echo COPY 2012_cohort FROM csv
-psql -c "\copy postsec_enroll FROM 2012_cohort.csv WITH CSV HEADER" nectar
 
-echo COPY 2013_cohort FROM csv
-psql -c "\copy postsec_enroll FROM 2013_cohort.csv WITH CSV HEADER" nectar
+echo COPY 2009_postsec_enroll FROM csv
+psql -c "\copy postsec_enroll FROM 2009_postsec_enroll.csv WITH CSV HEADER" nectar
 
-echo COPY 2014_cohort FROM csv
-psql -c "\copy postsec_enroll FROM 2014_cohort.csv WITH CSV HEADER" nectar
 
-echo COPY 2015_cohort FROM csv
-psql -c "\copy postsec_enroll FROM 2015_cohort.csv WITH CSV HEADER" nectar
+echo COPY 2010_postsec_enroll FROM csv
+psql -c "\copy postsec_enroll FROM 2010_postsec_enroll.csv WITH CSV HEADER" nectar
+
+
+echo COPY 2011_postsec_enroll FROM csv
+psql -c "\copy postsec_enroll FROM 2011_postsec_enroll.csv WITH CSV HEADER" nectar
+
+
+echo COPY 2012_postsec_enroll FROM csv
+psql -c "\copy postsec_enroll FROM 2012_postsec_enroll.csv WITH CSV HEADER" nectar
+
+
+echo COPY 2013_postsec_enroll FROM csv
+psql -c "\copy postsec_enroll FROM 2013_postsec_enroll.csv WITH CSV HEADER" nectar
+
+
+echo COPY 2014_postsec_enroll FROM csv
+psql -c "\copy postsec_enroll FROM 2014_postsec_enroll.csv WITH CSV HEADER" nectar
 
 echo COPY enroll FROM vdoe
 psql -c "COPY (
