@@ -11,6 +11,19 @@
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
         <link rel="stylesheet" type="text/css" href="toolbar.css">        
         <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
+        
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A layout example that shows off a responsive product landing page.">
+        <title>Data-bassnectar &ndash; Layout Examples &ndash; Pure</title>
+
+        <link rel="stylesheet" href="css/layouts/test.css">
+
+        <link rel="stylesheet" href="css/layouts/grids-responsive-min.css">
+
+        <link rel="stylesheet" href="css/layouts/font-awesome.css">
+
+        <link rel="stylesheet" href="css/layouts/marketing.css">
 
         <script type="text/javascript">
             $(document).ready(function(){
@@ -18,9 +31,7 @@
                 $('#stem').DataTable();
             });		
         </script>
-        
-        <!--<link rel="stylesheet" type="text/css" href="background.css" />-->
-         <!--    background-image: url("hottestMixtape2017.jpg"); -->
+
          <style>
             table, th, td {
                 border: 1px solid black;
@@ -35,18 +46,19 @@
         </style>
     </head>
     <body>
-        <h1 style="text-align: center">Stem vs Non-Stem Post Secondary Enrollment</h1>
-
-
-
-
         
-        <nav>
-            <ul>
-                <li><a id ="home" href="index.jsp" >Home</a></li>                
-                <li><a id ="sol" href="sol.jsp" >SOL Scores</a></li>
-            </ul>
-        </nav>
+        <div class="header">
+            <div class="home-menu pure-menu pure-menu-horizontal pure-menu-fixed">
+                <a class="pure-menu-heading" href="index.html">Home</a>
+
+                <ul class="pure-menu-list">
+                    <li class="pure-menu-item"><a href="#" class="pure-menu-link">Graduation Rate</a></li>
+                    <li class="pure-menu-item"><a href="sol.jsp" class="pure-menu-link">SOL Scores</a></li>
+                    <li class="pure-menu-item"><a href="postsecEnroll.jsp" class="pure-menu-link">Postsecondary Enrollment</a></li>
+                </ul>
+            </div>
+        </div>
+        <h1 style="text-align: center">Stem vs Non-Stem Post Secondary Enrollment</h1>
 
         <form method="get">
         
