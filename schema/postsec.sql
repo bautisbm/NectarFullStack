@@ -10,7 +10,7 @@ SELECT DISTINCT p.div_num, p.sch_num, p.sch_name, s.sch_num AS fix_num
 FROM postsec_enroll AS p LEFT JOIN spelling AS s
      ON p.div_num = s.div_num
     AND (p.sch_num IS NULL AND s.sch_num IS NULL
-        OR (s.sch_num LIKE p.sch_num || '_')) -- missing digit
+        OR (s.sch_num LIKE p.sch_num::text || '_')) -- missing digit
     AND p.sch_name = s.sch_name
 ORDER BY p.div_num, p.sch_num, p.sch_name, s.sch_num;
 
