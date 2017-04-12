@@ -9,6 +9,7 @@
         <script source="https://w3.cs.jmu.edu/mayfiecs/cs474/project/gp4/divsch.js"></script>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         <link rel="stylesheet" type="text/css" href="//cdn.datatables.net/1.10.13/css/jquery.dataTables.css">
+        <link rel="stylesheet" type="text/css" href="toolbar.css">        
         <script type="text/javascript" charset="utf8" src="//cdn.datatables.net/1.10.13/js/jquery.dataTables.js"></script>
 
         <script type="text/javascript">
@@ -36,9 +37,16 @@
     <body>
         <h1 style="text-align: center">Stem vs Non-Stem Post Secondary Enrollment</h1>
 
-        <!-- TODO Step 2: HTML Form -->
+
+
+
         
-        <a id ="back" href="index.jsp" >Back</a>
+        <nav>
+            <ul>
+                <li><a id ="home" href="index.jsp" >Home</a></li>                
+                <li><a id ="sol" href="sol.jsp" >SOL Scores</a></li>
+            </ul>
+        </nav>
 
         <form method="get">
         
