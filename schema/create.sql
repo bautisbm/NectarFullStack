@@ -1,3 +1,20 @@
+DROP TABLE IF EXISTS spelling;
+
+CREATE TABLE spelling (
+
+	div_num text,
+	sch_num text,
+	sch_name text
+);
+
+ALTER TABLE spelling OWNER TO nectar;
+
+COMMENT ON TABLE spelling IS 'spelling csv';
+
+
+
+
+
 DROP TABLE IF EXISTS division;
 
 CREATE TABLE division (

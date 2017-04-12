@@ -109,6 +109,9 @@ psql -c "COPY (
   psql -c "COPY ontime_cohort FROM STDIN;" nectar
 
 
+echo COPY spelling from csv
+psql -c "\copy spelling FROM spelling.csv WITH CSV HEADER" nectar
+
 echo COPY cte_comp FROM csv
 psql -c "\copy cte_comp FROM cte_comp.csv WITH CSV HEADER" nectar
 
