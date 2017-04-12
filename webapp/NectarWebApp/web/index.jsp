@@ -18,5 +18,11 @@
             </ul>
         </nav>
         <br><br>
+        
+        <h2 style="text-align: center">Purpose Statement</h2>
+        <h4 style="text-align: center">Our goal was to find differences in SOL scores and postsecondary achievement
+             between high schools in STEM counties versus those in normal division. A STEM county
+             is considered as such when it contains a STEM institution in which high school
+             students may attend.</h4>
     </body>
 </html>
