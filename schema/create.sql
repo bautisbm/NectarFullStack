@@ -139,7 +139,7 @@ DROP TABLE IF EXISTS postsec_enroll;
 CREATE TABLE postsec_enroll(
 	    sch_year integer NOT NULL,
         div_num integer NOT NULL,
-	    sch_num integer,
+	    sch_num integer NOT NULL,
    	    race text NOT NULL,
     	gender text NOT NULL,
     	disabil text NOT NULL,

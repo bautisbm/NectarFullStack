@@ -44,6 +44,7 @@
                 font-size: 150%;
             }
             body {
+               /* background-color: rgb(45,62,80);*/
                 background-size: cover;
                 background-position: center;
                 background-repeat: no-repeat;

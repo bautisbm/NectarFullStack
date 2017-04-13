@@ -65,24 +65,16 @@ psql -c "COPY (
   psql -c "COPY sol_test_data FROM STDIN;" nectar
 
 
-
-echo COPY postsec_enroll FROM absent
+echo COPY postsec_enroll FROM vdoe
 psql -c "COPY (
-   SELECT
-     substr(school_year, 1, 4)::integer,
-     COALESCE(div_num::integer, 0),
-     COALESCE(sch_num::integer, 0),
-     COALESCE(federal_race_code, 'ALL'),
-     COALESCE(gender, 'ALL'),
-     COALESCE(disability_flag, 'ALL'),
-     COALESCE(lep_flag, 'ALL'),
-     COALESCE(disadvantaged_flag, 'ALL'),
-     cohort_graduate_cnt,
-     COALESCE(ps_institution_type::integer, 0),
-     ps_enrollment_cnt
-   FROM postsec_enroll
- ) TO STDOUT;" absent | \
- psql -c "COPY postsec_enroll FROM STDIN;" nectar
+    SELECT sch_year, div_num, sch_num,
+    race, gender, disabil, lep, disadva,
+    enroll_graduate_cnt, ps_institution_type,
+    ps_enrollment_cnt
+    FROM postsec_enroll
+    WHERE sch_year IN(2008,2009,2010)
+    ) TO STDOUT;" vdoe | \
+psql -c "COPY postsec_enroll FROM STDIN;" nectar
 
 
 echo COPY hs_graduate FROM vdoe
