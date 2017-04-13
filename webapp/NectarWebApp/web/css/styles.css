@@ -1,0 +1,79 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 12, 2017, 10:02:35 PM
+    Author     : bittnemk
+*/
+
+@import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Droid+Serif');
+
+.name{
+    font-family: 'Lato', sans-serif !important; 
+}
+
+.navbar-custom .navbar-nav li a{
+    font-family: 'Lato', sans-serif; 
+    
+}
+
+header{
+    background-color: #1f8dd6; 
+}
+
+section.success{
+    background-color: white; 
+}
+
+.blackText{
+    font-family: 'Lato', sans-serif; 
+    color: #000000;
+    
+}
+
+section h2{
+font-family: 'Lato', sans-serif; 
+color: black; 
+font-size: 24px; 
+text-align: center; 
+}
+
+
+
+.missionHeadline
+{
+font-family: 'Lato', sans-serif; 
+color: #1f8dd6; 
+font-size: 36px; 
+text-align: center; 
+    
+}
+
+.blueLine{
+    width: 60px;
+    border: 2px solid #1f8dd6;
+}
+
+.whiteLine{
+    width: 60px;
+    border: 2px solid #FFFFFF;
+    
+}
+
+.navbar-custom .navbar-nav li a:hover
+{
+    color: #1f8dd6;
+}
+
+#subheadline
+{
+font-family: 'Lato', sans-serif; 
+color: black; 
+font-size: 24px; 
+text-align: left; 
+margin-top: 20px; 
+margin-bottom: 10px;
+}
