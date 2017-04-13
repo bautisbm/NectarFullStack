@@ -19,12 +19,12 @@ CREATE TABLE postsec_enroll2 AS
     p.sch_year,
     p.div_num, 
     s.sch_num AS sch_num,
-    federal_race_code AS race, 
+    race, 
     gender, 
-    disability_flag AS disabil, 
-    lep_flag AS lep, 
-    disadvantaged_flag AS disadva,
-    cohort_graduate_cnt AS enroll_graduate_cnt, 
+    disabil, 
+    lep, 
+    disadva,
+    enroll_graduate_cnt, 
     ps_institution_type, 
     ps_enrollment_cnt
   FROM postsec_enroll AS p, spelling AS s
@@ -32,6 +32,8 @@ CREATE TABLE postsec_enroll2 AS
     AND (p.sch_num IS NULL AND s.sch_num IS NULL
         OR (s.sch_num LIKE p.sch_num || '_')); -- missing digit
     --AND p.sch_name = s.sch_name
+
+ALTER TABLE division OWNER TO nectar;
 
 DROP TABLE spelling;
 
