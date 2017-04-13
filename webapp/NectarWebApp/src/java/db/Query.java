@@ -30,9 +30,15 @@ public class Query {
     public int rowTotal;
 
     public Query(HttpServletRequest request) {
-        div_numStem = parseInt(request, "div_numStem");
-        div_num = parseInt(request, "div_num");
-        subject = parseStr(request, "subject");
+        if (parseStr(request, "subject").equals("ALL")) {
+            div_numStem = 7;
+            div_num = 1;
+            subject = "MATH";
+        } else {
+            div_numStem = parseInt(request, "div_numStem");
+            div_num = parseInt(request, "div_num");
+            subject = parseStr(request, "subject");
+        }
     }
 
     private int parseInt(HttpServletRequest request, String name) {
