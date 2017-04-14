@@ -15,7 +15,7 @@ public class Database {
     private static final String DRIVER = "org.postgresql.Driver";
 
     /** Database connection string. */
-    private static final String DB_URL = "jdbc:postgresql://db.cs.jmu.edu/nectar";
+    private static final String DB_URL = "jdbc:postgresql://localhost:8084"; //db.cs.jmu.edu/nectar";
 
     /** Database user name. */
     private static final String DB_USER = "fowlercj";
