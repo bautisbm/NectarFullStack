@@ -68,6 +68,11 @@ text-align: center;
     color: #1f8dd6;
 }
 
+.greySection
+{
+    background-color: #F8F8F8;
+}
+
 #subheadline
 {
 font-family: 'Lato', sans-serif; 

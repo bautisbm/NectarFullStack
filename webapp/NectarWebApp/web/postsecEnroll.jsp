@@ -220,9 +220,7 @@
             document.getElementById("div_num").value = "<%= action.div_num %>";
         </script>
 
-        
-        
-        
+
         <% 
            Object[] nonStem = action.getNonStemData().toArray();                    
            Object[] stem = action.getStemData().toArray();

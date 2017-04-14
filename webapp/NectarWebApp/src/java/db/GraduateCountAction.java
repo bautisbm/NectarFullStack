@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletRequest;
  *
  * @author Andrew Fuller
  */
-public class PostsecEnrollAction {
+public class GraduateCountAction {
 
     //public int div_num;
     public int div_numStem;
@@ -20,7 +20,7 @@ public class PostsecEnrollAction {
     public ArrayList data;
     public int rowTotal;
 
-    public PostsecEnrollAction(HttpServletRequest request) {
+    public GraduateCountAction(HttpServletRequest request) {
         if (div_numStem == 0) {
             div_numStem = 7;
             div_num = 1;
@@ -55,7 +55,7 @@ public class PostsecEnrollAction {
 //            return data;
 //        }
 
-        String sql = "SELECT * FROM postsec_enroll_per_stemschool(?)";
+        String sql = "SELECT * FROM postsec_grad_per_stemschool(?)";
 
         try {
             // set the query parameters
@@ -90,7 +90,7 @@ public class PostsecEnrollAction {
 //            return data;
 //        }
 
-        String sql = "SELECT * FROM postsec_enroll_per_school(?)";
+        String sql = "SELECT * FROM postsec_grad_per_school(?)";
 
         try {
             // set the query parameters
