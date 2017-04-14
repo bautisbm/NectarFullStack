@@ -8,11 +8,11 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * Query - This class will validate and process user input. It will 
- *         manage and handle running specified SQL queries on the 
- *         Nectar database.
+ * Query - This class holds methods that will query the nectar database to get 
+ *         the average SOL test scores for schools in STEM divisions and 
+ *         schools not in STEM divisions.
  * 
- * @version 4/10/2017 
+ * @version 4/14/2017 
  * @author Andrew Fuller, Brandon Bautista, Mike Bittner, Connor Fowler
  */
 public class Query {
