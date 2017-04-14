@@ -8,9 +8,12 @@ import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 
 /**
- * CS 474 HW5: Dynamic Charts
- *
- * @author Andrew Fuller
+ * GraduateCountAction - This class holds methods that will query the nectar 
+ *         database to get the count of students that graduated from 
+ *         schools in STEM divisions and schools not in STEM divisions.
+ * 
+ * @version 4/14/2017 
+ * @author Andrew Fuller, Brandon Bautista, Mike Bittner, Connor Fowler
  */
 public class GraduateCountAction {
 
@@ -47,13 +50,16 @@ public class GraduateCountAction {
             return "ALL";
         }
     }
-
+    /**
+     * getStemData - This method returns the count of students that graduated 
+     *               from schools in Virginia that are associated with
+     *               STEM schools.
+     * 
+     * @return - an ArrayList containing data returned from a SQL query 
+     */
     public ArrayList getStemData() {
-        // return cached copy if exists
+
         data = new ArrayList();
-//        if (data != null) {
-//            return data;
-//        }
 
         String sql = "SELECT * FROM postsec_grad_per_stemschool(?)";
 
@@ -83,12 +89,16 @@ public class GraduateCountAction {
         return data;
     }
 
+    /**
+     * getNonStemData - This method returns the count of students that graduated
+     *                  from schools in Virginia that are not associated 
+     *                  with STEM schools.
+     * 
+     * @return - an ArrayList containing data returned from a SQL query 
+     */
     public ArrayList getNonStemData() {
-        // return cached copy if exists
+
         data = new ArrayList();
-//        if (data != null) {
-//            return data;
-//        }
 
         String sql = "SELECT * FROM postsec_grad_per_school(?)";
 
