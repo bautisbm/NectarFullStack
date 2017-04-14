@@ -18,10 +18,10 @@ public class Database {
     private static final String DB_URL = "jdbc:postgresql://db.cs.jmu.edu/nectar";
 
     /** Database user name. */
-    private static final String DB_USER = "fullerar";
+    private static final String DB_USER = "fowlercj";
 
     /** Database password. */
-    private static final String DB_PASS = "110680963";
+    private static final String DB_PASS = "109013606";
 
     /**
      * Static block; loads the JDBC driver.
