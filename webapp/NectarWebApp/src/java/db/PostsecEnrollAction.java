@@ -25,7 +25,7 @@ public class PostsecEnrollAction {
     public int rowTotal;
 
     public PostsecEnrollAction(HttpServletRequest request) {
-        if (div_numStem == 0) {
+        if ((parseInt(request, "div_numStem") == 0)) {
             div_numStem = 7;
             div_num = 1;
         } else {
