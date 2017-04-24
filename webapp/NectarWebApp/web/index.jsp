@@ -464,7 +464,7 @@
           
                 var options = {
                     chart: {
-                    title: 'Stem vs Non-Stem SOL Enrollment Total'
+                    title: 'Stem vs Non-Stem SOL Graduation Rates'
                      },                
                     
                     hAxis: {
