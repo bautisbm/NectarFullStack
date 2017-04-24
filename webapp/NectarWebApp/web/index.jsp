@@ -435,7 +435,6 @@
             Object[] stemGr = graduateAction.getStemData().toArray();      
         %>
         
-      <!-- put back here amanda --> 
         <script type="text/javascript">
             google.charts.load('current', {packages: ['line']});
             google.charts.setOnLoadCallback(drawChart);
