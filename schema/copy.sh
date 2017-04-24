@@ -38,8 +38,6 @@ psql -c "COPY (
 	psql -c "COPY non_stem_schools FROM STDIN;" nectar
 
 
-
-
 echo COPY enroll FROM vdoe
 psql -c "COPY (
     SELECT
@@ -47,7 +45,7 @@ psql -c "COPY (
       race, gender, disabil, lep, disadva,
       grade_num, fall_cnt
     FROM fall_membership
-    WHERE sch_year = 2014
+    WHERE sch_year >= 2008
   ) TO STDOUT;" vdoe | \
   psql -c "COPY enroll FROM STDIN;" nectar
 

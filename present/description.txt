@@ -1,4 +1,1 @@
-Please write a 1-2 line description of your project.
-See http://apps4va.cs.jmu.edu/2016/ for examples.
-
 Our goal was to look at whether counties that implemented STEM academies had higher SOL test scores than counties that did not. From there we wanted to see if those counites also had higher postsecondary enrollment rates. 

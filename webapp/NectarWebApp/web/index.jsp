@@ -42,6 +42,7 @@
             });		
         </script>
         
+        
          <style>
              
             table, th, td {
@@ -59,6 +60,8 @@
                 background-repeat: no-repeat;
                 background-attachment: fixed;               
             }
+            
+            
             
         </style>
 
@@ -338,7 +341,7 @@
            
           <h2 id = "subheadline">Results</h2>
             </div>
-        <div id="chart_div2" style="float: left; width: 700px; height: 350px; border: 1px solid black;"></div>
+        <div id="chart_div2" style="float: left; width: 100%; height: 350px; border: 1px solid black;"></div>
             </div> 
         </div> 
         
@@ -467,12 +470,16 @@
                     },
                     vAxis: {
                         title: 'Graduate Count'
-                    },
+                    }
                 };
                 var chart = new google.charts.Line(document.getElementById('chart_div2'));
                 chart.draw(data, google.charts.Line.convertOptions(options));
+                
+                $(window).resize(function(){
+                    drawChart();
+                });
             }
-            
+
             
         </script>
                 
@@ -665,7 +672,7 @@
            
           <h2 id = "subheadline">Results</h2>
             </div>
-        <div id="chart_div" style="float: left; width: 700px; height: 350px; border: 1px solid black;"></div>
+        <div id="chart_div" style="float: left; width: 100%; height: 350px; border: 1px solid black;"></div>
             </div> 
         </div> 
         
@@ -808,6 +815,10 @@
 
                 var chart = new google.charts.Line(document.getElementById('chart_div'));
                 chart.draw(data, google.charts.Line.convertOptions(options));
+                
+                $(window).resize(function(){
+                    drawChart();
+                });
             }
             
             </script>
@@ -985,7 +996,7 @@
            
           <h2 id = "subheadline">Results</h2>
             </div>
-        <div id="chart_div1" style="float: left; width: 700px; height: 350px; border: 1px solid black;"></div>
+        <div id="chart_div1" style="float: left; width: 100%; height: 350px; border: 1px solid black;"></div>
             </div> 
         </div> 
         
@@ -1118,6 +1129,10 @@
                 };
                 var chart = new google.charts.Line(document.getElementById('chart_div1'));
                 chart.draw(data, google.charts.Line.convertOptions(options));
+                
+                $(window).resize(function(){
+                    drawChart();
+                });
             }
             
             
@@ -1182,7 +1197,6 @@
             <i class="fa fa-chevron-up"></i>
         </a>
     </div>
-
 
 
 
