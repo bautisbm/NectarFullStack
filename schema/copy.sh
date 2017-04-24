@@ -82,7 +82,7 @@ psql -c "COPY (
       div_num, sch_num, race, gender, disabil,
       lep, disadva
     FROM hs_graduate
-    WHERE sch_year = 2014
+    WHERE sch_year >= 2008
   ) TO STDOUT;" vdoe | \
   psql -c "COPY hs_graduate FROM STDIN;" nectar
 
