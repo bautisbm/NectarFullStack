@@ -191,7 +191,7 @@
  
         <label for="div_numStem">Stem Division:</label>
         <select name="div_numStem" id="div_numStem">
-            <option disabled selected value> -- select an option -- </option>
+            <option disabled selected value> Arlington County - 2008 </option>
             <option value="7">Arlington County - 2008</option>
             <option value="18">Carroll County - 2011</option>
             <option value="21">Chesterfield County - 2010</option>
@@ -215,7 +215,7 @@
         
         <label for="div_num">Non-Stem Division:</label>
         <select id="div_num" name="div_num">            
-                <option disabled selected value> -- select an option -- </option>
+                <option disabled selected value> Accomack County </option> 
          	<option value="1">Accomack County</option>
         	<option value="2">Albemarle County</option>
         	<option value="101">Alexandria City</option>
@@ -508,7 +508,7 @@
  
         <label for="div_numStem">Stem Division:</label>
         <select name="div_numStem" id="div_numStem">
-            <option disabled selected value> -- select an option -- </option>
+            <option disabled selected value> Arlington County - 2008 </option>
             <option value="7">Arlington County - 2008</option>
             <option value="18">Carroll County - 2011</option>
             <option value="21">Chesterfield County - 2010</option>
@@ -532,7 +532,7 @@
         
         <label for="div_num">Non-Stem Division:</label>
         <select id="div_num" name="div_num">
-                <option disabled selected value> -- select an option -- </option>            
+                <option disabled selected value> Accomack County </option>            
          	<option value="1">Accomack County</option>
         	<option value="2">Albemarle County</option>
         	<option value="101">Alexandria City</option>
@@ -848,6 +848,7 @@
  
         <label for="div_numStem">Stem Division:</label>
         <select name="div_numStem" id="div_numStem">
+            <option disabled selected value> Arlington County - 2008 </option>
             <option value="7">Arlington County - 2008</option>
             <option value="18">Carroll County - 2011</option>
             <option value="21">Chesterfield County - 2010</option>
@@ -870,7 +871,8 @@
         </select>
         
         <label for="div_num">Non-Stem Division:</label>
-        <select id="div_num" name="div_num">           
+        <select id="div_num" name="div_num">         
+                <option disabled selected value> Accomack County </option> 
          	<option value="1">Accomack County</option>
         	<option value="2">Albemarle County</option>
         	<option value="101">Alexandria City</option>
