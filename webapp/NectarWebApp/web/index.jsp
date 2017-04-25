@@ -179,7 +179,7 @@
         <div class ="row">
             <div class ="col-md-12">
                 
-                <h2 class = "missionHeadline">Stem vs Non-Stem Division Graduation Rates</h2>
+                <h2 class = "missionHeadline">Graduation Rates</h2>
                 <hr class="blueLine">
                 
             </div><!-- end of col --> 
@@ -191,7 +191,6 @@
  
         <label for="div_numStem">Stem Division:</label>
         <select name="div_numStem" id="div_numStem">
-            <option disabled selected value> Arlington County - 2008 </option>
             <option value="7">Arlington County - 2008</option>
             <option value="18">Carroll County - 2011</option>
             <option value="21">Chesterfield County - 2010</option>
@@ -215,7 +214,6 @@
         
         <label for="div_num">Non-Stem Division:</label>
         <select id="div_num" name="div_num">            
-                <option disabled selected value> Accomack County </option> 
          	<option value="1">Accomack County</option>
         	<option value="2">Albemarle County</option>
         	<option value="101">Alexandria City</option>
@@ -359,6 +357,10 @@
         <script>
             document.getElementById("div_numStem").value = "<%= graduateAction.div_numStem %>";
             document.getElementById("div_num").value = "<%= graduateAction.div_num %>";
+            var stem_grad_div_ID = document.getElementById("div_numStem");
+            var stem_grad_div = stem_grad_div_ID.options[stem_grad_div_ID.selectedIndex].text;
+            var grad_div_ID = document.getElementById("div_num");
+            var grad_div = grad_div_ID.options[grad_div_ID.selectedIndex].text;
         </script>
 
 
@@ -442,8 +444,8 @@
             function drawChart() {
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'sch_year');
-                data.addColumn('number', 'Non-Stem');
-                data.addColumn('number', 'Stem');
+                data.addColumn('number', grad_div);
+                data.addColumn('number', stem_grad_div);
                 data.addRows([
                 
                 <%
@@ -495,7 +497,7 @@
         <div class ="row">
             <div class ="col-md-12">
                 
-                <h2 class = "missionHeadline">Stem vs Non-Stem Division SOL Scores</h2>
+                <h2 class = "missionHeadline">SOL Scores</h2>
                 <hr class="blueLine">
                 
             </div><!-- end of col --> 
@@ -690,6 +692,10 @@
             document.getElementById("div_numStem").value = "<%= query.div_numStem %>";
             document.getElementById("div_num").value = "<%= query.div_num %>";
             document.getElementById("subject").value = "<%= query.subject %>";
+            var stem_sol_div_ID = document.getElementById("div_numStem");
+            var stem_sol_div = stem_sol_div_ID.options[stem_sol_div_ID.selectedIndex].text;
+            var non_stem_sol_div_ID = document.getElementById("div_num");
+            var non_stem_sol_div = non_stem_sol_div_ID.options[non_stem_sol_div_ID.selectedIndex].text;
         </script>
 
 
@@ -777,9 +783,8 @@
                 var data = new google.visualization.DataTable();
 
                 data.addColumn('string', 'sch_year');
-                //data.addColumn('string', 'div_name');
-                data.addColumn('number', 'Non-Stem');
-                data.addColumn('number', 'Stem');
+                data.addColumn('number', non_stem_sol_div);
+                data.addColumn('number', stem_sol_div);
 
                 data.addRows([
                 
@@ -835,7 +840,7 @@
         <div class ="row">
             <div class ="col-md-12">
                 
-                <h2 class = "missionHeadline">Stem vs Non-Stem Division Postsecondary Enrollment</h2>
+                <h2 class = "missionHeadline">Postsecondary Enrollment</h2>
                 <hr class="blueLine">
                 
             </div><!-- end of col --> 
@@ -1015,6 +1020,10 @@
         <script>
             document.getElementById("div_numStem").value = "<%= action.div_numStem %>";
             document.getElementById("div_num").value = "<%= action.div_num %>";
+            var stem_postsec_div_ID = document.getElementById("div_numStem");
+            var stem_postsec_div = stem_postsec_div_ID.options[stem_postsec_div_ID.selectedIndex].text;
+            var non_stem_postsec_div_ID = document.getElementById("div_num");
+            var non_stem_postsec_div = non_stem_postsec_div_ID.options[non_stem_postsec_div_ID.selectedIndex].text;
         </script>
 
 
@@ -1099,8 +1108,8 @@
             function drawChart() {
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'sch_year');
-                data.addColumn('number', 'Non-Stem');
-                data.addColumn('number', 'Stem');
+                data.addColumn('number', non_stem_postsec_div);
+                data.addColumn('number', stem_postsec_div);
                 data.addRows([
                 
                 <%
