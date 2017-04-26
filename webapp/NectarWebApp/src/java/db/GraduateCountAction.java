@@ -127,5 +127,35 @@ public class GraduateCountAction {
         }
         return data;
     }
+    
+    
+        public ArrayList getAvgStemData() {
+        
+        data = new ArrayList();
+        
+        String sql = "SELECT * FROM stem_grad_rate_percentage.sql(?)";
+   
+        try {
+            Connection db = Database.open();
+            PreparedStatement st = db.prepareStatement(sql);
+            st.setInt(1, div_numStem);
+
+            ResultSet rs;
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                data.add(rs.getString(1));
+                data.add(rs.getLong(2));
+            }
+
+            rs.close();
+            st.close();
+            db.close();
+        } 
+        catch (SQLException exc) {
+            throw new RuntimeException(exc);
+        }
+        return data;
+    }
 
 }

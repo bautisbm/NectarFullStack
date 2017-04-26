@@ -467,7 +467,7 @@
         
         <%
             Object[] nonStemGr = graduateAction.getNonStemData().toArray();                    
-            Object[] stemGr = graduateAction.getStemData().toArray();      
+            Object[] stemGradPercentage = graduateAction.getAvgStemData().toArray();      
         %>
         
         <script type="text/javascript">
@@ -482,13 +482,13 @@
                 data.addRows([
                 
                 <%
-                    for(int x = 0; x < nonStemGr.length; x += 3)
+                    for(int x = 0; x < nonStemGr.length; x += 2)
                     {
                         out.println("[ ");
                         out.println("\"" + nonStemGr[x].toString() + "\",");
                         out.println(nonStemGr[x + 2]  + ",");
-                        if (x < stemGr.length)
-                            out.println(stemGr[x + 2]  + ",");
+                        if (x < stemGradPercentage.length)
+                            out.println(stemGradPercentage[x + 1]  + ",");
                         out.println(" ], "); 
                         
                     }                 
