@@ -172,24 +172,23 @@
             </div>
         </div>
     </section>
-    
-    <!-- Graduation Rate Section -->
-    <section class="greySection" id="grad">
-        
-        <div class ="row">
+     
+     
+     <section class = "navyBckgrnd">
+          <div class ="row">
             <div class ="col-md-12">
                 
-                <h2 class = "missionHeadline">Graduation Rates</h2>
-                <hr class="blueLine">
+                <h2 class = "whiteText">Select Counties to Compare</h2>
+                <hr class="whiteLine">
                 
             </div><!-- end of col --> 
         </div><!-- end of row --> 
-                
-        <div class ="row">
-            <div class ="col-md-7 col-md-offset-2">
+         
+          <div class ="row">
+            <div class ="col-md-6 col-md-offset-3">
                  <form method="get">
  
-        <label for="div_numStem">Stem Division:</label>
+        <label class ="paddingLeft" for="div_numStem">Stem Division:</label>
         <select name="div_numStem" id="div_numStem">
             <option disabled selected value> Arlington County - 2008 </option>
             <option value="7">Arlington County - 2008</option>
@@ -213,7 +212,7 @@
             <option value="136">Chesapeake City - 2012</option>
         </select>
         
-        <label for="div_num">Non-Stem Division:</label>
+        <label class ="paddingLeft" for="div_num">Non-Stem Division:</label>
         <select id="div_num" name="div_num">
                 <option disabled selected value> Accomack County </option>            
          	<option value="1">Accomack County</option>
@@ -330,10 +329,9 @@
         	<option value="97">Wythe County</option>
         	<option value="98">York County</option>
         </select>
-
         <br><br>
         
-        <label for="subject">Subject:</label>
+         <label class ="paddingLeft" for="subject">Subject:</label>
         <select name="subject" id="subject">
             <option disabled selected value> -- select an option -- </option>            
             <option value="MATH">MATH</option>
@@ -343,13 +341,32 @@
             <option value="HIST">HIST</option>
         </select>
 
-        
-
         <br><br>
+        
 	<input type="submit">
-</form>
+    </form>
             </div> <!-- end of col --> 
         </div> <!-- end of row 2 --> 
+         
+         
+         
+         
+         
+     </section>
+    
+    <!-- Graduation Rate Section -->
+    <section class="greySection" id="grad">
+        
+        <div class ="row">
+            <div class ="col-md-12">
+                
+                <h2 class = "missionHeadline">Graduation Rates</h2>
+                <hr class="blueLine">
+                
+            </div><!-- end of col --> 
+        </div><!-- end of row --> 
+                
+       
         
           <div class ="row">
             <div class ="col-md-6 col-md-offset-3">
@@ -363,7 +380,7 @@
         
         
         <div class ="row">
-            <div class ="col-md-10 col-md-offset-2">
+            <div class ="col-md-6 col-md-offset-3">
                 
         <%
             GraduateCountAction graduateAction = new GraduateCountAction(request);
@@ -518,6 +535,8 @@
                 
             </div><!-- end of col --> 
         </div><!-- end of row --> 
+
+         
                 
         <div class ="row">
             <div class ="col-md-7 col-md-offset-2">
@@ -706,7 +725,7 @@
         </div><!-- end of row --> 
                 
         <div class ="row">
-            <div class ="col-md-7 col-md-offset-2">
+            <div class ="col-md-6 col-md-offset-3">
                  <form method="get">
 </form>
             </div> <!-- end of col --> 
@@ -724,7 +743,7 @@
         
         
         <div class ="row">
-            <div class ="col-md-10 col-md-offset-2">
+            <div class ="col-md-6 col-md-offset-3">
                 
         <%
             PostsecEnrollAction action = new PostsecEnrollAction(request);
@@ -883,20 +902,9 @@
                         <h3>Back to Top</h3>
                         <ul class="list-inline">
                             <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-fw fa-facebook"></i></a>
+                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Facebook</span><i class="fa fa-angle-up"></i></a>
                             </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Google Plus</span><i class="fa fa-fw fa-google-plus"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Twitter</span><i class="fa fa-fw fa-twitter"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Linked In</span><i class="fa fa-fw fa-linkedin"></i></a>
-                            </li>
-                            <li>
-                                <a href="#" class="btn-social btn-outline"><span class="sr-only">Dribble</span><i class="fa fa-fw fa-dribbble"></i></a>
-                            </li>
+     
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
@@ -919,9 +927,9 @@
 
     <!-- Scroll to Top Button (Only visible on small and extra-small screen sizes) -->
     <div class="scroll-top page-scroll hidden-sm hidden-xs hidden-lg hidden-md">
-        <a class="btn btn-primary" href="#page-top">
+       
             <i class="fa fa-chevron-up"></i>
-        </a>
+        
     </div>
 
 
