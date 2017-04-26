@@ -466,7 +466,7 @@
                 
         
         <%
-            Object[] nonStemGr = graduateAction.getNonStemData().toArray();                    
+            Object[] nonStemGradPercentage = graduateAction.getAvgNonStemData().toArray();                    
             Object[] stemGradPercentage = graduateAction.getAvgStemData().toArray();      
         %>
         
@@ -482,11 +482,11 @@
                 data.addRows([
                 
                 <%
-                    for(int x = 0; x < nonStemGr.length; x += 2)
+                    for(int x = 0; x < stemGradPercentage.length; x += 2)
                     {
                         out.println("[ ");
-                        out.println("\"" + nonStemGr[x].toString() + "\",");
-                        out.println(nonStemGr[x + 2]  + ",");
+                        out.println("\"" + stemGradPercentage[x].toString() + "\",");
+                        out.println(nonStemGradPercentage[x + 1]  + ",");
                         if (x < stemGradPercentage.length)
                             out.println(stemGradPercentage[x + 1]  + ",");
                         out.println(" ], "); 
@@ -505,7 +505,7 @@
                         title: 'Year'
                     },
                     vAxis: {
-                        title: 'Graduate Count'
+                        title: 'Graduate Percentage'
                     }
                 };
                 var chart = new google.charts.Line(document.getElementById('chart_div2'));
