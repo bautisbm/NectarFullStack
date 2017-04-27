@@ -129,5 +129,66 @@ public class PostsecEnrollAction {
         }
         return data;
     }
+    
+    
+    
+    public ArrayList getAvgStemData() {
+        
+        data = new ArrayList();
+        
+        String sql = "SELECT * FROM stem_post_percentage(?)";
+   
+        try {
+            Connection db = Database.open();
+            PreparedStatement st = db.prepareStatement(sql);
+            st.setInt(1, div_numStem);
+
+            ResultSet rs;
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                data.add(rs.getString(1));
+                data.add(rs.getLong(2));
+            }
+
+            rs.close();
+            st.close();
+            db.close();
+        } 
+        catch (SQLException exc) {
+            throw new RuntimeException(exc);
+        }
+        return data;
+    }
+        
+        
+    public ArrayList getAvgNonStemData() {
+        
+        data = new ArrayList();
+        
+        String sql = "SELECT * FROM non_stem_post_percentage(?)";
+   
+        try {
+            Connection db = Database.open();
+            PreparedStatement st = db.prepareStatement(sql);
+            st.setInt(1, div_num);
+
+            ResultSet rs;
+            rs = st.executeQuery();
+
+            while (rs.next()) {
+                data.add(rs.getString(1));
+                data.add(rs.getLong(2));
+            }
+
+            rs.close();
+            st.close();
+            db.close();
+        } 
+        catch (SQLException exc) {
+            throw new RuntimeException(exc);
+        }
+        return data;
+    }
 
 }

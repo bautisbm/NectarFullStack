@@ -829,8 +829,8 @@
                 
         
         <%
-            Object[] nonStem2 = action.getNonStemData().toArray();                    
-            Object[] stem2 = action.getStemData().toArray();      
+            Object[] nonStem2 = action.getAvgNonStemData().toArray();                    
+            Object[] stem2 = action.getAvgStemData().toArray();      
         %>
         
       <!-- put back here amanda --> 
@@ -846,13 +846,13 @@
                 data.addRows([
                 
                 <%
-                    for(int x = 0; x < nonStem2.length; x += 3)
+                    for(int x = 0; x < nonStem2.length; x += 2)
                     {
                         out.println("[ ");
                         out.println("\"" + nonStem2[x].toString() + "\",");
-                        out.println(nonStem2[x + 2]  + ",");
+                        out.println(nonStem2[x + 1]  + ",");
                         if (x < stem2.length)
-                            out.println(stem2[x + 2]  + ",");
+                            out.println(stem2[x + 1]  + ",");
                         out.println(" ], "); 
                         
                     }                 
