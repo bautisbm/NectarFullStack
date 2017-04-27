@@ -82,3 +82,21 @@ text-align: left;
 margin-top: 20px; 
 margin-bottom: 10px;
 }
+
+.paddingLeft{
+    padding-left: 20px;
+    color: white; 
+}
+
+.navyBckgrnd
+{
+    background-color: #2C3E50;
+}
+
+.whiteText
+{
+ font-family: 'Lato', sans-serif; 
+color: #fff; 
+font-size: 36px; 
+text-align: center; 
+}
