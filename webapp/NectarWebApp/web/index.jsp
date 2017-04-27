@@ -331,7 +331,7 @@
         </select>
         <br><br>
         
-         <label class ="paddingLeft" for="subject">Subject:</label>
+         <label class ="paddingLeft" for="subject">Subject (for the SOL section):</label>
         <select name="subject" id="subject">
             <option disabled selected value> -- select an option -- </option>            
             <option value="MATH">MATH</option>
