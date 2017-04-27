@@ -157,11 +157,11 @@
             <div class="row">
                 <div class="col-lg-4">
                     <h2>Graduation Rate</h2>
-                    <p class = "blackText">We take a look at the number of diplomas received from students who attend STEM and Non-STEM schools to show a positive correlation between attending a STEM academy and higher graduation rates</p>
+                    <p class = "blackText">We take a look at the number of diplomas received from students who attend STEM and Non-STEM schools to try and find a correlation between attending a STEM academy and higher graduation rates</p>
                 </div>
                 <div class="col-lg-4">
                     <h2>SOL Scores</h2>
-                    <p class = "blackText">We examine the SOL scores from STEM and Non-STEM schools in order to prove the that the average SOL scores from STEM schools tend to be higher</p>
+                    <p class = "blackText">We examine the SOL scores from STEM and Non-STEM schools to try to prove the that the average SOL scores from STEM schools tend to be higher</p>
                 </div>
                 
                 <div class = "col-lg-4">
@@ -331,7 +331,7 @@
         </select>
         <br><br>
         
-         <label class ="paddingLeft" for="subject">Subject:</label>
+         <label class ="paddingLeft" for="subject">Subject (for the SOL section):</label>
         <select name="subject" id="subject">
             <option disabled selected value> -- select an option -- </option>            
             <option value="MATH">MATH</option>
@@ -364,6 +364,13 @@
                 <hr class="blueLine">
                 
             </div><!-- end of col --> 
+            
+            <div class = "col-md-12 text-center" >
+                <p class = "blackText">This graph shows the graduation percentages of each selected division, while the 
+                    two corresponding tables directly below show the graduation counts of each high school in the select
+                        divisions.</p>
+            </div> 
+            
         </div><!-- end of row --> 
                 
        
@@ -466,8 +473,8 @@
                 
         
         <%
-            Object[] nonStemGr = graduateAction.getNonStemData().toArray();                    
-            Object[] stemGr = graduateAction.getStemData().toArray();      
+            Object[] nonStemGradPercentage = graduateAction.getAvgNonStemData().toArray();                    
+            Object[] stemGradPercentage = graduateAction.getAvgStemData().toArray();      
         %>
         
         <script type="text/javascript">
@@ -482,13 +489,13 @@
                 data.addRows([
                 
                 <%
-                    for(int x = 0; x < nonStemGr.length; x += 3)
+                    for(int x = 0; x < stemGradPercentage.length; x += 2)
                     {
                         out.println("[ ");
-                        out.println("\"" + nonStemGr[x].toString() + "\",");
-                        out.println(nonStemGr[x + 2]  + ",");
-                        if (x < stemGr.length)
-                            out.println(stemGr[x + 2]  + ",");
+                        out.println("\"" + stemGradPercentage[x].toString() + "\",");
+                        out.println(nonStemGradPercentage[x + 1]  + ",");
+                        if (x < stemGradPercentage.length)
+                            out.println(stemGradPercentage[x + 1]  + ",");
                         out.println(" ], "); 
                         
                     }                 
@@ -505,7 +512,7 @@
                         title: 'Year'
                     },
                     vAxis: {
-                        title: 'Graduate Count'
+                        title: 'Graduate Percentage'
                     }
                 };
                 var chart = new google.charts.Line(document.getElementById('chart_div2'));
@@ -535,6 +542,13 @@
                 
             </div><!-- end of col --> 
         </div><!-- end of row --> 
+        
+                    
+        <div class = "col-md-12 text-center" >
+            <p class = "blackText">This graph shows the average SOL scores of each selected division, while the 
+                two corresponding tables directly below show the SOL scores of each high school in the selected
+                    divisions.</p>
+        </div> 
 
          
                 
@@ -723,6 +737,12 @@
                 
             </div><!-- end of col --> 
         </div><!-- end of row --> 
+        
+        <div class = "col-md-12 text-center" >
+            <p class = "blackText">This graph shows the post-secondary enrollment averages of each selected division, while the 
+                two corresponding tables directly below show the post-secondary enrollment counts of each high school in the selected
+                    divisions.</p>
+        </div> 
                 
         <div class ="row">
             <div class ="col-md-6 col-md-offset-3">
@@ -736,6 +756,7 @@
                    <div style="align-content: center; ">
            
           <h2 id = "subheadline">Results</h2>
+          <h3></h3>
             </div>
         <div id="chart_div1" style="float: left; width: 100%; height: 350px; border: 1px solid black;"></div>
             </div> 
@@ -829,8 +850,8 @@
                 
         
         <%
-            Object[] nonStem2 = action.getNonStemData().toArray();                    
-            Object[] stem2 = action.getStemData().toArray();      
+            Object[] nonStem2 = action.getAvgNonStemData().toArray();                    
+            Object[] stem2 = action.getAvgStemData().toArray();      
         %>
         
       <!-- put back here amanda --> 
@@ -846,13 +867,13 @@
                 data.addRows([
                 
                 <%
-                    for(int x = 0; x < nonStem2.length; x += 3)
+                    for(int x = 0; x < nonStem2.length; x += 2)
                     {
                         out.println("[ ");
                         out.println("\"" + nonStem2[x].toString() + "\",");
-                        out.println(nonStem2[x + 2]  + ",");
+                        out.println(nonStem2[x + 1]  + ",");
                         if (x < stem2.length)
-                            out.println(stem2[x + 2]  + ",");
+                            out.println(stem2[x + 1]  + ",");
                         out.println(" ], "); 
                         
                     }                 
@@ -869,7 +890,7 @@
                         title: 'Year'
                     },
                     vAxis: {
-                        title: 'Enrollment Total'
+                        title: 'Enrollment Percentage'
                     },
                 };
                 var chart = new google.charts.Line(document.getElementById('chart_div1'));
@@ -908,7 +929,7 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
+                        <h3>About Team Data-bassnectar</h3>
                         <p>Brandon, Mike, Connor, and Andrew are all senior CS majors at JMU</a>.</p>
                     </div>
                 </div>
