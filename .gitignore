@@ -11,21 +11,8 @@
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/webapp/InitPrototype/nbproject/private/
-/webapp/InitPrototype/build/
-/webapp/InitPrototype/dist/
-/webapp/WebNectar/nbproject/private/
-/webapp/WebNectar/build/
-/webapp/WebNectar/InitPrototype/build/
-/webapp/WebNectar/InitPrototype/nbproject/private/
-/webapp/NectarWeb/dist/
-/webapp/NectarWeb/build/
-/webapp/NectarWeb/nbproject/private/
-/webapp/NectarWebApp/build/
+
+# NetBeans
 /webapp/NectarWebApp/nbproject/private/
+/webapp/NectarWebApp/build/
 /webapp/NectarWebApp/dist/
-/webapp/Test/build/
-/webapp/Test/nbproject/private/
-/webapp/NectarNetbeans/nbproject/private/
-/webapp/NectarNetbeans/build/
-/webapp/NectarNetbeans/dist/
