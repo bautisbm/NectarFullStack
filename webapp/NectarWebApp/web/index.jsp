@@ -387,7 +387,7 @@
         
         
         <div class ="row">
-            <div class ="col-md-6 col-md-offset-3">
+            <div class ="col-md-10 col-md-offset-3">
                 
         <%
             GraduateCountAction graduateAction = new GraduateCountAction(request);
@@ -600,7 +600,7 @@
         %>        
         
      
-            <div style="float: left;padding:20px">
+            <div style="float: left;padding:10px">
                 <!--<h2>Non-STEM</h2> -->
                 <table style="text-align: center" id="non-stem" class="display">
                     <caption>Non-STEM</caption>
@@ -630,7 +630,7 @@
             </div>
 
             
-            <div style="float: left;padding:20px">
+            <div style="float: left;padding:10px">
               <!--  <h2>STEM</h2> -->
               <table style="text-align: center" id="stem" class="display">
                     <caption>STEM</caption>
@@ -665,7 +665,7 @@
             Object[] non_stem =  query.getAVGNonStemData().toArray();      
         %>
         
-      <!-- put back here amanda --> 
+ 
         <script type="text/javascript">
             google.charts.load('current', {packages: ['line']});
             google.charts.setOnLoadCallback(drawChart);
@@ -764,7 +764,7 @@
         
         
         <div class ="row">
-            <div class ="col-md-6 col-md-offset-3">
+            <div class ="col-md-10 col-md-offset-3">
                 
         <%
             PostsecEnrollAction action = new PostsecEnrollAction(request);
